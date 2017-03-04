@@ -82,12 +82,12 @@
     			<div class="col-md-10 col-md-offset-1">
 
 					<div class="card card-signup">
-                        <h2 class="card-title text-center">Tell Us About Your Kid!</h2>
+                        <h2 class="card-title text-center">Tell Us About You & Your Kid!</h2>
                         <div class="row">
                             <div class="col-md-5 col-md-offset-1">
             					<div class="info info-horizontal">
             						<div class="icon icon-rose">
-            							<i class="material-icons">timeline</i>
+            							<i class="material-icons">face</i>
             						</div>
             						<div class="description">
             							<h4 class="info-title">Customized to your child</h4>
@@ -99,7 +99,7 @@
 
             					<div class="info info-horizontal">
             						<div class="icon icon-primary">
-            							<i class="material-icons">code</i>
+            							<i class="material-icons">group</i>
             						</div>
             						<div class="description">
             							<h4 class="info-title">More than one child?</h4>
@@ -111,7 +111,7 @@
 
             					<div class="info info-horizontal">
             						<div class="icon icon-info">
-            							<i class="material-icons">group</i>
+            							<i class="material-icons">redeem</i>
             						</div>
             						<div class="description">
             							<h4 class="info-title">PayItForward</h4>
@@ -122,6 +122,7 @@
             					</div>
             				</div>
                             <div class="col-md-5">
+                            <h4 class="info-title">Tell Us A Little About You</h4>
 								<form class="form" method="" action="">
 									<div class="content">
 										<div class="input-group">
@@ -129,6 +130,12 @@
 												<i class="material-icons">face</i>
 											</span>
 											<input type="text" class="form-control" placeholder="First Name...">
+										</div>
+										<div class="input-group">
+											<span class="input-group-addon">
+												<i class="material-icons">face</i>
+											</span>
+											<input type="text" class="form-control" placeholder="Last Name...">
 										</div>
 
 										<div class="input-group">
@@ -140,11 +147,49 @@
 
 										<div class="input-group">
 											<span class="input-group-addon">
-												<i class="material-icons">lock_outline</i>
+												<i class="material-icons">phone</i>
+											</span>
+											<input type="text" class="form-control" placeholder="Phone...">
+										</div>
+
+										<div class="input-group">
+											<span class="input-group-addon">
+												<i class="material-icons">local_shipping</i>
 											</span>
 											<input type="password" placeholder="Address to Deliver..." class="form-control" />
 										</div>
-
+										
+										<h4 class="info-title">Tell Us About Your MunchKID</h4>
+										<div class="input-group">
+											<span class="input-group-addon">
+												<i class="material-icons">child_care</i>
+											</span>
+											<input type="text" class="form-control" placeholder="First Name...">
+										</div>
+										<div class="input-group">
+											<span class="input-group-addon">
+												<i class="material-icons">restaurant</i>
+											</span>
+											<input type="text" class="form-control" placeholder="Diet ...">
+										</div>
+										<div class="input-group">
+											<span class="input-group-addon">
+												<i class="material-icons">priority_high</i>
+											</span>
+											<input type="text" class="form-control" placeholder="Allergies...">
+										</div>
+										<div class="input-group">
+											<span class="input-group-addon">
+												<i class="material-icons">textsms</i>
+											</span>
+											<input type="text" class="form-control" placeholder="Additional Notes...">
+										</div>
+										<div class="footer text-center">
+											<a href="#pablo" class="btn btn-primary btn-round">
+											<i class="material-icons">person_add</i> Add Child
+										</a>
+										</div>
+										
 										<!-- If you want to add a checkbox to this form, uncomment this code -->
 
 										<div class="checkbox">
@@ -181,19 +226,14 @@
 							</a>
 						</li>
 						<li>
-							<a href="blog-posts.php">
-							   Blog
-							</a>
-						</li>
-						<li>
-							<a href="http://www.creative-tim.com/license">
-								Licenses
+							<a href="contact-us.php">
+								Contact Us
 							</a>
 						</li>
 					</ul>
 	            </nav>
 	            <div class="copyright pull-right">
-	                &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com" target="_blank">Creative Tim</a>
+	                &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com" target="_blank">MunchKit</a>
 	            </div>
 	        </div>
 	    </footer>

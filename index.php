@@ -174,7 +174,7 @@ else
                         <div class="col-sm-3">
                             <div class="info">
                                 <div class="icon">
-                                    <i class="material-icons">format_bold</i>
+                                    <i class="material-icons">nature people</i>
                                 </div>
                                 <h4 class="info-title">Local, Sustainable, Organic</h4>
                                 <p>All our meals are made from fresh, sustainably sourced, local ingredients! No artifical or processed ingredients in our meals. That's a guarantee.</p>
@@ -184,7 +184,7 @@ else
                         <div class="col-sm-3">
                             <div class="info">
                                 <div class="icon">
-                                    <i class="material-icons">phonelink</i>
+                                    <i class="material-icons">restaurant</i>
                                 </div>
                                 <h4 class="info-title">Nutrition is our life</h4>
                                 <p> All our meals are carefully designed by nutritionists and our chefs to provide a well-balanced nutritous meal for your child</p>
@@ -194,7 +194,7 @@ else
                         <div class="col-sm-3">
                             <div class="info">
                                 <div class="icon">
-                                    <i class="material-icons">access_time</i>
+                                    <i class="material-icons">delete</i>
                                 </div>
                                 <h4 class="info-title">Zero Waste</h4>
                                 <p>MunchKit believes in reducing our impact in the world. We reduce anything we can, then we try and reuse anything that can't be reduced, if something can't be reused then we make sure it is recycleable!</p>
@@ -204,7 +204,7 @@ else
                         <div class="col-sm-3">
                             <div class="info">
                                 <div class="icon">
-                                    <i class="material-icons">attach_money</i>
+                                    <i class="material-icons">redeem</i>
                                 </div>
                                 <h4 class="info-title">Pay It Forward</h4>
                                 <p> You can donate an additional meal with your subscription which MunchKit will match and deliver to a student in your neighborhood who cannot afford a lunch. At MunchKit, well-balanced, nutritious meals are a right for school children, not a priviledge. </p>
@@ -514,11 +514,11 @@ else
                        Contact Us
                     </a>
                 </li>
-                <li>
+               <!--  <li>
                     <a href="http://www.creative-tim.com/license" target="_blank">
                         Licenses
                     </a>
-                </li>
+                </li> -->
             </ul>
 
             <ul class="social-buttons pull-right">
