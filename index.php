@@ -42,6 +42,9 @@ else
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <a href="index.php">
+                    <img src="assets/img/lunchboxlogo.png"  width="45" height="45" border="0">
+                </a>
                 <a class="navbar-brand" href="index.php">MunchKit</a>
             </div>
 
@@ -53,59 +56,25 @@ else
                         </a>
                     </li>
                     <li>
+                        <a href="pricing.php">
+                            <i class="material-icons">attach_money</i> Pricing Page
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact-us.php">
+                            <i class="material-icons">location_on</i> Contact Us
+                        </a>
+                    </li>
+                   <!--  <li>
                         <a href="blog-posts.php">
                             <i class="material-icons">art_track</i> Blog Posts
                         </a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="material-icons">view_day</i> More
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu dropdown-with-icons">
-                            <li>
-                                <a href="pricing.php">
-                                    <i class="material-icons">attach_money</i> Pricing Page
-                                </a>
-                            </li>
-                            <li>
-                                <a href="product-page.php">
-                                    <i class="material-icons">beach_access</i> Previous Meals
-                                </a>
-                            </li>
-                            <li>
-                                <a href="contact-us.php">
-                                    <i class="material-icons">location_on</i> Contact Us
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    </li> -->
+                    
+                    <li>
+                        <a href="profile-page.php">
                             <i class="material-icons">account_circle</i> My Account
-                            <b class="caret"></b>
                         </a>
-                        <ul class="dropdown-menu dropdown-with-icons">
-                            
-                            <li>
-                                <a href="login-page.php">
-                                    <i class="material-icons">fingerprint</i> Login Page
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href="profile-page.php">
-                                    <i class="material-icons">account_circle</i> Profile Page
-                                </a>
-                            </li>
-                            <li>
-                                <a href="signup-page.php">
-                                    <i class="material-icons">person_add</i> Signup Page
-                                </a>
-                            </li>
-                        </ul>
                     </li>
 
                     <li>
@@ -251,8 +220,9 @@ else
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2 text-center">
-                            <h2 class="title">Trusted by 5300 Families</h2>
-                            <h5 class="description">MunchKit is proud to be serving nutritious meals to <b>91,500+ children</b> in over <b>300 Cities</b>. This is what some of them think:</h5>
+                            <h2 class="title">Trusted by Families</h2>
+                            <h5 class="description">MunchKit is proud to be serving nutritious meals that are made from <b>FRESH</b>,
+                            <b>LOCALLY SOURCED</b> ingredients.</h5>
                         </div>
                     </div>
 
@@ -378,12 +348,12 @@ else
                                 <div class="card card-pricing card-margin">
                                     <div class="content">
                                         <h6 class="category">1 Meal A Week (Trial)</h6>
-                                        <h1 class="card-title"><small>$</small>10.75<small>/meal</small></h1>
+                                        <h1 class="card-title"><small>$</small>10.50<small>/meal</small></h1>
                                         <ul>
                                             <li><b>Free Delivery</b></li>
                                             <li><b>Recyclable</b> Containers</li>
                                         </ul>
-                                        <a href="pricing.php" class="btn btn-rose btn-round">
+                                        <a href="tellusaboutyourkid.php" class="btn btn-rose btn-round">
                                             Buy Now!
                                         </a>
                                     </div>
@@ -392,7 +362,7 @@ else
 
                             <div class="col-md-6" style="width: 33.33%">
                                 <div class="card card-pricing">
-                                    <div class="content">
+                                    <div class="content content-rose">
                                         <h6 class="category">5 Meals A Week</h6>
                                         <h1 class="card-title"><small>$</small><big>8</big><small>/meal</small></h1>
                                         <ul>
@@ -403,7 +373,7 @@ else
                                             <li><b>+ Access</b> to PayItForward program</b></li>
                                             <li><b>+ more!</b></li>
                                         </ul>
-                                        <a href="pricing.php" class="btn btn-rose btn-round">
+                                        <a href="tellusaboutyourkid.php" class="btn btn-rose btn-round">
                                             Buy Now!
                                         </a>
                                     </div>
@@ -421,7 +391,7 @@ else
                                             <li><b>Customized</b> LunchBoxes</li>
                                             <li><b>Reusable</b> Totebag</li>
                                         </ul>
-                                        <a href="pricing.php" class="btn btn-rose btn-round">
+                                        <a href="tellusaboutyourkid.php" class="btn btn-rose btn-round">
                                             Buy Now!
                                         </a>
                                     </div>
@@ -435,28 +405,25 @@ else
                                 Great nutritious, well-balanced lunches for school kids aged 12 and up with busy parents!
                                 Joining is simple as choosing, customizing, ordering!
                             </p>
-
-                            <div class="col-md-6">
+                            <div class="col-md-6" style="width: 33.33%">
                                 <div class="card card-pricing card-margin">
                                     <div class="content">
-                                        <h6 class="category">3 Meals A Week</h6>
-                                        <h1 class="card-title"><small>$</small>9.25<small>/meal</small></h1>
+                                        <h6 class="category">1 Meal A Week (Trial)</h6>
+                                        <h1 class="card-title"><small>$</small>10.50<small>/meal</small></h1>
                                         <ul>
                                             <li><b>Free Delivery</b></li>
-                                            <li><b>Reusable</b> Containers</li>
-                                            <li><b>Customized</b> LunchBoxes</li>
-                                            <li><b>Reusable</b> Totebag</li>
+                                            <li><b>Recyclable</b> Containers</li>
                                         </ul>
-                                        <a href="pricing.php" class="btn btn-rose btn-round">
+                                        <a href="tellusaboutyourkid.php" class="btn btn-rose btn-round" >
                                             Buy Now!
                                         </a>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6" style="width: 33.33%">
                                 <div class="card card-pricing">
-                                    <div class="content">
+                                    <div class="content content-rose">
                                         <h6 class="category">5 Meals A Week</h6>
                                         <h1 class="card-title"><small>$</small>8.50<small>/meal</small></h1>
                                         <ul>
@@ -467,7 +434,25 @@ else
                                             <li><b>+ Access</b> to PayItForward program</b></li>
                                             <li><b>+ more!</b></li>
                                         </ul>
-                                        <a href="pricing.php" class="btn btn-rose btn-round">
+                                        <a href="tellusaboutyourkid.php" class="btn btn-rose btn-round">
+                                            Buy Now!
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6" style="width: 33.33%">
+                                <div class="card card-pricing card-margin">
+                                    <div class="content">
+                                        <h6 class="category">3 Meals A Week</h6>
+                                        <h1 class="card-title"><small>$</small>9.25<small>/meal</small></h1>
+                                        <ul>
+                                            <li><b>Free Delivery</b></li>
+                                            <li><b>Reusable</b> Containers</li>
+                                            <li><b>Customized</b> LunchBoxes</li>
+                                            <li><b>Reusable</b> Totebag</li>
+                                        </ul>
+                                        <a href="tellusaboutyourkid.php" class="btn btn-rose btn-round">
                                             Buy Now!
                                         </a>
                                     </div>
@@ -482,8 +467,6 @@ else
                     <p class="description">You can <b>Update Your Account</b> and <b>Suspend or Cancel Anytime</b>. Just let us know <b>3 days</b> a head of time process your request.</p>
 
                 </div>
-
-
 
             </div>
         </div>
@@ -527,8 +510,8 @@ else
                     </a>
                 </li>
                 <li>
-                    <a href="blog-posts.php">
-                       Blog
+                    <a href="contact-us.php">
+                       Contact Us
                     </a>
                 </li>
                 <li>

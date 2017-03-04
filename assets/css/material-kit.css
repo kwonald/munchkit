@@ -669,8 +669,8 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 .navbar .navbar-nav > li > a.btn.btn-white,
 .navbar .navbar-nav > li > a.btn.btn-white:focus,
 .navbar .navbar-nav > li > a.btn.btn-white:hover {
-  background-color: #FFFFFF;
-  color: #999999;
+  background-color: #1CB5B9;
+  color: #FFFFFF;
 }
 .btn.btn-white.btn-simple,
 .navbar .navbar-nav > li > a.btn.btn-white.btn-simple {
