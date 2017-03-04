@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -36,12 +37,12 @@
                     <div class="collapse navbar-collapse" id="navigation-example">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="about-us.html">
+                        <a href="about-us.php">
                             <i class="material-icons">apps</i> About Us
                         </a>
                     </li>
                     <li>
-                        <a href="blog-posts.html">
+                        <a href="blog-posts.php">
                             <i class="material-icons">art_track</i> Blog Posts
                         </a>
                     </li>
@@ -52,17 +53,17 @@
                         </a>
                         <ul class="dropdown-menu dropdown-with-icons">
                             <li>
-                                <a href="pricing.html">
+                                <a href="pricing.php">
                                     <i class="material-icons">attach_money</i> Pricing Page
                                 </a>
                             </li>
                             <li>
-                                <a href="product-page.html">
+                                <a href="product-page.php">
                                     <i class="material-icons">beach_access</i> Previous Meals
                                 </a>
                             </li>
                             <li>
-                                <a href="contact-us.html">
+                                <a href="contact-us.php">
                                     <i class="material-icons">location_on</i> Contact Us
                                 </a>
                             </li>
@@ -77,18 +78,18 @@
                         </a>
                         <ul class="dropdown-menu dropdown-with-icons">
                             <li>
-                                <a href="login-page.html">
+                                <a href="login-page.php">
                                     <i class="material-icons">fingerprint</i> Login Page
                                 </a>
                             </li>
                             
                             <li>
-                                <a href="profile-page.html">
+                                <a href="profile-page.php">
                                     <i class="material-icons">account_circle</i> Profile Page
                                 </a>
                             </li>
                             <li>
-                                <a href="signup-page.html">
+                                <a href="signup-page.php">
                                     <i class="material-icons">person_add</i> Signup Page
                                 </a>
                             </li>
@@ -96,7 +97,7 @@
                     </li>
 
                     <li>
-                        <a href="pricing.html" class="btn btn-rose btn-round">
+                        <a href="pricing.php" class="btn btn-rose btn-round">
                             <i class="material-icons">shopping_cart</i> Join Us Now
                         </a>
                     </li>
@@ -361,12 +362,12 @@
 						</a>
 					</li>
 					<li>
-						<a href="about-us.html">
+						<a href="about-us.php">
 						   About Us
 						</a>
 					</li>
 					<li>
-						<a href="blog-posts.html">
+						<a href="blog-posts.php">
 						   Blog
 						</a>
 					</li>

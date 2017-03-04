@@ -30,13 +30,13 @@
 		            <span class="icon-bar"></span>
 		            <span class="icon-bar"></span>
         		</button>
-        		<a class="navbar-brand" href="../presentation.html">Material Kit PRO</a>
+        		<a class="navbar-brand" href="../presentation.php">Material Kit PRO</a>
         	</div>
 
         	<div class="collapse navbar-collapse" id="navigation-example">
         		<ul class="nav navbar-nav navbar-right">
     				<li>
-						<a href="../index.html">
+						<a href="../index.php">
 							<i class="material-icons">apps</i> Components
 						</a>
 					</li>
@@ -48,42 +48,42 @@
 						</a>
 						<ul class="dropdown-menu dropdown-with-icons">
 							<li>
-								<a href="../sections.html#headers">
+								<a href="../sections.php#headers">
 									<i class="material-icons">dns</i> Headers
 								</a>
 							</li>
 							<li>
-								<a href="../sections.html#features">
+								<a href="../sections.php#features">
 									<i class="material-icons">build</i> Features
 								</a>
 							</li>
 							<li>
-								<a href="../sections.html#blogs">
+								<a href="../sections.php#blogs">
 									<i class="material-icons">list</i> Blogs
 								</a>
 							</li>
 							<li>
-								<a href="../sections.html#teams">
+								<a href="../sections.php#teams">
 									<i class="material-icons">people</i> Teams
 								</a>
 							</li>
 							<li>
-								<a href="../sections.html#projects">
+								<a href="../sections.php#projects">
 									<i class="material-icons">assignment</i> Projects
 								</a>
 							</li>
 							<li>
-								<a href="../sections.html#pricing">
+								<a href="../sections.php#pricing">
 									<i class="material-icons">monetization_on</i> Pricing
 								</a>
 							</li>
 							<li>
-								<a href="../sections.html#testimonials">
+								<a href="../sections.php#testimonials">
 									<i class="material-icons">chat</i> Testimonials
 								</a>
 							</li>
 							<li>
-								<a href="../sections.html#contactus">
+								<a href="../sections.php#contactus">
 									<i class="material-icons">call</i> Contacts
 								</a>
 							</li>
@@ -98,52 +98,52 @@
 						</a>
 						<ul class="dropdown-menu dropdown-with-icons">
 							<li>
-								<a href="../examples/about-us.html">
+								<a href="../examples/about-us.php">
 									<i class="material-icons">account_balance</i> About Us
 								</a>
 							</li>
 							<li>
-								<a href="../examples/blog-post.html">
+								<a href="../examples/blog-post.php">
 									<i class="material-icons">art_track</i> Blog Post
 								</a>
 							</li>
 							<li>
-								<a href="../examples/blog-posts.html">
+								<a href="../examples/blog-posts.php">
 									<i class="material-icons">view_quilt</i> Blog Posts
 								</a>
 							</li>
 							<li>
-								<a href="../examples/contact-us.html">
+								<a href="../examples/contact-us.php">
 									<i class="material-icons">location_on</i> Contact Us
 								</a>
 							</li>
 							<li>
-								<a href="../examples/landing-page.html">
+								<a href="../examples/landing-page.php">
 									<i class="material-icons">view_day</i> Landing Page
 								</a>
 							</li>
 							<li>
-								<a href="../examples/login-page.html">
+								<a href="../examples/login-page.php">
 									<i class="material-icons">fingerprint</i> Login Page
 								</a>
 							</li>
 							<li>
-								<a href="../examples/pricing.html">
+								<a href="../examples/pricing.php">
 									<i class="material-icons">attach_money</i> Pricing Page
 								</a>
 							</li>
 							<li>
-								<a href="../examples/product-page.html">
+								<a href="../examples/product-page.php">
 									<i class="material-icons">beach_access</i> Product Page
 								</a>
 							</li>
 							<li>
-								<a href="../examples/profile-page.html">
+								<a href="../examples/profile-page.php">
 									<i class="material-icons">account_circle</i> Profile Page
 								</a>
 							</li>
 							<li>
-								<a href="../examples/signup-page.html">
+								<a href="../examples/signup-page.php">
 									<i class="material-icons">person_add</i> Signup Page
 								</a>
 							</li>
