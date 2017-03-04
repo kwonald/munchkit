@@ -31,6 +31,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <a href="index.php">
+                    <img src="assets/img/lunchboxlogo.png"  width="45" height="45" border="0">
+                </a>
                 <a class="navbar-brand" href="index.php">MunchKit</a>
             </div>
 
@@ -41,59 +44,26 @@
                             <i class="material-icons">apps</i> About Us
                         </a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="blog-posts.php">
                             <i class="material-icons">art_track</i> Blog Posts
                         </a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="material-icons">view_day</i> More
-                            <b class="caret"></b>
+                    </li> -->
+                    <li>
+                        <a href="pricing.php">
+                            <i class="material-icons">attach_money</i> Pricing Page
                         </a>
-                        <ul class="dropdown-menu dropdown-with-icons">
-                            <li>
-                                <a href="pricing.php">
-                                    <i class="material-icons">attach_money</i> Pricing Page
-                                </a>
-                            </li>
-                            <li>
-                                <a href="product-page.php">
-                                    <i class="material-icons">beach_access</i> Previous Meals
-                                </a>
-                            </li>
-                            <li>
-                                <a href="contact-us.php">
-                                    <i class="material-icons">location_on</i> Contact Us
-                                </a>
-                            </li>
-
-                        </ul>
+                    </li>
+                    <li>
+                        <a href="contact-us.php">
+                            <i class="material-icons">location_on</i> Contact Us
+                        </a>
                     </li>
 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <li>
+                        <a href="profile-page.php">
                             <i class="material-icons">account_circle</i> My Account
-                            <b class="caret"></b>
                         </a>
-                        <ul class="dropdown-menu dropdown-with-icons">
-                            <li>
-                                <a href="login-page.php">
-                                    <i class="material-icons">fingerprint</i> Login Page
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a href="profile-page.php">
-                                    <i class="material-icons">account_circle</i> Profile Page
-                                </a>
-                            </li>
-                            <li>
-                                <a href="signup-page.php">
-                                    <i class="material-icons">person_add</i> Signup Page
-                                </a>
-                            </li>
-                        </ul>
                     </li>
 
                     <li>
@@ -367,8 +337,8 @@
 						</a>
 					</li>
 					<li>
-						<a href="blog-posts.php">
-						   Blog
+						<a href="contact-us.php">
+						   Contact Us
 						</a>
 					</li>
 					<li>
