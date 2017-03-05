@@ -249,7 +249,7 @@
     				</div>
     			</div>
             </div>
-            <div class="about-office">
+            <!-- <div class="about-office">
                 <div class="row  text-center">
                     <div class="col-md-8 col-md-offset-2">
                         <h2 class="title">Our office is our second home</h2>
@@ -275,8 +275,8 @@
 
                 </div>
 
-            </div>
-            <div class="about-contact">
+            </div> -->
+            <!-- <div class="about-contact">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h2 class="text-center title">Want to work with us?</h2>
@@ -318,7 +318,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div> -->
         </div>
     </div>
 
