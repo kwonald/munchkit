@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 $servername = "mk-db.ctleukvi2d3k.us-west-2.rds.amazonaws.com";
 $username = "admin";
 $password = "redRider555!";
@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 echo "Connected successfully";
 
 
-?> -->
+?>
 <?php
 
 class munchKitDB extends mysqli {
@@ -91,11 +91,11 @@ class munchKitDB extends mysqli {
         $f_name = $this->real_escape_string($f_name);
         if ($this->real_escape_string($dietType)==null){
            $this->query("INSERT INTO MunchKids (Users_idUsers, f_name)" .
-                " VALUES (" . $userID . ", '" . $f_name . "')");
+                " VALUES (" . $userID . ", '" . $f_name . "', 'original')");
         } else
         $this->query("INSERT INTO MunchKids (Users_idUsers, f_name, dietType)" .
                 " VALUES (" . $userID . ", '" . $f_name . "', "
-                . $this->real_escape_string($duedate) . ")");
+                . $this->real_escape_string($dietType) . ")");
     }
     
     function format_date_for_sql($date) {
@@ -107,19 +107,19 @@ class munchKitDB extends mysqli {
         }
     }
 
-    public function update_wish($wishID, $description, $duedate) {
-        $description = $this->real_escape_string($description);
-        $this->query("UPDATE wishes SET description = '" . $description .
-                "', due_date = " . $this->format_date_for_sql($duedate)
-                . " WHERE id =" . $wishID);
+    public function update_munchkids($idMunchKids, $f_name, $dietType) {
+        $f_name = $this->real_escape_string($f_name);
+        $this->query("UPDATE MunchKids SET f_name = '" . $f_name .
+                "', dietType = " . $this->real_escape_string($dietType)
+                . " WHERE idMunchKids =" . $idMunchKids);
     }
 
-    public function get_wish_by_wish_id($wishID) {
-        return $this->query("SELECT id, description, due_date FROM wishes WHERE id = " . $wishID);
+    public function get_munchkid_by_munchkid_id($idMunchKids) {
+        return $this->query("SELECT idMunchKids, f_name, dietType FROM MunchKids WHERE idMunchKids = " . $idMunchKids);
     }
 
-    public function delete_wish($wishID) {
-        $this->query("DELETE FROM wishes WHERE id = " . $wishID);
+    public function delete_wish($idMunchKids) {
+        $this->query("DELETE FROM MunchKids WHERE idMunchKids = " . $idMunchKids);
     }
 
 }

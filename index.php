@@ -56,6 +56,11 @@ else
                         </a>
                     </li>
                     <li>
+                        <a href="meals-page.php">
+                            <i class="material-icons">restaurant</i> Our Meals
+                        </a>
+                    </li>
+                    <li>
                         <a href="pricing.php">
                             <i class="material-icons">attach_money</i> Pricing Page
                         </a>
@@ -65,11 +70,6 @@ else
                             <i class="material-icons">location_on</i> Contact Us
                         </a>
                     </li>
-                   <!--  <li>
-                        <a href="blog-posts.php">
-                            <i class="material-icons">art_track</i> Blog Posts
-                        </a>
-                    </li> -->
                     
                     <li>
                         <a href="profile-page.php">
