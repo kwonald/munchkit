@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 $servername = "mk-db.ctleukvi2d3k.us-west-2.rds.amazonaws.com";
 $username = "admin";
 $password = "redRider555!";
@@ -12,8 +12,7 @@ if ($conn->connect_error) {
 } 
 echo "Connected successfully";
 
-
-?>
+?> -->
 <?php
 
 class munchKitDB extends mysqli {
