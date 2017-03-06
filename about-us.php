@@ -44,11 +44,11 @@
                             <i class="material-icons">apps</i> About Us
                         </a>
                     </li>
-                    <!-- <li>
-                        <a href="blog-posts.php">
-                            <i class="material-icons">art_track</i> Blog Posts
+                    <li>
+                        <a href="meals-page.php">
+                            <i class="material-icons">restaurant</i> Our Meals
                         </a>
-                    </li> -->
+                    </li>
                     <li>
                         <a href="pricing.php">
                             <i class="material-icons">attach_money</i> Pricing Page
@@ -249,7 +249,7 @@
     				</div>
     			</div>
             </div>
-            <div class="about-office">
+            <!-- <div class="about-office">
                 <div class="row  text-center">
                     <div class="col-md-8 col-md-offset-2">
                         <h2 class="title">Our office is our second home</h2>
@@ -275,8 +275,8 @@
 
                 </div>
 
-            </div>
-            <div class="about-contact">
+            </div> -->
+            <!-- <div class="about-contact">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h2 class="text-center title">Want to work with us?</h2>
@@ -318,7 +318,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div> -->
         </div>
     </div>
 
