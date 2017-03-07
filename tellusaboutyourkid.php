@@ -1,7 +1,7 @@
-<?php
+<!-- <?php
 require_once("Includes/db.php");
 
-?>
+?> -->
 
 <!doctype html>
 <html lang="en">

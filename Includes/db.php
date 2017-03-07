@@ -20,10 +20,10 @@ class munchKitDB extends mysqli {
     // single instance of self shared among all instances
     private static $instance = null;
     // db connection config vars
-    private $user = "admin";
-    private $pass = "redRider555!";
+    private $user = "root";
+    private $pass = "igoQP9Bk";
     private $dbName = "mkdb";
-    private $dbHost = "mk-db.ctleukvi2d3k.us-west-2.rds.amazonaws.com";
+    private $dbHost = "35.184.90.30";
     private $con = null;
 
     //This method must be static, and must return an instance of the object if the object
