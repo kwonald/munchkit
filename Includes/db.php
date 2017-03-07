@@ -56,11 +56,19 @@ class munchKitDB extends mysqli {
         return $this->query("SELECT idMunchKids, f_name, dietType FROM MunchKids WHERE Users_idUsers=" . $userID);
     }
 
-    public function create_user($email, $password) {
+    public function create_user($email, $passwordHash, $passwordSalt, $f_name, $l_name, $phoneNo, $addr, $city, $state, $zipCode) {
         $email = $this->real_escape_string($email);
-        $password = $this->real_escape_string($password);
-        $this->query("INSERT INTO Users (email, passwordSalt) VALUES ('" . $email
-                . "', '" . $password . "')");
+        $passwordHash = $this->real_escape_string($passwordHash);
+        $passwordSalt = $this->real_escape_string($passwordSalt);
+        $f_name = $this->real_escape_string($f_name);
+        $l_name = $this->real_escape_string($l_name);
+        $phoneNo = $this->real_escape_string($phoneNo);
+        $addr = $this->real_escape_string($addr);
+        $city = $this->real_escape_string($city);
+        $state = $this->real_escape_string($state);
+        $zipCode = $this->real_escape_string($zipCode);
+        $this->query("INSERT INTO Users (email, passwordHash, passwordSalt, f_name, l_name, phone, addr, city, state, zipCode) VALUES ('" . $email
+                . "', '" . $passwordHash . "', '". $passwordSalt . "', '" . $f_name . "', '" . $l_name . "', '" . $phoneNo . "', '" . $addr . "', '" . $city . "', '" . $state . "', '" . $zipCode ."')");
     }
 
     public function verify_user_credentials($email, $password) {
