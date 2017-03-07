@@ -107,125 +107,37 @@ if (array_key_exists("user", $_SESSION)) {
     			<div class="col-md-10 col-md-offset-1">
 
 					<div class="card card-signup">
-                        <h2 class="card-title text-center">Tell Us About You & Your Kid!</h2>
+                        <h2 class="card-title text-center">Become a MunchKit Parent!</h2>
                         <div class="row">
-                            <div class="col-md-5 col-md-offset-1">
-            					<div class="info info-horizontal">
-            						<div class="icon icon-rose">
-            							<i class="material-icons">face</i>
-            						</div>
-            						<div class="description">
-            							<h4 class="info-title">Customized to your child</h4>
-            							<p class="description">
-            								Every child is unique and so is their taste buds! Your kid's health is our number one priority so let us know about their dietary restrictions and allergies so that we can meet those needs. 
-            							</p>
-            						</div>
-            		        	</div>
-
-            					<div class="info info-horizontal">
-            						<div class="icon icon-primary">
-            							<i class="material-icons">group</i>
-            						</div>
-            						<div class="description">
-            							<h4 class="info-title">More than one child?</h4>
-            							<p class="description">
-            								Add as many children you have! Click on the 'add child' button below.
-            							</p>
-            						</div>
-            					</div>
-
-            					<div class="info info-horizontal">
-            						<div class="icon icon-info">
-            							<i class="material-icons">redeem</i>
-            						</div>
-            						<div class="description">
-            							<h4 class="info-title">PayItForward</h4>
-            							<p class="description">
-            								At MunchKit, we believe access to nutritious, well-balanced meals is not a priviledge but a right to children. By purchasing and donating an extra meal using the 'PayItForward' button, MunchKit will match that donation and deliver the meals to a student who cannot afford lunch in your local school area.
-            							</p>
-            						</div>
-            					</div>
-            				</div>
-                            <div class="col-md-5">
-                            <h4 class="info-title">Tell Us A Little About You</h4>
-								<form class="form" method="" action="">
+                            
+                            <div class="col-md-6 col-md-offset-3">
+								<form class="form" method="POST" action="aboutYou.php">
 									<div class="content">
-										<div class="input-group">
-											<span class="input-group-addon">
-												<i class="material-icons">face</i>
-											</span>
-											<input type="text" class="form-control" placeholder="First Name...">
-										</div>
-										<div class="input-group">
-											<span class="input-group-addon">
-												<i class="material-icons">face</i>
-											</span>
-											<input type="text" class="form-control" placeholder="Last Name...">
-										</div>
-
 										<div class="input-group">
 											<span class="input-group-addon">
 												<i class="material-icons">email</i>
 											</span>
-											<input type="text" class="form-control" placeholder="Email...">
+											<input type="text" name="email" required="" class="form-control" placeholder="Email...">
 										</div>
 
 										<div class="input-group">
 											<span class="input-group-addon">
-												<i class="material-icons">phone</i>
+												<i class="material-icons">lock</i>
 											</span>
-											<input type="text" class="form-control" placeholder="Phone...">
+											<input type="password" name="userpassword" required="" class="form-control" placeholder="Enter a Password...">
 										</div>
-
 										<div class="input-group">
 											<span class="input-group-addon">
-												<i class="material-icons">local_shipping</i>
+												<i class="material-icons">lock</i>
 											</span>
-											<input type="password" placeholder="Address to Deliver..." class="form-control" />
+											<input type="password" name="userpasswordconfirm" required="" class="form-control" placeholder="Confirm Password...">
 										</div>
 										
-										<h4 class="info-title">Tell Us About Your MunchKID</h4>
-										<div class="input-group">
-											<span class="input-group-addon">
-												<i class="material-icons">child_care</i>
-											</span>
-											<input type="text" class="form-control" placeholder="First Name...">
-										</div>
-										<div class="input-group">
-											<span class="input-group-addon">
-												<i class="material-icons">restaurant</i>
-											</span>
-											<input type="text" class="form-control" placeholder="Diet ...">
-										</div>
-										<div class="input-group">
-											<span class="input-group-addon">
-												<i class="material-icons">priority_high</i>
-											</span>
-											<input type="text" class="form-control" placeholder="Allergies...">
-										</div>
-										<div class="input-group">
-											<span class="input-group-addon">
-												<i class="material-icons">textsms</i>
-											</span>
-											<input type="text" class="form-control" placeholder="Additional Notes...">
-										</div>
-										<div class="footer text-center">
-											<a href="#pablo" class="btn btn-primary btn-round">
-											<i class="material-icons">person_add</i> Add Child
-										</a>
-										</div>
 										
-										<!-- If you want to add a checkbox to this form, uncomment this code -->
-
-										<div class="checkbox">
-											<label>
-												<input type="checkbox" name="optionsCheckboxes" unchecked>
-												I agree to the <a href="#something">terms and conditions</a>.
-											</label>
-										</div>
 									</div>
 									<div class="footer text-center">
-										<a href="#pablo" class="btn btn-primary btn-round">Payment & Delivery</a>
+										
+										<input type="submit" class="btn btn-primary btn-round" value="next"/>
 									</div>
 								</form>
                             </div>

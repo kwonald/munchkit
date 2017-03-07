@@ -1,12 +1,10 @@
-<?
-if ($_SERVER['REQUEST_METHOD'] === 'POST')
-{
-  $file = '/tmp/sample-app.log';
-  $message = file_get_contents('php://input');
-  file_put_contents($file, date('Y-m-d H:i:s') . " Received message: " . $message . "\n", FILE_APPEND);
+<?php
+session_start();
+$loggedIn = false;
+if (array_key_exists("user", $_SESSION)) {
+    $loggedIn = true;
 }
-else
-{
+// else
 ?>
 <!doctype html>
 <html lang="en">
@@ -71,11 +69,27 @@ else
                         </a>
                     </li>
                     
+                    <!-- if you're logged in, this is the MyAccount tab, else its sign in tab -->
+                    <?php
+                    if ($loggedIn){
+                    ?>
                     <li>
                         <a href="profile-page.php">
                             <i class="material-icons">account_circle</i> My Account
                         </a>
                     </li>
+                    <?php    
+                    }else{
+                    ?>
+                    <li>
+                        <a href="login-page.php">
+                            <i class="material-icons">account_circle</i> Log In
+                        </a>
+                    </li>
+                    <?php
+                    }
+                    ?>
+                    <!-- End of myaccount tab/ sign in tab -->
 
                     <li>
                         <a href="pricing.php" class="btn btn-rose btn-round">
@@ -726,6 +740,4 @@ else
     </script>
 
 </html>
-<? 
-} 
-?>
+
