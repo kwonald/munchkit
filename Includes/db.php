@@ -1,18 +1,3 @@
-<!-- <?php
-$servername = "mk-db.ctleukvi2d3k.us-west-2.rds.amazonaws.com";
-$username = "admin";
-$password = "redRider555!";
-$dbName = "mkdb";
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbName);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-echo "Connected successfully";
-
-?> -->
 <?php
 
 class munchKitDB extends mysqli {
@@ -81,7 +66,7 @@ class munchKitDB extends mysqli {
     public function verify_user_credentials($email, $password) {
         $email = $this->real_escape_string($email);
         $password = $this->real_escape_string($password);
-        $result = $this->query("SELECT 1 FROM wishers WHERE email = '"
+        $result = $this->query("SELECT 1 FROM Users WHERE email = '"
                         . $email . "' AND passwordSalt = '" . $password . "'");
         return $result->data_seek(0);
     }
@@ -105,6 +90,21 @@ class munchKitDB extends mysqli {
             return $dateParts['year'] * 10000 + $dateParts['month'] * 100 + $dateParts['day'];
         }
     }
+    public function update_user($userID, $f_name, $l_name, $phoneNo, $addr, $city, $state, $zipCode) {
+        $userID = $this->real_escape_string($userID);
+        $f_name = $this->real_escape_string($f_name);
+        $l_name = $this->real_escape_string($l_name);
+        $phoneNo = $this->real_escape_string($phoneNo);
+        $addr = $this->real_escape_string($addr);
+        $city = $this->real_escape_string($city);
+        $state = $this->real_escape_string($state);
+        $zipCode = $this->real_escape_string($zipCode);
+        $this->query("UPDATE Users SET f_name = '" . $f_name .
+                "', l_name = '" . $l_name .
+                "', phone ='" . $phoneNo . "', addr = '" . $addr . "', city = '" . $city . "', state = '" . $state . "', zipCode ='" . $zipCode .
+                "' WHERE idUsers =" . $userID);
+    }
+
 
     public function update_munchkids($idMunchKids, $f_name, $dietType) {
         $f_name = $this->real_escape_string($f_name);

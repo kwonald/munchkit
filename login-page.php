@@ -1,3 +1,19 @@
+<?php
+require_once("Includes/db.php");
+$logonSuccess = false;
+
+// verify user's credentials
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $logonSuccess = (munchKitDB::getInstance()->verify_user_credentials($_POST['user'], $_POST['userpassword']));
+    if ($logonSuccess == true) {
+        session_start();
+        $_SESSION['user'] = $_POST['user'];
+        header('Location: profile-page.php');
+        exit;
+    }
+}
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -58,12 +74,28 @@
                             <i class="material-icons">location_on</i> Contact Us
                         </a>
                     </li>
-                    
+                    <!-- if you're logged in, this is the MyAccount tab, else its sign in tab -->
+                    <?php
+                    if ($logonSuccess){
+                    ?>
                     <li>
                         <a href="profile-page.php">
                             <i class="material-icons">account_circle</i> My Account
                         </a>
                     </li>
+                    <?php    
+                    }else{
+                    ?>
+                    <li>
+                        <a href="login-page.php">
+                            <i class="material-icons">account_circle</i> Log In
+                        </a>
+                    </li>
+                    <?php
+                    }
+                    ?>
+                    <!-- End of myaccount tab/ sign in tab -->
+                    
 
                     <li>
                         <a href="pricing.php" class="btn btn-rose btn-round">
@@ -80,7 +112,7 @@
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 					<div class="card card-signup">
-						<form class="form" method="" action="">
+						<form class="logon" method="POST" action="login-page.php">
 							<div class="header header-primary text-center">
 								<h4 class="card-title">Log in</h4>
 								<!-- <div class="social-line">
@@ -102,25 +134,32 @@
 									<span class="input-group-addon">
 										<i class="material-icons">email</i>
 									</span>
-									<input type="text" class="form-control" placeholder="Email...">
+									<input type="text" name ="user" class="form-control" placeholder="Email...">
 								</div>
 
 								<div class="input-group">
 									<span class="input-group-addon">
 										<i class="material-icons">lock_outline</i>
 									</span>
-									<input type="password" placeholder="Password..." class="form-control" />
+									<input type="password" name="userpassword" placeholder="Password..." class="form-control" />
 								</div>
+                                <?php
+                                    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                                        if (!$logonSuccess)
+                                            echo "Invalid name and/or password";
+                                    }
+                                ?>
 
 							</div>
 							<div class="footer text-center">
-								<a href="#pablo" class="btn btn-primary btn-simple btn-wd btn-lg">Log In</a>
+								<!-- <a href="#pablo" class="btn btn-primary btn-simple btn-wd btn-lg">Log In</a> -->
+                                <input type="submit" class="btn btn-primary btn-simple btn-wd btn-lg" value="Login"/>
 							</div>
                             <div class="footer text-center">
                                 <a href="#pablo" class="btn btn-primary btn-simple btn-wd btn-lg">Forgot Password</a>
                             </div>
                             <div class="footer text-center">
-                                <a href="#pablo" class="btn btn-primary btn-simple btn-wd btn-lg">Sign Up</a>
+                                <a href="signup.php" class="btn btn-primary btn-simple btn-wd btn-lg">Sign Up</a>
                             </div>
 						</form>
 					</div>

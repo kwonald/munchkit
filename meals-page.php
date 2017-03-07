@@ -1,3 +1,11 @@
+<?php
+session_start();
+$loggedIn = false;
+if (array_key_exists("user", $_SESSION)) {
+    $loggedIn = true;
+}
+// else
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -60,11 +68,27 @@
                         </a>
                     </li>
                     
+                    <!-- if you're logged in, this is the MyAccount tab, else its sign in tab -->
+                    <?php
+                    if ($loggedIn){
+                    ?>
                     <li>
                         <a href="profile-page.php">
                             <i class="material-icons">account_circle</i> My Account
                         </a>
                     </li>
+                    <?php    
+                    }else{
+                    ?>
+                    <li>
+                        <a href="login-page.php">
+                            <i class="material-icons">account_circle</i> Log In
+                        </a>
+                    </li>
+                    <?php
+                    }
+                    ?>
+                    <!-- End of myaccount tab/ sign in tab -->
 
                     <li>
                         <a href="pricing.php" class="btn btn-rose btn-round">
