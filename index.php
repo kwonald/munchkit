@@ -112,8 +112,25 @@ else
         <div class="section">
             <div class="container">
                 <div class="row">
+                    <div class="our-clients" align="center">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="assets/img/cityofvanlogo.png" alt="" />
+                            </div>
+                            <div class="col-md-3">
+                                <img src="assets/img/ubccrest.jpg" alt="" />
+                            </div>
+                            <div class="col-md-3">
+                                <img src="assets/img/ubcfarmlogo.jpeg" alt="" />
+                            </div>
+                            <div class="col-md-3">
+                                <img src="assets/img/eubclogo.jpg" alt="" />
+                            </div>
+
+                        </div>
+                    </div>
                     <div class="col-md-8 col-md-offset-2">
-                        <h4 class="description text-center">MunchKit is your local lunchbox delivery service. Catered toward students aged 5-18, your children will always have a tasty meal made of fresh, sustainably-sourced ingredients. Munchkit is customized to your child's dietary restrictions and delivered right to your door every Sunday.</h4>
+                        <h4 class="description text-center">MunchKit is your local lunchbox delivery service. Our set menu is customized to your child's dietary restrictions and delivered right to your door every Sunday. Catered toward students aged 5-18, your children will always have a tasty meal made of fresh, sustainably-sourced ingredients. </h4>
                     </div>
                 </div>
 
@@ -165,7 +182,7 @@ else
 
 
                 <div class="col-md-8 col-md-offset-2 text-center">
-                    <h2 class="title">Why you and your child should choose MunchKit</h2>
+                    <h2 class="title">Why Your Family Should Choose MunchKit</h2>
                 </div>
 
                 <div class="container">
@@ -177,7 +194,7 @@ else
                                     <i class="material-icons">nature people</i>
                                 </div>
                                 <h4 class="info-title">Local, Sustainable, Organic</h4>
-                                <p>All our meals are made from fresh, sustainably sourced, local ingredients! No artifical or processed ingredients in our meals. That's a guarantee.</p>
+                                <p align="left">All our meals are made from fresh, sustainably sourced, local ingredients! All meals will be made of at least 25% local ingredients and we will always strive for 100%!</p>
                             </div>
                         </div>
 
@@ -187,7 +204,7 @@ else
                                     <i class="material-icons">restaurant</i>
                                 </div>
                                 <h4 class="info-title">Nutrition is our life</h4>
-                                <p> All our meals are carefully designed by nutritionists and our chefs to provide a well-balanced nutritous meal for your child</p>
+                                <p align="left"> Our rotating set menus are carefully designed by nutritionists and chefs to provide a well-balanced nutritous meal for your child while highlighting in-season local produce in the process!</p>
                             </div>
                         </div>
 
@@ -197,7 +214,7 @@ else
                                     <i class="material-icons">delete</i>
                                 </div>
                                 <h4 class="info-title">Zero Waste</h4>
-                                <p>MunchKit believes in reducing our impact in the world. We reduce anything we can, then we try and reuse anything that can't be reduced, if something can't be reused then we make sure it is recycleable!</p>
+                                <p align="left">MunchKit believes in reducing our impact in the world. We reduce anything we can, then we try and reuse anything that can't be reduced, if something can't be reused then we make sure it is recycleable!</p>
                             </div>
                         </div>
 
@@ -207,7 +224,7 @@ else
                                     <i class="material-icons">redeem</i>
                                 </div>
                                 <h4 class="info-title">Pay It Forward</h4>
-                                <p> You can donate an additional meal with your subscription which MunchKit will match and deliver to a student in your neighborhood who cannot afford a lunch. At MunchKit, well-balanced, nutritious meals are a right for school children, not a priviledge. </p>
+                                <p align="left"> MunchKit will match and deliver any PayItForward Meal to a student in your neighborhood who cannot afford a lunch. At MunchKit, access to well-balanced, nutritious meals is a right for school children. </p>
                             </div>
                         </div>
                     </div>
@@ -221,7 +238,7 @@ else
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2 text-center">
                             <h2 class="title">Trusted by Families</h2>
-                            <h5 class="description">MunchKit is proud to be serving nutritious meals that are made from <b>FRESH</b>,
+                            <h5 class="description">MunchKit is proud to serve meals that are made from <b>FRESH</b>,
                             <b>LOCALLY SOURCED</b> ingredients.</h5>
                         </div>
                     </div>
@@ -293,31 +310,13 @@ else
 
                     </div>
 
-                    <div class="our-clients">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img src="assets/img/cityofvanlogo.png" alt="" />
-                            </div>
-                            <div class="col-md-3">
-                                <img src="assets/img/ubccrest.jpg" alt="" />
-                            </div>
-                            <div class="col-md-3">
-                                <img src="assets/img/ubcfarmlogo.jpeg" alt="" />
-                            </div>
-                            <div class="col-md-3">
-                                <img src="assets/img/eubclogo.jpg" alt="" />
-                            </div>
-
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
         </div>
     </div>
 
-    <div class="section section-pricing pricing-5">
+<!--     <div class="section section-pricing pricing-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center">
@@ -489,16 +488,161 @@ else
                 </div>
             </div>
         </div>
+    </div> -->
+        <div class="pricing-2">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <h2 class="title">Ready to Join us at MunchKit?</h2>
+                    <ul class="nav nav-pills nav-pills-rose" role="tablist">
+                        <li class="active">
+                            <a href="#personal" role="tab" data-toggle="tab">
+                                Ages 5-11
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#commercial" role="tab" data-toggle="tab">
+                                Ages 12+
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="tab-content tab-space">
+                        <div class="tab-pane fade in active" id="personal">
+                            <div class="col-md-4">
+                                <div class="card card-pricing card-plain">
+                                    <div class="content">
+                                        <h6 class="category text-info">1 Meal A Week (Trial)</h6>
+                                        <h1 class="card-title"><small>$</small>10.25<small>/meal</small></h1>
+                                        <h6 class="category text-info">(Trial is available for 8 weeks)</h6>
+                                        <ul>
+                                            <li><b>Free Delivery</b></li>
+                                            <li><b>Recyclable</b> Containers</li>
+                                        </ul>
+                                        <a href="tellusaboutyourkid.php" class="btn btn-rose btn-raised btn-round">
+                                            Get Started
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
 
-    </div>
+                            <div class="col-md-4">
+                                <div class="card card-pricing card-raised">
+                                    <div class="content content-rose">
+                                        <h6 class="category text-info">5 Meals A Week</h6>
+                                        <h1 class="card-title"><small>$</small>8<small>/meal</small></h1>
+                                        <h6 class="category text-info">($40 per week + tax)</h6>
+                                        <ul>
+                                            <li><b>Free Delivery</b></li>
+                                            <li><b>Reusable</b> Containers</li>
+                                            <li><b>Customized</b> LunchBoxes</li>
+                                            <li><b>Reusable</b> Totebag</li>
+                                            <li><b>Access</b> to PayItForward program</b></li>
+                                            <li><b>Discounts</b> to local programs</li>
+                                        </ul>
+                                        <a href="tellusaboutyourkid.php" class="btn btn-white btn-raised btn-round">
+                                            Get Started
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div class="col-md-4">
+                                <div class="card card-pricing card-plain">
+                                    <div class="content">
+                                        <h6 class="category text-info">3 Meals A Week</h6>
+                                        <h1 class="card-title"><small>$</small>9.25<small>/meal</small></h1>
+                                        <h6 class="category text-info">($27.75 per week + tax)</h6>
+                                        <ul>
+                                            <li><b>Free Delivery</b></li>
+                                            <li><b>Reusable</b> Containers</li>
+                                            <li><b>Customized</b> LunchBoxes</li>
+                                            <li><b>Reusable</b> Totebag</li>
+                                        </ul>
+                                        <a href="tellusaboutyourkid.php" class="btn btn-rose btn-raised btn-round">
+                                            Get Started
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane fade" id="commercial">
+                            <div class="col-md-4">
+                                <div class="card card-pricing card-plain">
+                                    <div class="content">
+                                        <h6 class="category text-info">1 Meal A Week (Trial)</h6>
+                                        <h1 class="card-title"><small>$</small>10.25<small>/meal</small></h1>
+                                        <h6 class="category text-info">(Trial is available for 8 weeks)</h6>
+                                        <ul>
+                                            <li><b>Free Delivery</b></li>
+                                            <li><b>Recyclable</b> Containers</li>
+                                        </ul>
+                                        <a href="tellusaboutyourkid.php" class="btn btn-rose btn-raised btn-round">
+                                            Get Started
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card card-pricing card-raised">
+                                    <div class="content content-rose">
+                                        <h6 class="category text-info">5 Meals A Week</h6>
+                                        <h1 class="card-title"><small>$</small>8.50<small>/meal</small></h1>
+                                        <h6 class="category text-info">($42.50 per week + tax)</h6>
+                                        <ul>
+                                            <li><b>Free Delivery</b></li>
+                                            <li><b>Reusable</b> Containers</li>
+                                            <li><b>Customized</b> LunchBoxes</li>
+                                            <li><b>Reusable</b> Totebag</li>
+                                            <li><b>+ Access</b> to PayItForward program</b></li>
+                                            <li><b>+ more!</b></li>
+                                        </ul>
+                                        <a href="tellusaboutyourkid.php" class="btn btn-white btn-raised btn-round">
+                                            Get Started
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="card card-pricing card-plain">
+                                    <div class="content">
+                                        <h6 class="category text-info">3 Meals A Week</h6>
+                                        <h1 class="card-title"><small>$</small>9.25<small>/meal</small></h1>
+                                        <h6 class="category text-info">($27.75 per week + tax)</h6>
+                                        <ul>
+                                            <li><b>Free Delivery</b></li>
+                                            <li><b>Reusable</b> Containers</li>
+                                            <li><b>Customized</b> LunchBoxes</li>
+                                            <li><b>Reusable</b> Totebag</li>
+                                        </ul>
+                                        <a href="tellusaboutyourkid.php" class="btn btn-rose btn-raised btn-round">
+                                            Get Started
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <p class="description">You can <b>Update Your Account</b> and <b>Suspend or Cancel Anytime</b>. Just let us know <b>3 days</b> a head of time process your request.</p>
+
+                </div>
+            </div>
+        </div>
 
     <footer class="footer footer-white">
         <div class="container">
             <a class="footer-brand" href="index.php">MunchKit</a>
 
-            <ul class="pull-center">
+           <!--  <ul class="pull-center">
                 <li>
                     <a href="index.php">
                         MunchKit
@@ -513,13 +657,13 @@ else
                     <a href="contact-us.php">
                        Contact Us
                     </a>
-                </li>
+                </li> -->
                <!--  <li>
                     <a href="http://www.creative-tim.com/license" target="_blank">
                         Licenses
                     </a>
-                </li> -->
-            </ul>
+                </li>
+            </ul> -->
 
             <ul class="social-buttons pull-right">
                 <li>

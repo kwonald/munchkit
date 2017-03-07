@@ -1,5 +1,3 @@
-<?php
-?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -9,6 +7,8 @@
         require_once("Includes/db.php");
 
         $userID = munchKitDB::getInstance()->get_user_id_by_email($_GET['user']);
+        // $email = 'giwan.kwon@gmail.com'
+        // $userID = munchKitDB::getInstance()->get_user_id_by_email($email);
         if (!$userID) {
             exit("The email " . $_GET['user'] . " is not found. Please check the spelling and try again");
         }

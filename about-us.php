@@ -121,7 +121,7 @@
     								"Dare to take a chance on yourself. Be leaders of this world by trying to fix a small part of it; to not shy away from the hard problems. If you dare to dream it, have the courage to chase it."
     							</p>
     							<div class="footer">
-    								<a href="https://www.instagram.com/kwonald/" target="_blank" class="btn btn-just-icon btn-simple btn-instagram"><i class="fa fa-instagram"></i></a>
+    								<!-- <a href="https://www.instagram.com/kwonald/" target="_blank" class="btn btn-just-icon btn-simple btn-instagram"><i class="fa fa-instagram"></i></a> -->
     								<a href="https://www.linkedin.com/in/alex-kwon-56351b71/" target="_blank" class="btn btn-just-icon btn-simple btn-linkedin"><i class="fa fa-linkedin"></i></a>
     							</div>
     						</div>

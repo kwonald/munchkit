@@ -81,6 +81,9 @@
         		<div class="col-md-8 col-md-offset-2">
                     <h1 class="title">Let's get started</h1>
                     <h4>To get started, you will need to choose a plan for your needs. You can change, suspend, cancel your plan anytime!</h4>
+                    <a href="#pablo" class="btn btn-rose btn-round">
+						Frequently Asked Questions
+					</a>
                 </div>
             </div>
         </div>
@@ -89,158 +92,153 @@
 	<div class="main main-raised">
 		<div class="container">
             <!-- ADDED bY ALEX -->
-		<div class="pricing-2">
-			<div class="row">
-				<div class="col-md-6 col-md-offset-3 text-center">
-					<h2 class="title">Ready to Join us at MunchKit?</h2>
-					<ul class="nav nav-pills nav-pills-rose" role="tablist">
-						<li class="active">
-							<a href="#personal" role="tab" data-toggle="tab">
-								Ages 5-11
-							</a>
-						</li>
-						<li>
-							<a href="#commercial" role="tab" data-toggle="tab">
-								Ages 12+
-							</a>
-						</li>
-					</ul>
-				</div>
+			<div class="pricing-2">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3 text-center">
+						<h2 class="title">Ready to Join us at MunchKit?</h2>
+						<ul class="nav nav-pills nav-pills-rose" role="tablist">
+							<li class="active">
+								<a href="#personal" role="tab" data-toggle="tab">
+									Ages 5-11
+								</a>
+							</li>
+							<li>
+								<a href="#commercial" role="tab" data-toggle="tab">
+									Ages 12+
+								</a>
+							</li>
+						</ul>
+					</div>
 
-				<div class="col-md-8 col-md-offset-2">
-					<div class="tab-content tab-space">
-						<div class="tab-pane fade in active" id="personal">
-							<div class="col-md-4">
-								<div class="card card-pricing card-plain">
-									<div class="content">
-										<h6 class="category text-info">1 Meal A Week (Trial)</h6>
-										<h1 class="card-title"><small>$</small>10.25<small>/meal</small></h1>
-										<h6 class="category text-info">(Trial is available for 8 weeks)</h6>
-										<ul>
-											<li><b>Free Delivery</b></li>
-											<li><b>Recyclable</b> Containers</li>
-										</ul>
-										<a href="tellusaboutyourkid.php" class="btn btn-rose btn-raised btn-round">
-											Get Started
-										</a>
+					<div class="col-md-8 col-md-offset-2">
+						<div class="tab-content tab-space">
+							<div class="tab-pane fade in active" id="personal">
+								<div class="col-md-4">
+									<div class="card card-pricing card-plain">
+										<div class="content">
+											<h6 class="category text-info">1 Meal A Week (Trial)</h6>
+											<h1 class="card-title"><small>$</small>10.25<small>/meal</small></h1>
+											<h6 class="category text-info">(Trial is available for 8 weeks)</h6>
+											<ul>
+												<li><b>Free Delivery</b></li>
+												<li><b>Recyclable</b> Containers</li>
+											</ul>
+											<a href="tellusaboutyourkid.php" class="btn btn-rose btn-raised btn-round">
+												Get Started
+											</a>
+										</div>
 									</div>
 								</div>
-							</div>
 
-							<div class="col-md-4">
-								<div class="card card-pricing card-raised">
-									<div class="content content-rose">
-										<h6 class="category text-info">5 Meals A Week</h6>
-										<h1 class="card-title"><small>$</small>8<small>/meal</small></h1>
-										<h6 class="category text-info">($40 per week + tax)</h6>
-										<ul>
-											<li><b>Free Delivery</b></li>
-											<li><b>Reusable</b> Containers</li>
-											<li><b>Customized</b> LunchBoxes</li>
-											<li><b>Reusable</b> Totebag</li>
-											<li><b>+ Access</b> to PayItForward program</b></li>
-											<li><b>+ more!</b></li>
-										</ul>
-										<a href="tellusaboutyourkid.php" class="btn btn-white btn-raised btn-round">
-											Get Started
-										</a>
+								<div class="col-md-4">
+									<div class="card card-pricing card-raised">
+										<div class="content content-rose">
+											<h6 class="category text-info">5 Meals A Week</h6>
+											<h1 class="card-title"><small>$</small>8<small>/meal</small></h1>
+											<h6 class="category text-info">($40 per week + tax)</h6>
+											<ul>
+												<li><b>Free Delivery</b></li>
+												<li><b>Reusable</b> Containers</li>
+												<li><b>Customized</b> LunchBoxes</li>
+												<li><b>Reusable</b> Totebag</li>
+												<li><b>+ Access</b> to PayItForward program</b></li>
+												<li><b>+ more!</b></li>
+											</ul>
+											<a href="tellusaboutyourkid.php" class="btn btn-white btn-raised btn-round">
+												Get Started
+											</a>
+										</div>
 									</div>
 								</div>
-							</div>
 
-							<div class="col-md-4">
-								<div class="card card-pricing card-plain">
-									<div class="content">
-										<h6 class="category text-info">3 Meals A Week</h6>
-										<h1 class="card-title"><small>$</small>9.25<small>/meal</small></h1>
-										<h6 class="category text-info">($27.75 per week + tax)</h6>
-										<ul>
-											<li><b>Free Delivery</b></li>
-											<li><b>Reusable</b> Containers</li>
-											<li><b>Customized</b> LunchBoxes</li>
-											<li><b>Reusable</b> Totebag</li>
-										</ul>
-										<a href="tellusaboutyourkid.php" class="btn btn-rose btn-raised btn-round">
-											Get Started
-										</a>
+								<div class="col-md-4">
+									<div class="card card-pricing card-plain">
+										<div class="content">
+											<h6 class="category text-info">3 Meals A Week</h6>
+											<h1 class="card-title"><small>$</small>9.25<small>/meal</small></h1>
+											<h6 class="category text-info">($27.75 per week + tax)</h6>
+											<ul>
+												<li><b>Free Delivery</b></li>
+												<li><b>Reusable</b> Containers</li>
+												<li><b>Customized</b> LunchBoxes</li>
+												<li><b>Reusable</b> Totebag</li>
+											</ul>
+											<a href="tellusaboutyourkid.php" class="btn btn-rose btn-raised btn-round">
+												Get Started
+											</a>
+										</div>
 									</div>
 								</div>
+
 							</div>
 
-						</div>
-
-						<div class="tab-pane fade" id="commercial">
-							<div class="col-md-4">
-								<div class="card card-pricing card-plain">
-									<div class="content">
-										<h6 class="category text-info">1 Meal A Week (Trial)</h6>
-										<h1 class="card-title"><small>$</small>10.25<small>/meal</small></h1>
-										<h6 class="category text-info">(Trial is available for 8 weeks)</h6>
-										<ul>
-											<li><b>Free Delivery</b></li>
-											<li><b>Recyclable</b> Containers</li>
-										</ul>
-										<a href="tellusaboutyourkid.php" class="btn btn-rose btn-raised btn-round">
-											Get Started
-										</a>
+							<div class="tab-pane fade" id="commercial">
+								<div class="col-md-4">
+									<div class="card card-pricing card-plain">
+										<div class="content">
+											<h6 class="category text-info">1 Meal A Week (Trial)</h6>
+											<h1 class="card-title"><small>$</small>10.25<small>/meal</small></h1>
+											<h6 class="category text-info">(Trial is available for 8 weeks)</h6>
+											<ul>
+												<li><b>Free Delivery</b></li>
+												<li><b>Recyclable</b> Containers</li>
+											</ul>
+											<a href="tellusaboutyourkid.php" class="btn btn-rose btn-raised btn-round">
+												Get Started
+											</a>
+										</div>
 									</div>
 								</div>
-							</div>
 
-							<div class="col-md-4">
-								<div class="card card-pricing card-raised">
-									<div class="content content-rose">
-										<h6 class="category text-info">5 Meals A Week</h6>
-										<h1 class="card-title"><small>$</small>8.50<small>/meal</small></h1>
-										<h6 class="category text-info">($42.50 per week + tax)</h6>
-										<ul>
-											<li><b>Free Delivery</b></li>
-											<li><b>Reusable</b> Containers</li>
-											<li><b>Customized</b> LunchBoxes</li>
-											<li><b>Reusable</b> Totebag</li>
-											<li><b>+ Access</b> to PayItForward program</b></li>
-											<li><b>+ more!</b></li>
-										</ul>
-										<a href="tellusaboutyourkid.php" class="btn btn-white btn-raised btn-round">
-											Get Started
-										</a>
+								<div class="col-md-4">
+									<div class="card card-pricing card-raised">
+										<div class="content content-rose">
+											<h6 class="category text-info">5 Meals A Week</h6>
+											<h1 class="card-title"><small>$</small>8.50<small>/meal</small></h1>
+											<h6 class="category text-info">($42.50 per week + tax)</h6>
+											<ul>
+												<li><b>Free Delivery</b></li>
+												<li><b>Reusable</b> Containers</li>
+												<li><b>Customized</b> LunchBoxes</li>
+												<li><b>Reusable</b> Totebag</li>
+												<li><b>+ Access</b> to PayItForward program</b></li>
+												<li><b>+ more!</b></li>
+											</ul>
+											<a href="tellusaboutyourkid.php" class="btn btn-white btn-raised btn-round">
+												Get Started
+											</a>
+										</div>
 									</div>
 								</div>
-							</div>
 
-							<div class="col-md-4">
-								<div class="card card-pricing card-plain">
-									<div class="content">
-										<h6 class="category text-info">3 Meals A Week</h6>
-										<h1 class="card-title"><small>$</small>9.25<small>/meal</small></h1>
-										<h6 class="category text-info">($27.75 per week + tax)</h6>
-										<ul>
-											<li><b>Free Delivery</b></li>
-											<li><b>Reusable</b> Containers</li>
-											<li><b>Customized</b> LunchBoxes</li>
-											<li><b>Reusable</b> Totebag</li>
-										</ul>
-										<a href="tellusaboutyourkid.php" class="btn btn-rose btn-raised btn-round">
-											Get Started
-										</a>
+								<div class="col-md-4">
+									<div class="card card-pricing card-plain">
+										<div class="content">
+											<h6 class="category text-info">3 Meals A Week</h6>
+											<h1 class="card-title"><small>$</small>9.25<small>/meal</small></h1>
+											<h6 class="category text-info">($27.75 per week + tax)</h6>
+											<ul>
+												<li><b>Free Delivery</b></li>
+												<li><b>Reusable</b> Containers</li>
+												<li><b>Customized</b> LunchBoxes</li>
+												<li><b>Reusable</b> Totebag</li>
+											</ul>
+											<a href="tellusaboutyourkid.php" class="btn btn-rose btn-raised btn-round">
+												Get Started
+											</a>
+										</div>
 									</div>
 								</div>
-							</div>
 
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<p class="description">You can <b>Update Your Account</b> and <b>Suspend or Cancel Anytime</b>. Just let us know <b>3 days</b> a head of time process your request.</p>
-
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<p class="description">You can <b>Update Your Account</b> and <b>Suspend or Cancel Anytime</b>. Just let us know <b>3 days</b> a head of time process your request.</p>
+					</div>
 				</div>
 			</div>
-		</div>
-            
-
-       		 </div>
-            <hr />
             <div class="features-2">
                 <div class="text-center">
                     <h3 class="title">Frequently Asked Questions</h3>
@@ -259,17 +257,18 @@
 
     		        </div>
 
-    				<div class="col-md-4">
+    		        <div class="col-md-4">
     					<div class="info info-horizontal">
-    						<div class="icon icon-success">
-    							<i class="material-icons">card_giftcard</i>
+    						<div class="icon icon-rose">
+    							<i class="material-icons">restaurant</i>
     						</div>
     						<div class="description">
-    							<h4 class="info-title">Is there any discount for an annual subscription?</h4>
-    							<p> NO. </p>
+    							<h4 class="info-title">Do I choose the meals weekly or is everything done on your end?</h4>
+    							<p>We handle everything for you! MunchKit meals currently are provided to your family on a <b>set menu basis</b> that highlights ingredients that are currently in-season. All the meals are customized to meet your child's dietary restrictions! Check out our <b> Our Meals</b> page to see our menu! </p>
     						</div>
     					</div>
     				</div>
+
                 </div>
                 <div class="row">
     				<div class="col-md-4 col-md-offset-2">
@@ -282,22 +281,27 @@
     							<p>MunchKit is connected with PayPal (for accepting credit card and PayPal account payments) for accepting payments. Payments are made bi-weekly.</p>
     						</div>
     		        	</div>
-
     		        </div>
 
-    				<div class="col-md-4">
+    		        <div class="col-md-4">
     					<div class="info info-horizontal">
-    						<div class="icon icon-rose">
-    							<i class="material-icons">question_answer</i>
+    						<div class="icon icon-success">
+    							<i class="material-icons">card_giftcard</i>
     						</div>
     						<div class="description">
-    							<h4 class="info-title">Any other questions we can answer?</h4>
-    							<p>We are happy to help you. Contact us.</p>
+    							<h4 class="info-title">How do I pay a meal forward</h4>
+    							<p> Once you are subscribed to our service, in your <b>My Account</b> page there is a link to add an extra meal to pay the meal forward.</p>
     						</div>
     					</div>
     				</div>
+
                 </div>
             </div>
+
+
+
+            </div>
+            <hr />
 
         </div>
 
