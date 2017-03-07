@@ -3,11 +3,15 @@ require_once("Includes/db.php");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
  	if(null == munchKitDB::getInstance()->get_user_id_by_email($_POST['email'])){
- 		munchKitDB::getInstance()->create_user($_POST['email'], $_POST['userpassword']);
- 		
+ 		//munchKitDB::getInstance()->create_user($_POST['email'], $_POST['userpassword']); 		
  	}
     else{
-    	
+  //   	echo '<script language="javascript">';
+		// echo 'alert("An account with that email already exists! You will be redirected to the signup page in 3 seconds...")';
+		// echo '</script>';
+
+  		header('Location: signup.php');
+ 		die();
     }
    
 }
@@ -151,6 +155,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 											<input type="text" name="zipCode" required="" placeholder="Zip Code..." class="form-control" />
 										</div>
 											<input type="hidden" name="email" value = <?php echo '"' ?><?php echo $_POST['email']?> <?php echo'"' ?> >
+											<input type="hidden" name="userpassword" value = <?php echo '"' ?><?php echo $_POST['userpassword']?> <?php echo'"' ?> >
 									</div>
 									<div class="footer text-center">
 										<input type="submit" class="btn btn-primary btn-round" value="Almost Done!"/>

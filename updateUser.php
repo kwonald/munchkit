@@ -1,13 +1,13 @@
 <?php
 require_once("Includes/db.php");
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-		// echo $_POST['email'];
-		// echo $_POST['firstName'];
-		$userID = munchKitDB::getInstance()->get_user_id_by_email($_POST['email']);
- 		munchKitDB::getInstance()->update_user($userID, $_POST['firstName'], $_POST['lastName'], $_POST['phone'], $_POST['streetAddress'], $_POST['city'], $_POST['prov'], $_POST['zipCode'] );
-
- 		//header('Location: login-page.php');
- 		//die();
+		
+		$len = rand(5, 30);
+		$salt = bin2hex(random_bytes($len));
+		$password = htmlspecialchars($_POST['userpassword']) . $salt;
+		$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+		munchKitDB::getInstance()->create_user($_POST['email'], $hashedPassword, $salt, $_POST['firstName'], $_POST['lastName'], $_POST['phone'], $_POST['streetAddress'], $_POST['city'], $_POST['prov'], $_POST['zipCode']); 
+ 		
 }
 ?>
 

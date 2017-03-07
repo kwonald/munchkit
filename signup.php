@@ -124,20 +124,19 @@ if (array_key_exists("user", $_SESSION)) {
 											<span class="input-group-addon">
 												<i class="material-icons">lock</i>
 											</span>
-											<input type="password" name="userpassword" required="" class="form-control" placeholder="Enter a Password...">
+											<input type="password" name="userpassword" id="userpassword" required="" class="form-control" placeholder="Enter a Password...">
 										</div>
 										<div class="input-group">
 											<span class="input-group-addon">
 												<i class="material-icons">lock</i>
 											</span>
-											<input type="password" name="userpasswordconfirm" required="" class="form-control" placeholder="Confirm Password...">
+											<input type="password" name="userpasswordconfirm" id="userpasswordconfirm" required="" class="form-control" placeholder="Confirm Password..." onChange="checkPasswordMatch();">
+
 										</div>
-										
-										
-									</div>
-									<div class="footer text-center">
-										
-										<input type="submit" class="btn btn-primary btn-round" value="next"/>
+										<div class="footer text-center">
+											<input type="submit" class="btn btn-primary btn-round" value="next"/>
+										</div>
+										<div class="registrationFormAlert" id="divCheckPasswordMatch" align ="center"></div>
 									</div>
 								</form>
                             </div>
@@ -204,5 +203,8 @@ if (array_key_exists("user", $_SESSION)) {
 
 	<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
 	<script src="assets/js/material-kit.js" type="text/javascript"></script>
+
+	<!-- Check account validation pw matching and unique email account  -->
+	<script src="assets/js/accountValidate.js"></script>
 
 </html>
