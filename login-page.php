@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </head>
 
 <body class="login-page">
-	<nav class="navbar navbar-default navbar-transparent navbar-fixed-top navbar-color-on-scroll" id="sectionsNav">
+	<nav class="navbar navbar-inverse navbar-fixed-top ">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -53,38 +53,59 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <a href="index.php">
                     <img src="assets/img/lunchboxlogo.png"  width="45" height="45" border="0">
                 </a>
-                <a class="navbar-brand" href="index.php">MunchKit</a>
+                <a class="navbar-brand" href="index.php">MUNCHKIT</a>
             </div>
 
             <div class="collapse navbar-collapse" id="navigation-example">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="about-us.php">
-                            <i class="material-icons">apps</i> About Us
-                        </a>
-                    </li>
-                    <li>
+                   <li>
                         <a href="meals-page.php">
-                            <i class="material-icons">restaurant</i> Our Meals
+                            <!-- <i class="material-icons">restaurant</i> --> Our Meals
                         </a>
                     </li>
                     <li>
-                        <a href="pricing.php">
-                            <i class="material-icons">attach_money</i> Pricing Page
+                        <a href=#pablo>
+                            <!-- <i class="material-icons">restaurant</i> --> How It Works
                         </a>
                     </li>
-                    <li>
-                        <a href="contact-us.php">
-                            <i class="material-icons">location_on</i> Contact Us
+                    
+                    <!-- added by alex -->
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="material-icons">view_day</i> <!-- More -->
+                            <b class="caret"></b>
                         </a>
+                        <ul class="dropdown-menu dropdown-with-icons">
+                            <li>
+                                <a href="pricing.php">
+                                    <!-- <i class="material-icons">attach_money</i> --> Pricing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="contact-us.php">
+                                    <!-- <i class="material-icons">location_on</i> --> Contact Us
+                                </a>
+                            </li>
+                             <li>
+                                <a href="about-us.php">
+                                    <!-- <i class="material-icons">apps</i>  -->About Us
+                                </a>
+                            </li>
+
+                        </ul>
                     </li>
+
+                    
+                    <!-- end of add -->
+
                     <!-- if you're logged in, this is the MyAccount tab, else its sign in tab -->
                     <?php
                     if ($logonSuccess){
                     ?>
                     <li>
                         <a href="profile-page.php">
-                            <i class="material-icons">account_circle</i> My Account
+                            <!-- <i class="material-icons">account_circle</i> --> My Account
                         </a>
                     </li>
                     <?php    
@@ -92,18 +113,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     ?>
                     <li>
                         <a href="login-page.php">
-                            <i class="material-icons">account_circle</i> Log In
+                            <!-- <i class="material-icons">account_circle</i> --> Log In
                         </a>
                     </li>
                     <?php
                     }
                     ?>
                     <!-- End of myaccount tab/ sign in tab -->
-                    
 
                     <li>
-                        <a href="pricing.php" class="btn btn-rose btn-round">
-                            <i class="material-icons">shopping_cart</i> Join Us Now
+                        <a href="pricing.php" class="btn btn-rose btn-square">
+                             Sign Up
                         </a>
                     </li>
                 </ul>

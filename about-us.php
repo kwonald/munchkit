@@ -28,7 +28,7 @@ if (array_key_exists("user", $_SESSION)) {
 </head>
 
 <body class="about-us">
-	<nav class="navbar navbar-default navbar-transparent navbar-fixed-top navbar-color-on-scroll" id="sectionsNav">
+	<nav class="navbar navbar-inverse navbar-fixed-top ">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -41,31 +41,51 @@ if (array_key_exists("user", $_SESSION)) {
                 <a href="index.php">
                     <img src="assets/img/lunchboxlogo.png"  width="45" height="45" border="0">
                 </a>
-                <a class="navbar-brand" href="index.php">MunchKit</a>
+                <a class="navbar-brand" href="index.php">MUNCHKIT</a>
             </div>
 
-                    <div class="collapse navbar-collapse" id="navigation-example">
+            <div class="collapse navbar-collapse" id="navigation-example">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="about-us.php">
-                            <i class="material-icons">apps</i> About Us
-                        </a>
-                    </li>
-                    <li>
+                   <li>
                         <a href="meals-page.php">
-                            <i class="material-icons">restaurant</i> Our Meals
+                            <!-- <i class="material-icons">restaurant</i> --> Our Meals
                         </a>
                     </li>
                     <li>
-                        <a href="pricing.php">
-                            <i class="material-icons">attach_money</i> Pricing Page
+                        <a href=#pablo>
+                            <!-- <i class="material-icons">restaurant</i> --> How It Works
                         </a>
                     </li>
-                    <li>
-                        <a href="contact-us.php">
-                            <i class="material-icons">location_on</i> Contact Us
+                    
+                    <!-- added by alex -->
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="material-icons">view_day</i> <!-- More -->
+                            <b class="caret"></b>
                         </a>
+                        <ul class="dropdown-menu dropdown-with-icons">
+                            <li>
+                                <a href="pricing.php">
+                                    <!-- <i class="material-icons">attach_money</i> --> Pricing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="contact-us.php">
+                                    <!-- <i class="material-icons">location_on</i> --> Contact Us
+                                </a>
+                            </li>
+                             <li>
+                                <a href="about-us.php">
+                                    <!-- <i class="material-icons">apps</i>  -->About Us
+                                </a>
+                            </li>
+
+                        </ul>
                     </li>
+
+                    
+                    <!-- end of add -->
 
                     <!-- if you're logged in, this is the MyAccount tab, else its sign in tab -->
                     <?php
@@ -73,7 +93,7 @@ if (array_key_exists("user", $_SESSION)) {
                     ?>
                     <li>
                         <a href="profile-page.php">
-                            <i class="material-icons">account_circle</i> My Account
+                            <!-- <i class="material-icons">account_circle</i> --> My Account
                         </a>
                     </li>
                     <?php    
@@ -81,7 +101,7 @@ if (array_key_exists("user", $_SESSION)) {
                     ?>
                     <li>
                         <a href="login-page.php">
-                            <i class="material-icons">account_circle</i> Log In
+                            <!-- <i class="material-icons">account_circle</i> --> Log In
                         </a>
                     </li>
                     <?php
@@ -90,16 +110,18 @@ if (array_key_exists("user", $_SESSION)) {
                     <!-- End of myaccount tab/ sign in tab -->
 
                     <li>
-                        <a href="pricing.php" class="btn btn-rose btn-round">
-                            <i class="material-icons">shopping_cart</i> Join Us Now
+                        <a href="pricing.php" class="btn btn-rose btn-square">
+                             Sign Up
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    <div class="main" style="background-color:#FFFFFF;color:#FFFFFF;padding:35px;">
+    </div>
+	<div class="page-header header-filter" data-parallax="" style="background-image: url('assets/img/theteam.jpg');">
 
-	<div class="page-header header-filter" data-parallax="active" style="background-image: url('assets/img/theteam.jpg');">
 		<div class="container">
     		<div class="row">
         		<div class="col-md-8 col-md-offset-2">
@@ -110,19 +132,19 @@ if (array_key_exists("user", $_SESSION)) {
         </div>
 	</div>
 
-	<div class="main main-raised">
+	<div class="main">
 		<div class="container">
             <div class="about-description text-center">
                 <div class="row">
     				<div class="col-md-8 col-md-offset-2">
-    					<h5 class="description">We are on mission. A mission to reconnect families with real, wholesome, good food! Industrialization and processing of food has let us achieve ungodly societal advantages in the last century but with it came so many health consequences we had not anticipated. At MunchKit we realize that to the problems of health, global warming, societal issues can be tackled with the simple act of cooking. Caring about what we put into our bodies and celebrating the people dedicated to providing wholesome, nutritious ingredients! We are excited for you to join us on our journey to a better you, a better community, and a better world!</h5>
+    					<h5 class="description" align="left">We are on mission. A mission to reconnect families with real, wholesome, good food! Industrialization and processing of food has let us achieve ungodly societal advantages in the last century but with it came so many health consequences we had not anticipated. At MunchKit we realize that to the problems of health, global warming, societal issues can be tackled with the simple act of cooking. Caring about what we put into our bodies and celebrating the people dedicated to providing wholesome, nutritious ingredients! We are excited for you to join us on our journey to a better you, a better community, and a better world!</h5>
     				</div>
     			</div>
             </div>
             <div class="about-team team-1">
     			<div class="row">
-    				<div class="col-md-8 col-md-offset-2 text-center">
-    					<h2 class="title">We are a group of foodies, nerds, and rockstars!</h2>
+    				<div class="col-md-9 col-md-offset-2 text-center">
+    					<h2 class="title" >We are a group of foodies, nerds, and rockstars!</h2>
     					<h5 class="description">MunchKit has a passionate and dedicated team whose sole purpose is to help making eating right an easy choice.</h5>
     				</div>
     			</div>
@@ -140,8 +162,8 @@ if (array_key_exists("user", $_SESSION)) {
     							<h4 class="card-title">Alex Kwon</h4>
     							<h6 class="category text-muted">CEO / Co-Founder</h6>
 
-    							<p class="card-description">
-    								"Dare to take a chance on yourself. Be leaders of this world by trying to fix a small part of it; to not shy away from the hard problems. If you dare to dream it, have the courage to chase it."
+    							<p class="card-description" align="left">
+    								"If you dare to change the world you must first change your community. To change your community you must have the courage to change yourself. Only then can we truly invoke change."
     							</p>
     							<div class="footer">
     								<!-- <a href="https://www.instagram.com/kwonald/" target="_blank" class="btn btn-just-icon btn-simple btn-instagram"><i class="fa fa-instagram"></i></a> -->
@@ -163,7 +185,7 @@ if (array_key_exists("user", $_SESSION)) {
     							<h4 class="card-title">Costa Lambrinoudis</h4>
     							<h6 class="category text-muted">CSO / Co-Founder</h6>
 
-    							<p class="card-description">
+    							<p class="card-description" align="left">
     								"I like math and making black holes on my computer."
     							</p>
     							<div class="footer">
@@ -185,7 +207,7 @@ if (array_key_exists("user", $_SESSION)) {
     							<h4 class="card-title">Christian Mike</h4>
     							<h6 class="category text-muted">Web Developer</h6>
 
-    							<p class="card-description">
+    							<p class="card-description" align="left">
     								"If this website is buggy, it wasn't me."
     							</p>
     							<div class="footer">
@@ -208,8 +230,8 @@ if (array_key_exists("user", $_SESSION)) {
     							<h4 class="card-title">Rebecca Stormvile</h4>
     							<h6 class="category text-muted">Marketing Director</h6>
 
-    							<p class="card-description">
-    								"I like instagram."
+    							<p class="card-description" align="left">
+    								"I like instagram. and liking photos    "
     							</p>
     							<div class="footer">
     								<a href="#pablo" class="btn btn-just-icon btn-simple btn-google"><i class="fa fa-google"></i></a>
@@ -234,7 +256,7 @@ if (array_key_exists("user", $_SESSION)) {
     				<div class="col-md-4">
     		           	<div class="info info-horizontal">
     						<div class="icon icon-rose">
-    							<i class="material-icons">gesture</i>
+    							<!-- <i class="material-icons">gesture</i> -->
     						</div>
     						<div class="description">
     							<h4 class="info-title">Empowering Your Local Communities</h4>
@@ -248,7 +270,7 @@ if (array_key_exists("user", $_SESSION)) {
     				<div class="col-md-4">
     					<div class="info info-horizontal">
     						<div class="icon icon-rose">
-    							<i class="material-icons">build</i>
+    							<!-- <i class="material-icons">build</i> -->
     						</div>
     						<div class="description">
     							<h4 class="info-title">Striving for zero waste</h4>
@@ -261,7 +283,7 @@ if (array_key_exists("user", $_SESSION)) {
     				<div class="col-md-4">
     					<div class="info info-horizontal">
     						<div class="icon icon-rose">
-    							<i class="material-icons">mode_edit</i>
+    							<!-- <i class="material-icons">mode_edit</i> -->
     						</div>
     						<div class="description">
     							<h4 class="info-title">We don't compromise on our values</h4>
@@ -272,76 +294,7 @@ if (array_key_exists("user", $_SESSION)) {
     				</div>
     			</div>
             </div>
-            <!-- <div class="about-office">
-                <div class="row  text-center">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h2 class="title">Our office is our second home</h2>
-                        <h4 class="description">Here are some pictures from our office. You can see the place looks like a palace and is fully equiped with everything you need to get the job done.</h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <img class="img-rounded img-responsive img-raised" alt="Raised Image" src="assets/img/examples/office2.jpg">
-                    </div>
-                    <div class="col-md-4">
-                        <img class="img-rounded img-responsive img-raised" alt="Raised Image" src="assets/img/examples/office4.jpg">
-                    </div>
-                    <div class="col-md-4">
-                        <img class="img-rounded img-responsive img-raised" alt="Raised Image" src="assets/img/examples/office3.jpg">
-                    </div>
-                    <div class="col-md-6">
-                        <img class="img-rounded img-responsive img-raised" alt="Raised Image" src="assets/img/examples/office5.jpg">
-                    </div>
-                    <div class="col-md-6">
-                        <img class="img-rounded img-responsive img-raised" alt="Raised Image" src="assets/img/examples/office1.jpg">
-                    </div>
-
-                </div>
-
-            </div> -->
-            <!-- <div class="about-contact">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h2 class="text-center title">Want to work with us?</h2>
-						<h4 class="text-center description">Divide details about your product or agency work into parts. Write a few lines about each one and contact us about any further collaboration. We will get back to you in a couple of hours.</h4>
-                        <form class="contact-form">
-                            <div class="row">
-                                <div class="col-md-4">
-									<div class="form-group">
-										<label class="control-label">Your Name</label>
-										<input type="email" class="form-control">
-									</div>
-                                </div>
-                                <div class="col-md-4">
-									<div class="form-group">
-										<label class="control-label">Your Email</label>
-										<input type="email" class="form-control">
-									</div>
-                                </div>
-                                <div class="col-md-4">
-	                                <div class="form-group">
-    	                                <label class="control-label">Speciality</label>
-                	                    <select class="select form-control" placeholder="Speciality">
-                                          <option value="1">I'm a Designer</option>
-                                          <option value="2">I'm a Developer</option>
-										  <option value="3">I'm a Hero</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-4 col-md-offset-4 text-center">
-                                    <button class="btn btn-primary btn-round">
-										Let's talk
-									</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-            </div> -->
+            
         </div>
     </div>
 
@@ -364,11 +317,11 @@ if (array_key_exists("user", $_SESSION)) {
 						   Contact Us
 						</a>
 					</li>
-					<li>
+					<!-- <li>
 						<a href="http://www.creative-tim.com/license">
 							Licenses
 						</a>
-					</li>
+					</li> -->
 				</ul>
             </nav>
             <div class="copyright pull-right">

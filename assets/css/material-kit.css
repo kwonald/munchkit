@@ -46,7 +46,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
 }
 
 .serif-font {
-  font-family: "Roboto Slab", "Times New Roman", serif;
+  font-family: ff-clan-web-pro, "Helvetica Neue", Helvetica, sans-serif !important;
 }
 
 a {
@@ -95,7 +95,7 @@ legend {
 
 * {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  -webkit-tap-highlight-color: transparent;
+  /*-webkit-tap-highlight-color: transparent;*/
 }
 *:focus {
   outline: 0;
@@ -2358,7 +2358,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 }
 .navbar, .navbar.navbar-default {
   background-color: #169094;
-  color: #FFFFFF;
+  color: #000000;
 }
 .navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar .navbar-form input.form-control::-moz-placeholder, .navbar.navbar-default .navbar-form .form-group input.form-control::-moz-placeholder,
@@ -2390,8 +2390,8 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
   color: #555555;
 }
 .navbar.navbar-inverse {
-  background-color: #169094;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
 }
 .navbar.navbar-inverse .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar.navbar-inverse .navbar-form input.form-control::-moz-placeholder {
@@ -2605,7 +2605,7 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
 .navbar.navbar-transparent {
   background-color: transparent;
   box-shadow: none;
-  color: #fff;
+  color: #000;
   padding-top: 25px;
 }
 .navbar.navbar-transparent .logo-container .brand {
@@ -2904,7 +2904,7 @@ h6, .h6 {
 .footer-big h4,
 .media .media-heading {
   font-weight: 700;
-  font-family: "Roboto Slab", "Times New Roman", serif;
+  font-family: ff-clan-web-pro, "Helvetica Neue", Helvetica, sans-serif !important;
 }
 .title,
 .title a,
@@ -2931,7 +2931,8 @@ h2.title {
 .description,
 .card-description,
 .footer-big p {
-  color: #999999;
+  color: #000;
+  
 }
 
 .text-warning {
@@ -4637,7 +4638,7 @@ select[data-dropdownjs][disabled] + .dropdownjs > input[readonly] {
   bottom: 60px;
 }
 .page-header .container {
-  padding-top: 30vh;
+  padding-top: 15vh;
   color: #FFFFFF;
 }
 .page-header .title {
@@ -5760,7 +5761,7 @@ footer .pull-center {
 
 .presentation-page .page-header,
 .index-page .page-header {
-  height: 90vh;
+  height: 70vh;
   overflow: hidden;
 }
 .presentation-page .brand,
@@ -6366,6 +6367,9 @@ footer .pull-center {
 .about-us .page-header {
   background-size: cover;
   height: 60vh;
+  margin: 0;
+  padding: 0vh;
+  border: 0;
 }
 .about-us .page-header .container {
   padding-top: 20vh;
