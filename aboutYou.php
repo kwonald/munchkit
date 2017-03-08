@@ -1,5 +1,10 @@
 <?php
 require_once("Includes/db.php");
+session_start();
+$loggedIn = false;
+if (array_key_exists("user", $_SESSION)) {
+    $loggedIn = true;
+}
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
  	if(null == munchKitDB::getInstance()->get_user_id_by_email($_POST['email'])){

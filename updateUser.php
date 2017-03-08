@@ -2,11 +2,13 @@
 require_once("Includes/db.php");
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		
-		$len = rand(5, 30);
-		$salt = bin2hex(random_bytes($len));
-		$password = htmlspecialchars($_POST['userpassword']) . $salt;
-		$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-		munchKitDB::getInstance()->create_user($_POST['email'], $hashedPassword, $salt, $_POST['firstName'], $_POST['lastName'], $_POST['phone'], $_POST['streetAddress'], $_POST['city'], $_POST['prov'], $_POST['zipCode']); 
+		// $len = random_int(5, 30);
+		// $salt = bin2hex(random_bytes($len));
+		//$password = $_POST['userpassword'];
+		// $password = preg_replace('/\s+/', '', $password);
+		
+		//$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+		munchKitDB::getInstance()->create_user($_POST['email'], $_POST['userpassword'], $_POST['firstName'], $_POST['lastName'], $_POST['phone'], $_POST['streetAddress'], $_POST['city'], $_POST['prov'], $_POST['zipCode']); 
  		
 }
 ?>

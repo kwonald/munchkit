@@ -4,6 +4,10 @@ $logonSuccess = false;
 
 // verify user's credentials
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    // $salt = munchKitDB::getInstance()->get_passwordSalt_by_email($_POST['user']);
+    //$password = $_POST['userpassword'] . $salt;
+    //$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    
     $logonSuccess = (munchKitDB::getInstance()->verify_user_credentials($_POST['user'], $_POST['userpassword']));
     if ($logonSuccess == true) {
         session_start();

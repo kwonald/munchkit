@@ -1,5 +1,4 @@
 <?php
-
 class munchKitDB extends mysqli {
 
     // single instance of self shared among all instances
@@ -31,7 +30,7 @@ class munchKitDB extends mysqli {
     }
 
     // private constructor
-    private function __construct() {
+    public function __construct() {
         parent::__construct($this->dbHost, $this->user, $this->pass, $this->dbName);
         if (mysqli_connect_error()) {
             exit('Connect Error (' . mysqli_connect_errno() . ') '
@@ -52,14 +51,27 @@ class munchKitDB extends mysqli {
             return null;
     }
 
-    public function get_child_by_user_id($userID) {
-        return $this->query("SELECT idMunchKids, f_name, dietType FROM MunchKids WHERE Users_idUsers=" . $userID);
+    public function get_user_name_by_email($email) {
+        $email = $this->real_escape_string($email);
+        $user = $this->query("SELECT f_name FROM Users WHERE email = '"
+                        . $email . "'");
+
+        if ($user->num_rows > 0){
+            $row = $user->fetch_row();
+            return $row[0];
+        } else
+            return null;
     }
 
-    public function create_user($email, $passwordHash, $passwordSalt, $f_name, $l_name, $phoneNo, $addr, $city, $state, $zipCode) {
+    public function get_munchkids_by_user_email($email) {
+        $userID = $this->get_user_id_by_email($email);
+        $result = $this->query("SELECT idMunchKids, f_name, dietType FROM MunchKids WHERE Users_idUsers=" . $userID);
+        return $result;
+    }
+
+    public function create_user($email, $passwordHash, $f_name, $l_name, $phoneNo, $addr, $city, $state, $zipCode) {
         $email = $this->real_escape_string($email);
         $passwordHash = $this->real_escape_string($passwordHash);
-        $passwordSalt = $this->real_escape_string($passwordSalt);
         $f_name = $this->real_escape_string($f_name);
         $l_name = $this->real_escape_string($l_name);
         $phoneNo = $this->real_escape_string($phoneNo);
@@ -67,19 +79,27 @@ class munchKitDB extends mysqli {
         $city = $this->real_escape_string($city);
         $state = $this->real_escape_string($state);
         $zipCode = $this->real_escape_string($zipCode);
-        $this->query("INSERT INTO Users (email, passwordHash, passwordSalt, f_name, l_name, phone, addr, city, state, zipCode) VALUES ('" . $email
-                . "', '" . $passwordHash . "', '". $passwordSalt . "', '" . $f_name . "', '" . $l_name . "', '" . $phoneNo . "', '" . $addr . "', '" . $city . "', '" . $state . "', '" . $zipCode ."')");
+
+        //$passwordHash = password_hash($passwordHash, PASSWORD_BCRYPT);
+
+        $this->query("INSERT INTO Users (email, passwordHash, f_name, l_name, phone, addr, city, state, zipCode) VALUES ('" . $email
+                . "', '" . $passwordHash . "', '". $f_name . "', '" . $l_name . "', '" . $phoneNo . "', '" . $addr . "', '" . $city . "', '" . $state . "', '" . $zipCode ."')");
     }
 
     public function verify_user_credentials($email, $password) {
         $email = $this->real_escape_string($email);
         $password = $this->real_escape_string($password);
+        //$passwordHash = password_hash($password, PASSWORD_BCRYPT);
+        // $secret = $this->get_passwordHash_by_email($email);
+          
+        //return password_verify($password, $secret);
+        
         $result = $this->query("SELECT 1 FROM Users WHERE email = '"
-                        . $email . "' AND passwordSalt = '" . $password . "'");
+                        . $email . "' AND passwordHash = '" . $password . "'");
         return $result->data_seek(0);
     }
 
-    function insert_child($userID, $f_name, $dietType) {
+    function insert_munchkid($userID, $f_name, $dietType) {
         $f_name = $this->real_escape_string($f_name);
         if ($this->real_escape_string($dietType)==null){
            $this->query("INSERT INTO MunchKids (Users_idUsers, f_name)" .
@@ -125,8 +145,20 @@ class munchKitDB extends mysqli {
         return $this->query("SELECT idMunchKids, f_name, dietType FROM MunchKids WHERE idMunchKids = " . $idMunchKids);
     }
 
-    public function delete_wish($idMunchKids) {
+    public function delete_munchkid($idMunchKids) {
         $this->query("DELETE FROM MunchKids WHERE idMunchKids = " . $idMunchKids);
+    }
+
+    public function get_passwordHash_by_email($email) {
+        $email = $this->real_escape_string($email);
+        $auth = $this->query("SELECT passwordHash FROM Users WHERE email = '"
+                        . $email . "'");
+
+        if ($auth->num_rows > 0){
+            $row = $auth->fetch_row();
+            return $row[0];
+        } else
+            return null;
     }
 
 }

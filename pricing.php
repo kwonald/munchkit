@@ -105,7 +105,7 @@ if (array_key_exists("user", $_SESSION)) {
         		<div class="col-md-8 col-md-offset-2">
                     <h1 class="title">Let's get started</h1>
                     <h4>To get started, you will need to choose a plan for your needs. You can change, suspend, cancel your plan anytime!</h4>
-                    <a href="#pablo" class="btn btn-rose btn-round">
+                    <a href="#FAQ" class="btn btn-rose btn-round">
 						Frequently Asked Questions
 					</a>
                 </div>
@@ -116,7 +116,7 @@ if (array_key_exists("user", $_SESSION)) {
 	<div class="main main-raised">
 		<div class="container">
             <!-- ADDED bY ALEX -->
-			<div class="pricing-2">
+			<div class="pricing-2" id="pricing">
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3 text-center">
 						<h2 class="title">Ready to Join us at MunchKit?</h2>
@@ -147,7 +147,7 @@ if (array_key_exists("user", $_SESSION)) {
 												<li><b>Free Delivery</b></li>
 												<li><b>Recyclable</b> Containers</li>
 											</ul>
-											<a href="tellusaboutyourkid.php" class="btn btn-rose btn-raised btn-round">
+											<a href="signup.php" class="btn btn-rose btn-raised btn-round">
 												Get Started
 											</a>
 										</div>
@@ -168,7 +168,7 @@ if (array_key_exists("user", $_SESSION)) {
 												<li><b>+ Access</b> to PayItForward program</b></li>
 												<li><b>+ more!</b></li>
 											</ul>
-											<a href="tellusaboutyourkid.php" class="btn btn-white btn-raised btn-round">
+											<a href="signup.php" class="btn btn-white btn-raised btn-round">
 												Get Started
 											</a>
 										</div>
@@ -187,7 +187,7 @@ if (array_key_exists("user", $_SESSION)) {
 												<li><b>Customized</b> LunchBoxes</li>
 												<li><b>Reusable</b> Totebag</li>
 											</ul>
-											<a href="tellusaboutyourkid.php" class="btn btn-rose btn-raised btn-round">
+											<a href="signup.php" class="btn btn-rose btn-raised btn-round">
 												Get Started
 											</a>
 										</div>
@@ -207,7 +207,7 @@ if (array_key_exists("user", $_SESSION)) {
 												<li><b>Free Delivery</b></li>
 												<li><b>Recyclable</b> Containers</li>
 											</ul>
-											<a href="tellusaboutyourkid.php" class="btn btn-rose btn-raised btn-round">
+											<a href="signup.php" class="btn btn-rose btn-raised btn-round">
 												Get Started
 											</a>
 										</div>
@@ -228,7 +228,7 @@ if (array_key_exists("user", $_SESSION)) {
 												<li><b>+ Access</b> to PayItForward program</b></li>
 												<li><b>+ more!</b></li>
 											</ul>
-											<a href="tellusaboutyourkid.php" class="btn btn-white btn-raised btn-round">
+											<a href="signup.php" class="btn btn-white btn-raised btn-round">
 												Get Started
 											</a>
 										</div>
@@ -247,7 +247,7 @@ if (array_key_exists("user", $_SESSION)) {
 												<li><b>Customized</b> LunchBoxes</li>
 												<li><b>Reusable</b> Totebag</li>
 											</ul>
-											<a href="tellusaboutyourkid.php" class="btn btn-rose btn-raised btn-round">
+											<a href="signup.php" class="btn btn-rose btn-raised btn-round">
 												Get Started
 											</a>
 										</div>
@@ -258,7 +258,7 @@ if (array_key_exists("user", $_SESSION)) {
 						</div>
 					</div>
 
-					<div class="col-md-8 col-md-offset-2 text-center">
+					<div class="col-md-8 col-md-offset-2 text-center" id="FAQ">
 						<p class="description">You can <b>Update Your Account</b> and <b>Suspend or Cancel Anytime</b>. Just let us know <b>3 days</b> a head of time process your request.</p>
 					</div>
 				</div>
@@ -266,6 +266,9 @@ if (array_key_exists("user", $_SESSION)) {
             <div class="features-2">
                 <div class="text-center">
                     <h3 class="title">Frequently Asked Questions</h3>
+                    <a href="#pricing" class="btn btn-rose btn-round">
+						Choose a Plan
+					</a>
                 </div>
                 <div class="row">
     				<div class="col-md-4 col-md-offset-2">
@@ -391,4 +394,6 @@ if (array_key_exists("user", $_SESSION)) {
 	<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
 	<script src="assets/js/material-kit.js" type="text/javascript"></script>
 
+	<!-- smooth scrolling -->
+	<script src="assets/js/smoothScroll.js"></script>
 </html>
