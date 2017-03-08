@@ -28,52 +28,72 @@ if (array_key_exists("user", $_SESSION)) {
 </head>
 
 <body class="pricing">
-	<nav class="navbar navbar-rose navbar-transparent navbar-fixed-top navbar-color-on-scroll">
-    	<div class="container">
-        	<!-- Brand and toggle get grouped for better mobile display -->
-        	<div class="navbar-header">
-        		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
-            		<span class="sr-only">Toggle navigation</span>
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-        		</button>
-        		<a href="index.php">
+	<nav class="navbar navbar-inverse navbar-fixed-top ">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.php">
                     <img src="assets/img/lunchboxlogo.png"  width="45" height="45" border="0">
                 </a>
-        		<a class="navbar-brand" href="index.php">MunchKit</a>
-        	</div>
+                <a class="navbar-brand" href="index.php">MUNCHKIT</a>
+            </div>
 
-        	<div class="collapse navbar-collapse" id="navigation-example">
-        		<ul class="nav navbar-nav navbar-right">
-    				<li>
-						<a href="about-us.php">
-							<i class="material-icons">apps</i> About Us
-						</a>
-					</li>
-					<li>
+            <div class="collapse navbar-collapse" id="navigation-example">
+                <ul class="nav navbar-nav navbar-right">
+                   <li>
                         <a href="meals-page.php">
-                            <i class="material-icons">restaurant</i> Our Meals
-                        </a>
-                    </li>
-					<li>
-                        <a href="pricing.php">
-                            <i class="material-icons">attach_money</i> Pricing Page
+                            <!-- <i class="material-icons">restaurant</i> --> Our Meals
                         </a>
                     </li>
                     <li>
-                        <a href="contact-us.php">
-                            <i class="material-icons">location_on</i> Contact Us
+                        <a href=#pablo>
+                            <!-- <i class="material-icons">restaurant</i> --> How It Works
                         </a>
                     </li>
+                    
+                    <!-- added by alex -->
 
-					<!-- if you're logged in, this is the MyAccount tab, else its sign in tab -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="material-icons">view_day</i> <!-- More -->
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-with-icons">
+                            <li>
+                                <a href="pricing.php">
+                                    <!-- <i class="material-icons">attach_money</i> --> Pricing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="contact-us.php">
+                                    <!-- <i class="material-icons">location_on</i> --> Contact Us
+                                </a>
+                            </li>
+                             <li>
+                                <a href="about-us.php">
+                                    <!-- <i class="material-icons">apps</i>  -->About Us
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    
+                    <!-- end of add -->
+
+                    <!-- if you're logged in, this is the MyAccount tab, else its sign in tab -->
                     <?php
                     if ($loggedIn){
                     ?>
                     <li>
                         <a href="profile-page.php">
-                            <i class="material-icons">account_circle</i> My Account
+                            <!-- <i class="material-icons">account_circle</i> --> My Account
                         </a>
                     </li>
                     <?php    
@@ -81,7 +101,7 @@ if (array_key_exists("user", $_SESSION)) {
                     ?>
                     <li>
                         <a href="login-page.php">
-                            <i class="material-icons">account_circle</i> Log In
+                            <!-- <i class="material-icons">account_circle</i> --> Log In
                         </a>
                     </li>
                     <?php
@@ -89,17 +109,17 @@ if (array_key_exists("user", $_SESSION)) {
                     ?>
                     <!-- End of myaccount tab/ sign in tab -->
 
-					<li>
-						<a href="pricing.php" class="btn btn-rose btn-round">
-							<i class="material-icons">shopping_cart</i> Join Us Now
-						</a>
-					</li>
-        		</ul>
-        	</div>
-    	</div>
+                    <li>
+                        <a href="pricing.php" class="btn btn-rose btn-square">
+                             Sign Up
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-	<div class="page-header header-filter" data-parallax="active" style="background-image: url('assets/img/bg11.jpg');">
+	<div class="page-header header-filter" data-parallax="" style="background-image: url('assets/img/lunchtable.jpg');">
 		<div class="container">
     		<div class="row">
         		<div class="col-md-8 col-md-offset-2">
@@ -113,7 +133,7 @@ if (array_key_exists("user", $_SESSION)) {
         </div>
 	</div>
 
-	<div class="main main-raised">
+	<div class="main ">
 		<div class="container">
             <!-- ADDED bY ALEX -->
 			<div class="pricing-2" id="pricing">
@@ -165,8 +185,8 @@ if (array_key_exists("user", $_SESSION)) {
 												<li><b>Reusable</b> Containers</li>
 												<li><b>Customized</b> LunchBoxes</li>
 												<li><b>Reusable</b> Totebag</li>
-												<li><b>+ Access</b> to PayItForward program</b></li>
-												<li><b>+ more!</b></li>
+												<li><b>Access</b> to PayItForward program</b></li>
+												<!-- <li><b>+ more!</b></li> -->
 											</ul>
 											<a href="signup.php" class="btn btn-white btn-raised btn-round">
 												Get Started
@@ -225,8 +245,8 @@ if (array_key_exists("user", $_SESSION)) {
 												<li><b>Reusable</b> Containers</li>
 												<li><b>Customized</b> LunchBoxes</li>
 												<li><b>Reusable</b> Totebag</li>
-												<li><b>+ Access</b> to PayItForward program</b></li>
-												<li><b>+ more!</b></li>
+												<li><b>Access</b> to PayItForward program</b></li>
+												<!-- <li><b>more!</b></li> -->
 											</ul>
 											<a href="signup.php" class="btn btn-white btn-raised btn-round">
 												Get Started
@@ -258,12 +278,12 @@ if (array_key_exists("user", $_SESSION)) {
 						</div>
 					</div>
 
-					<div class="col-md-8 col-md-offset-2 text-center" id="FAQ">
-						<p class="description">You can <b>Update Your Account</b> and <b>Suspend or Cancel Anytime</b>. Just let us know <b>3 days</b> a head of time process your request.</p>
+					<div class="col-md-8 col-md-offset-2 text-center" >
+						<p class="description" >You can <b>Update Your Account</b> and <b>Suspend or Cancel Anytime</b>. Just let us know <b>3 days</b> a head of time process your request.</p>
 					</div>
 				</div>
 			</div>
-            <div class="features-2">
+            <div class="features-2" id="FAQ">
                 <div class="text-center">
                     <h3 class="title">Frequently Asked Questions</h3>
                     <a href="#pricing" class="btn btn-rose btn-round">

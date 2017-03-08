@@ -29,7 +29,7 @@ if (array_key_exists("user", $_SESSION)) {
 
 <body class="meals-page">
 
-	<nav class="navbar navbar-default navbar-transparent navbar-fixed-top navbar-color-on-scroll" id="sectionsNav">
+	<nav class="navbar navbar-inverse navbar-fixed-top ">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -42,39 +42,59 @@ if (array_key_exists("user", $_SESSION)) {
                 <a href="index.php">
                     <img src="assets/img/lunchboxlogo.png"  width="45" height="45" border="0">
                 </a>
-                <a class="navbar-brand" href="index.php">MunchKit</a>
+                <a class="navbar-brand" href="index.php">MUNCHKIT</a>
             </div>
 
             <div class="collapse navbar-collapse" id="navigation-example">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="about-us.php">
-                            <i class="material-icons">apps</i> About Us
-                        </a>
-                    </li>
-                    <li>
+                   <li>
                         <a href="meals-page.php">
-                            <i class="material-icons">restaurant</i> Our Meals
+                            <!-- <i class="material-icons">restaurant</i> --> Our Meals
                         </a>
                     </li>
                     <li>
-                        <a href="pricing.php">
-                            <i class="material-icons">attach_money</i> Pricing Page
-                        </a>
-                    </li>
-                    <li>
-                        <a href="contact-us.php">
-                            <i class="material-icons">location_on</i> Contact Us
+                        <a href=#pablo>
+                            <!-- <i class="material-icons">restaurant</i> --> How It Works
                         </a>
                     </li>
                     
+                    <!-- added by alex -->
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="material-icons">view_day</i> <!-- More -->
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-with-icons">
+                            <li>
+                                <a href="pricing.php">
+                                    <!-- <i class="material-icons">attach_money</i> --> Pricing
+                                </a>
+                            </li>
+                            <li>
+                                <a href="contact-us.php">
+                                    <!-- <i class="material-icons">location_on</i> --> Contact Us
+                                </a>
+                            </li>
+                             <li>
+                                <a href="about-us.php">
+                                    <!-- <i class="material-icons">apps</i>  -->About Us
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    
+                    <!-- end of add -->
+
                     <!-- if you're logged in, this is the MyAccount tab, else its sign in tab -->
                     <?php
                     if ($loggedIn){
                     ?>
                     <li>
                         <a href="profile-page.php">
-                            <i class="material-icons">account_circle</i> My Account
+                            <!-- <i class="material-icons">account_circle</i> --> My Account
                         </a>
                     </li>
                     <?php    
@@ -82,7 +102,7 @@ if (array_key_exists("user", $_SESSION)) {
                     ?>
                     <li>
                         <a href="login-page.php">
-                            <i class="material-icons">account_circle</i> Log In
+                            <!-- <i class="material-icons">account_circle</i> --> Log In
                         </a>
                     </li>
                     <?php
@@ -91,8 +111,8 @@ if (array_key_exists("user", $_SESSION)) {
                     <!-- End of myaccount tab/ sign in tab -->
 
                     <li>
-                        <a href="pricing.php" class="btn btn-rose btn-round">
-                            <i class="material-icons">shopping_cart</i> Join Us Now
+                        <a href="pricing.php" class="btn btn-rose btn-square">
+                             Sign Up
                         </a>
                     </li>
                 </ul>
@@ -100,7 +120,7 @@ if (array_key_exists("user", $_SESSION)) {
         </div>
     </nav>
 
-	<div class="page-header header-filter header-small" data-parallax="active" style="background-image: url('assets/img/food/kebab.jpg');">
+	<div class="page-header header-filter header-small" data-parallax="active" style="background-image: url('assets/img/food/food-salad-healthy-lunch.jpg');">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center">
@@ -110,7 +130,7 @@ if (array_key_exists("user", $_SESSION)) {
 		</div>
 	</div>
 
-	<div class="main main-raised">
+	<div class="main">
 		<div class="container">
 
 			<div class="section">
@@ -307,10 +327,8 @@ if (array_key_exists("user", $_SESSION)) {
 
 
 		<div class="team-5 section-image" style="background-image: url('assets/img/bg10.jpg')">
-
 			<div class="container">
 				<div class="row">
-
 					<div class="col-md-6">
 						<div class="card card-profile card-plain">
 							<div class="col-md-5">
@@ -323,16 +341,16 @@ if (array_key_exists("user", $_SESSION)) {
 							<div class="col-md-7">
 								<div class="content">
 									<h4 class="card-title">Alec Thompson</h4>
-									<h6 class="category text-muted">Author of the Month</h6>
+									<h6 class="category text-muted">Chef of the Month</h6>
 
 									<p class="card-description">
-										Don't be scared of the truth because we need to restart the human foundation in truth...
+										I love the concept and values of MunchKit and I enjoy working knowing that I'm supporting my local community.
 									</p>
 
 									<div class="footer">
 										<a href="#pablo" class="btn btn-just-icon btn-simple btn-white"><i class="fa fa-twitter"></i></a>
 										<a href="#pablo" class="btn btn-just-icon btn-simple btn-white"><i class="fa fa-facebook-square"></i></a>
-										<a href="#pablo" class="btn btn-just-icon btn-simple btn-white"><i class="fa fa-google"></i></a>
+										<!-- <a href="#pablo" class="btn btn-just-icon btn-simple btn-white"><i class="fa fa-google"></i></a> -->
 									</div>
 								</div>
 							</div>
@@ -351,17 +369,17 @@ if (array_key_exists("user", $_SESSION)) {
 							<div class="col-md-7">
 								<div class="content">
 									<h4 class="card-title">Kendall Andrew</h4>
-									<h6 class="category text-muted">Author of the Week</h6>
+									<h6 class="category text-muted">Artisan of the Week</h6>
 
 									<p class="card-description">
-										Don't be scared of the truth because we need to restart the human foundation in truth...
+										Kendall collects and distributes the best locally sourced honey in Kitsilano!
 									</p>
 
 									<div class="footer">
 										<a href="#pablo" class="btn btn-just-icon btn-simple btn-white"><i class="fa fa-linkedin"></i></a>
 										<a href="#pablo" class="btn btn-just-icon btn-simple btn-white"><i class="fa fa-facebook-square"></i></a>
-										<a href="#pablo" class="btn btn-just-icon btn-simple btn-white"><i class="fa fa-dribbble"></i></a>
-										<a href="#pablo" class="btn btn-just-icon btn-simple btn-white"><i class="fa fa-google"></i></a>
+										<!-- <a href="#pablo" class="btn btn-just-icon btn-simple btn-white"><i class="fa fa-dribbble"></i></a>
+										<a href="#pablo" class="btn btn-just-icon btn-simple btn-white"><i class="fa fa-google"></i></a> -->
 									</div>
 								</div>
 							</div>
@@ -378,23 +396,14 @@ if (array_key_exists("user", $_SESSION)) {
 
 	<footer class="footer">
 		<div class="container">
-			<a class="footer-brand" href="index.php">MunchKit</a>
+			<a class="footer-brand" href="index.php">MUNCHKIT</a>
 
 
 			<ul class="pull-center">
+				
 				<li>
-					<a href="index.php">
-						MunchKit
-					</a>
-				</li>
-				<li>
-					<a href="blog-posts.php">
-					   Blog
-					</a>
-				</li>
-				<li>
-					<a href="pricing.php">
-						Pricing
+					<a href="about-us.php">
+					   About Us
 					</a>
 				</li>
 				<li>
