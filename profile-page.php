@@ -1,8 +1,11 @@
 <?php
+require_once('Includes/db.php');
 session_start();
 $loggedIn = false;
 if (array_key_exists("user", $_SESSION)) {
     $loggedIn = true;
+    // $f_name_parent = munchKitDB::getInstance()->get_user_name_by_email($_SESSION['user']);
+    // echo $f_name_parent;
 }
 // else
 ?>
@@ -114,9 +117,15 @@ if (array_key_exists("user", $_SESSION)) {
 	                            <img src="assets/img/squirrel.png">
 	                        </div>
 	                        <div class="name">
-	                            <h3 class="title">Name of Parent</h3>
-								<h6>Name of Child</h6>
-								<button class="btn btn-fab btn-primary" rel="tooltip" title="Add another child">
+	                            <h3 class="title"> <?php echo munchKitDB::getInstance()->get_user_name_by_email($_SESSION['user']); ?> </h3>
+								
+                                <h6> You have no MunchKids to display!
+
+                                </h6>
+								
+
+
+                                <button class="btn btn-fab btn-primary" rel="tooltip" title="Add another child">
                             		<i class="material-icons">add</i>
                         		</button>
 								
