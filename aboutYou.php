@@ -112,6 +112,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             <!-- <i class="material-icons">account_circle</i> --> My Account
                         </a>
                     </li>
+                    <li>
+                        <a href="choosePlan.php" class="btn btn-rose btn-square">
+                             Order Now
+                        </a>
+                    </li>
                     <?php    
                     }else{
                     ?>
@@ -120,16 +125,21 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             <!-- <i class="material-icons">account_circle</i> --> Log In
                         </a>
                     </li>
-                    <?php
-                    }
-                    ?>
-                    <!-- End of myaccount tab/ sign in tab -->
-
                     <li>
                         <a href="pricing.php" class="btn btn-rose btn-square">
                              Sign Up
                         </a>
                     </li>
+                    <?php
+                    }
+                    ?>
+                    <!-- End of myaccount tab/ sign in tab -->
+
+                    <!-- <li>
+                        <a href="pricing.php" class="btn btn-rose btn-square">
+                             Sign Up
+                        </a>
+                    </li> -->
                 </ul>
             </div>
         </div>

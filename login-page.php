@@ -1,6 +1,6 @@
 <?php
 require_once("Includes/db.php");
-$logonSuccess = false;
+$loggedIn = false;
 
 // verify user's credentials
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -8,11 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     //$password = $_POST['userpassword'] . $salt;
     //$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     
-    $logonSuccess = (munchKitDB::getInstance()->verify_user_credentials($_POST['user'], $_POST['userpassword']));
-    if ($logonSuccess == true) {
+    $loggedIn = (munchKitDB::getInstance()->verify_user_credentials($_POST['user'], $_POST['userpassword']));
+    if ($loggedIn == true) {
         session_start();
         $_SESSION['user'] = $_POST['user'];
-        header('Location: profile-page.php');
+        header('Location: choosePlan.php');
         exit;
     }
 }
@@ -101,11 +101,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                     <!-- if you're logged in, this is the MyAccount tab, else its sign in tab -->
                     <?php
-                    if ($logonSuccess){
+                    if ($loggedIn){
                     ?>
                     <li>
                         <a href="profile-page.php">
                             <!-- <i class="material-icons">account_circle</i> --> My Account
+                        </a>
+                    </li>
+                    <li>
+                        <a href="choosePlan.php" class="btn btn-rose btn-square">
+                             Order Now
                         </a>
                     </li>
                     <?php    
@@ -116,22 +121,27 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             <!-- <i class="material-icons">account_circle</i> --> Log In
                         </a>
                     </li>
-                    <?php
-                    }
-                    ?>
-                    <!-- End of myaccount tab/ sign in tab -->
-
                     <li>
                         <a href="pricing.php" class="btn btn-rose btn-square">
                              Sign Up
                         </a>
                     </li>
+                    <?php
+                    }
+                    ?>
+                    <!-- End of myaccount tab/ sign in tab -->
+
+                    <!-- <li>
+                        <a href="pricing.php" class="btn btn-rose btn-square">
+                             Sign Up
+                        </a>
+                    </li> -->
                 </ul>
             </div>
         </div>
     </nav>
 
-	<div class="page-header header-filter" style="background-image: url('assets/img/bg7.jpg'); background-size: cover; background-position: top center;">
+	<div class="page-header header-filter" style="background-image: url('assets/img/food/veggies_chicken.jpg'); background-size: cover; background-position: top center;">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
@@ -139,17 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 						<form class="logon" method="POST" action="login-page.php">
 							<div class="header header-primary text-center">
 								<h4 class="card-title">Log in</h4>
-								<!-- <div class="social-line">
-									<a href="#pablo" class="btn btn-just-icon btn-simple">
-										<i class="fa fa-facebook-square"></i>
-									</a>
-									<a href="#pablo" class="btn btn-just-icon btn-simple">
-										<i class="fa fa-twitter"></i>
-									</a>
-									<a href="#pablo" class="btn btn-just-icon btn-simple">
-										<i class="fa fa-google-plus"></i>
-									</a>
-								</div> -->
+								
 							</div>
 							
 							<div class="content">
@@ -175,14 +175,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 ?>
 
 							</div>
-							<div class="footer text-center">
+							<div class="text-center">
 								<!-- <a href="#pablo" class="btn btn-primary btn-simple btn-wd btn-lg">Log In</a> -->
                                 <input type="submit" class="btn btn-primary btn-simple btn-wd btn-lg" value="Login"/>
 							</div>
-                            <div class="footer text-center">
+                            <div class="text-center">
                                 <a href="#pablo" class="btn btn-primary btn-simple btn-wd btn-lg">Forgot Password</a>
+
                             </div>
-                            <div class="footer text-center">
+                            <div class="text-center">
                                 <a href="signup.php" class="btn btn-primary btn-simple btn-wd btn-lg">Sign Up</a>
                             </div>
 						</form>
