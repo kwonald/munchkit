@@ -98,6 +98,11 @@ if (array_key_exists("user", $_SESSION)) {
                             <!-- <i class="material-icons">account_circle</i> --> My Account
                         </a>
                     </li>
+                    <li>
+                        <a href="choosePlan.php" class="btn btn-rose btn-square">
+                             Order Now
+                        </a>
+                    </li>
                     <?php    
                     }else{
                     ?>
@@ -106,16 +111,21 @@ if (array_key_exists("user", $_SESSION)) {
                             <!-- <i class="material-icons">account_circle</i> --> Log In
                         </a>
                     </li>
-                    <?php
-                    }
-                    ?>
-                    <!-- End of myaccount tab/ sign in tab -->
-
                     <li>
                         <a href="pricing.php" class="btn btn-rose btn-square">
                              Sign Up
                         </a>
                     </li>
+                    <?php
+                    }
+                    ?>
+                    <!-- End of myaccount tab/ sign in tab -->
+
+                    <!-- <li>
+                        <a href="pricing.php" class="btn btn-rose btn-square">
+                             Sign Up
+                        </a>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -139,8 +149,8 @@ if (array_key_exists("user", $_SESSION)) {
             <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="brand"> 
-                    <h2 class="title" >Your Locally Sourced School Lunches</h2>
-                    <h3 class="title">Delivered Straight To Your Doorstep</h3>
+                    <h2 class="title" >The lunchbox that frees you.</h2>
+                    <h3 class="title">Providing well-balanced lunches to your kids made simple </h3>
                     <a href="pricing.php" class="btn btn-rose btn-square">
                                         Get Started
                     </a>

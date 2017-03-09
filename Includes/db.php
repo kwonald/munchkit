@@ -69,6 +69,24 @@ class munchKitDB extends mysqli {
         return $result;
     }
 
+    public function get_user_by_email($email) {
+        $userID = $this->get_user_id_by_email($email);
+        $result = $this->query("SELECT f_name, l_name, phone, addr, city, state, zipCode, email FROM Users WHERE idUsers=" . $userID);
+        return $result;
+    }
+
+    public function get_order_by_idMunchKid($idMunchKid) {
+        $idMunchKid = $this->real_escape_string($idMunchKid);
+        $res = $this->query("SELECT mealPlan FROM Orders WHERE MunchKids_idMunchKid = '"
+                        . $idMunchKid . "'");
+
+        if ($res->num_rows > 0){
+            $row = $res->fetch_row();
+            return $row[0];
+        } else
+            return null;
+    }
+
     public function create_user($email, $passwordHash, $f_name, $l_name, $phoneNo, $addr, $city, $state, $zipCode) {
         $email = $this->real_escape_string($email);
         $passwordHash = $this->real_escape_string($passwordHash);
@@ -99,15 +117,25 @@ class munchKitDB extends mysqli {
         return $result->data_seek(0);
     }
 
-    function insert_munchkid($userID, $f_name, $dietType) {
+    public function insert_munchkid($userID, $f_name, $dietType) {
+        $userID = $this->real_escape_string($userID);
         $f_name = $this->real_escape_string($f_name);
-        if ($this->real_escape_string($dietType)==null){
-           $this->query("INSERT INTO MunchKids (Users_idUsers, f_name)" .
-                " VALUES (" . $userID . ", '" . $f_name . "', 'original')");
+        $dietType = $this->real_escape_string($dietType);
+        if ($dietType==null){
+           $this->query("INSERT INTO munchkids (Users_idUsers, f_name, dietType)" .
+                " VALUES ('" . $userID . "', '" . $f_name . "', 'original')");
         } else
-        $this->query("INSERT INTO MunchKids (Users_idUsers, f_name, dietType)" .
-                " VALUES (" . $userID . ", '" . $f_name . "', "
-                . $this->real_escape_string($dietType) . ")");
+        $this->query("INSERT INTO munchkids (Users_idUsers, f_name, dietType)" .
+                " VALUES ('" . $userID . "', '" . $f_name . "', '"
+                . $dietType . "')");
+    }
+
+    public function insert_order($idMunchKid, $mealPlan) {
+        $idMunchKid = $this->real_escape_string($idMunchKid);
+        $mealPlan = $this->real_escape_string($mealPlan);
+      
+        $this->query("INSERT INTO Orders (MunchKids_idMunchKid, mealPlan)" .
+                " VALUES ('" . $idMunchKid . "', '" . $mealPlan . "')");
     }
     
     function format_date_for_sql($date) {
@@ -139,6 +167,12 @@ class munchKitDB extends mysqli {
         $this->query("UPDATE MunchKids SET f_name = '" . $f_name .
                 "', dietType = " . $this->real_escape_string($dietType)
                 . " WHERE idMunchKids =" . $idMunchKids);
+    }
+
+    public function update_order($idMunchKids, $mealPlan) {
+        $idMunchKids = $this->real_escape_string($idMunchKids);
+        $mealPlan = $this->real_escape_string($mealPlan);
+        $this->query("UPDATE Orders SET mealPlan = '" . $mealPlan . "' WHERE MunchKids_idMunchKid ='" . $idMunchKids."'");
     }
 
     public function get_munchkid_by_munchkid_id($idMunchKids) {

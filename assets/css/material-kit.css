@@ -3204,7 +3204,7 @@ h2.title {
 }
 .card .header-primary,
 .card .content-primary {
-  background: linear-gradient(60deg, #ab47bc, #7b1fa2);
+  background: linear-gradient(60deg, #1cb5b9, #1cb5b9);
 }
 .card .header-info,
 .card .content-info {
@@ -4645,7 +4645,7 @@ select[data-dropdownjs][disabled] + .dropdownjs > input[readonly] {
   color: #FFFFFF;
 }
 .page-header.header-small {
-  height: 65vh;
+  height: 30vh;
 }
 .page-header.header-small .container {
   padding-top: 20vh;

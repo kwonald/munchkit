@@ -100,6 +100,11 @@ if (array_key_exists("user", $_SESSION)) {
                             <!-- <i class="material-icons">account_circle</i> --> My Account
                         </a>
                     </li>
+                    <li>
+                        <a href="choosePlan.php" class="btn btn-rose btn-square">
+                             Order Now
+                        </a>
+                    </li>
                     <?php    
                     }else{
                     ?>
@@ -108,16 +113,21 @@ if (array_key_exists("user", $_SESSION)) {
                             <!-- <i class="material-icons">account_circle</i> --> Log In
                         </a>
                     </li>
-                    <?php
-                    }
-                    ?>
-                    <!-- End of myaccount tab/ sign in tab -->
-
                     <li>
                         <a href="pricing.php" class="btn btn-rose btn-square">
                              Sign Up
                         </a>
                     </li>
+                    <?php
+                    }
+                    ?>
+                    <!-- End of myaccount tab/ sign in tab -->
+
+                    <!-- <li>
+                        <a href="pricing.php" class="btn btn-rose btn-square">
+                             Sign Up
+                        </a>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -126,7 +136,7 @@ if (array_key_exists("user", $_SESSION)) {
 
 	<div class="page-header header-filter" data-parallax="active" style="background-image: url('assets/img/landingbg.jpg');"></div>
 
-	<div class="main ">
+	<div class="main">
 		<div class="profile-content">
             <div class="container">
 
@@ -137,16 +147,27 @@ if (array_key_exists("user", $_SESSION)) {
 	                            <img src="assets/img/squirrel.png">
 	                        </div>
 	                        <div class="name">
-	                            <h3 class="title"> <?php echo munchKitDB::getInstance()->get_user_name_by_email($_SESSION['user']); ?> </h3>
-								
-                                <h6> You have no MunchKids to display!
+                                <?php
+                                $result = munchKitDB::getInstance()->get_user_by_email($_SESSION['user']);
+                                if($result != NULL){
+                                    while ($row = $result->fetch_assoc()) {
+                                        $phone = $row['phone'];
+                                        $email = $row['email'];
+                                        $f_name = $row['f_name'];
+                                        $l_name = $row['l_name'];
+                                    }
+                                }
+                                ?>
+	                            <h2 class="title"> <?php echo $f_name . ' ' . $l_name ?> </h2>
+								<!-- Displaying first names of kids associated to this account -->
 
-                                </h6>
-								
+								 <h6> <?php echo $email ?></h6>
+                                 <h6> <?php echo $phone ?></h6>
+                               
 
 
-                                <button class="btn btn-fab btn-primary" rel="tooltip" title="Add another child">
-                            		<i class="material-icons">add</i>
+                                <button class="btn btn-fab btn-primary" rel="tooltip" title="Edit Profile">
+                            		<i class="material-icons">create</i>
                         		</button>
 								
 	                        </div>
@@ -169,7 +190,7 @@ if (array_key_exists("user", $_SESSION)) {
                                     <li>
 										<a href="#connections" role="tab" data-toggle="tab">
 											<i class="material-icons">people</i>
-											Edit Child Profile
+											Add/Edit Child Profile
 										</a>
 									</li>
 			                        <li>
@@ -190,9 +211,53 @@ if (array_key_exists("user", $_SESSION)) {
 			        <div class="tab-pane active work" id="work">
 				        <div class="row">
 	                        <div class="col-md-7 col-md-offset-3">
-		                        <h4 class="title">Cancel or Suspend Subscription</h4>
-		                        <div class="row collections">
-			                        <div class="col-md-6">
+		                        <!-- <h4 class="title">Cancel or Suspend Subscription</h4> -->
+		                        
+                                <div class="row collections">
+                                <!-- Alex ADD -->
+                                    <div class="row">
+                                        <?php
+                                            $result = munchKitDB::getInstance()->get_munchkids_by_user_email($_SESSION['user']);
+                                            if($result != NULL){
+                                                while ($row = $result->fetch_assoc()) {
+                                                    $f_name = $row['f_name'];
+                                                    $dietType = $row['dietType'];
+
+                                                    ?>
+                                                    <div class="col-md-5 ">
+                                                        <!-- <div class="card card-profile card-plain"> -->
+                                                            <div class="col-md-5">
+                                                            </div>
+                                                            <div class="col-md-7">
+                                                                <div class="content">
+                                                                    <h4 class="card-title"> <?php echo $f_name ?> </h4>
+                                                                    <h6 class="category text-muted"> <?php echo $dietType ?> </h6>
+                                                                    <select id="id_period" name="period"> 
+                                                                        <option value="">suspend delivery for...</option>
+                                                                        <option value="cancel">cancel subscription for this child  </option>
+                                                                        <option value="1">1 week (until Date)</option>
+                                                                        <option value="2">2 weeks (until Date)</option>
+
+                                                                    </select>
+                                                                    <input type="hidden" name="fname" value=<?php echo $f_name ?> />
+                                                                    <input type="hidden" name="dietType" value=<?php echo $dietType ?> />
+                                                                    <input type="hidden" name="allergies" value="" />
+                                                                </div>
+                                                            </div>
+                                                        <!-- </div> -->
+                                                    </div>
+                                            <?php
+                                                }
+
+                                            }
+                                            else{
+                                            ?>
+                                            <h6> You have no MunchKids to display!</h6>
+                                            <?php } ?>
+                                    </div>
+                                <!-- end of aadd -->
+
+<!-- 			                        <div class="col-md-6">
 			                            <div class="card card-background" style="background-image: url('assets/img/lunchboxlogo.png')">
                     						<a href="#pablo"></a>
                     						<div class="content">
@@ -203,8 +268,9 @@ if (array_key_exists("user", $_SESSION)) {
                     							</a>
                     						</div>
                     					</div>
-			                        </div>
-                                    <div class="col-md-6">
+			                        </div> -->
+
+                                    <!-- <div class="col-md-6">
 			                            <div class="card card-background" style="background-image: url('assets/img/deliverytruck.png')">
                     						<a href="#pablo"></a>
                     						<div class="content">
@@ -215,104 +281,95 @@ if (array_key_exists("user", $_SESSION)) {
                     							</a>
                     						</div>
                                         </div>
-                                    </div>
-                                    
+                                    </div>  -->
                                 </div>
 		                    </div>
 	                    </div>
 			        </div>
                     <div class="tab-pane connections" id="connections">
                         <div class="row">
-            				<div class="col-md-5 col-md-offset-1">
-            					<div class="card card-profile card-plain">
-            						<div class="col-md-5">
-            						</div>
-            						<div class="col-md-7">
-            							<div class="content">
-            								<h4 class="card-title">Gigi Hadid</h4>
-            								<h6 class="category text-muted">Original</h6>
+                            <div class="card card-signup" style="width: 350px;"">
+                                <form class="logon" method="POST" action="addMunchKid.php" style="width: 350px;">
+                                    <div class="header header-primary text-center">
+                                        <h4 class="card-title">Add a MunchKID</h4>
+                                        
+                                    </div>
+                                    <div class="content">
+                                        <div class="input-group">
+                                           
+                                            <input type="text" name ="f_name" required="" class="form-control" placeholder="First Name...">
+                                            <input type="text" name="dietType" class="form-control" placeholder="Diet Type (Original, Vegetarian, etc)..."  >  
+                                            <input type="text" name="allergies" placeholder="Allergies..." class="form-control" />
+                                            <input type="hidden" name="userID" value=<?php echo munchKitDB::getInstance()->get_user_id_by_email($_SESSION['user']); ?> >    
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <!-- <a href="#pablo" class="btn btn-primary btn-simple btn-wd btn-lg">Log In</a> -->
+                                        <input type="submit" class="btn btn-primary btn-simple btn-wd btn-lg" value="Submit"/>
+                                    </div>
+                                </form>
+                            </div>
 
-            								<p class="card-description">
-            									Allergic to: peanuts, tofu
-            								</p>
-            								<button class="btn btn-fab btn-primary" rel="tooltip" title="edit">
-                            					<i class="material-icons">create</i>
-                        					</button>
-            							</div>
-            						</div>
-            					</div>
-            				</div>
+                            <?php
+                                $result = munchKitDB::getInstance()->get_munchkids_by_user_email($_SESSION['user']);
+                                if($result != NULL){
+                                    while ($row = $result->fetch_assoc()) {
+                                        $f_name = $row['f_name'];
+                                        $dietType = $row['dietType'];
 
-            				<div class="col-md-5">
-            					<div class="card card-profile card-plain">
-            						<div class="col-md-5">
-            						</div>
-            						<div class="col-md-7">
-            							<div class="content">
-            								<h4 class="card-title">Marc Jacobs</h4>
-            								<h6 class="category text-muted">Vegetarian</h6>
+                                        ?>
+                                        <div class="col-md-5">
+                                            <!-- <div class="card card-profile card-plain"> -->
+                                                <div class="col-md-5">
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="content">
+                                                        <h4 class="card-title"> <?php echo $f_name ?> </h4>
+                                                        <h6 class="category text-muted"> <?php echo $dietType ?> </h6>
 
-            								<p class="card-description">
-            									Allergic to: shellfish, nuts
-            								</p>
-            								<button class="btn btn-fab btn-primary" rel="tooltip" title="edit">
-                            					<i class="material-icons">create</i>
-                        					</button>
-            							</div>
-            						</div>
-            					</div>
-            				</div>
+                                                        <p class="card-description">
+                                                            Allergic to: peanuts, tofu
+                                                        </p>
+                                                        <input type="hidden" name="fname" value=<?php echo $f_name ?> />
+                                                        <input type="hidden" name="dietType" value=<?php echo $dietType ?> />
+                                                        <input type="hidden" name="allergies" value="" />
+
+                                                        <button class="btn btn-fab btn-primary" rel="tooltip" title="edit">
+                                                            <i class="material-icons">create</i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            <!-- </div> -->
+                                        </div>
+                                <?php
+                                    }
+
+                                }
+                                else{
+                                ?>
+                                <h6> You have no MunchKids to display!</h6>
+                                <?php } ?>
                         </div>
-                        <div class="row">
-            				<div class="col-md-5 col-md-offset-1">
-            					<div class="card card-profile card-plain">
-            						<div class="col-md-5">
-            						</div>
-            						<div class="col-md-7">
-            							<div class="content">
-            								<h4 class="card-title">Kendall Jenner</h4>
-            								<h6 class="category text-muted">Vegan</h6>
-
-            								<p class="card-description">
-            									Allergic to: Peanuts
-            								</p>
-            								<button class="btn btn-fab btn-primary" rel="tooltip" title="edit">
-                            					<i class="material-icons">create</i>
-                        					</button>
-            							</div>
-            						</div>
-            					</div>
-            				</div>
-
-            				<div class="col-md-5">
-            					<div class="card card-profile card-plain">
-            						<div class="col-md-5">
-            						</div>
-            						<div class="col-md-7">
-            							<div class="content">
-            								<h4 class="card-title">George West</h4>
-            								<h6 class="category text-muted">Original</h6>
-
-            								<p class="card-description">
-            									Allergic to: girls
-            								</p>
-            								<button class="btn btn-fab btn-primary" rel="tooltip" title="edit">
-                            					<i class="material-icons">create</i>
-                        					</button>
-            							</div>
-            						</div>
-            					</div>
-            				</div>
-
-            			</div>
+                        
                     </div>
                     <div class="tab-pane text-center gallery" id="media">
 						<div class="col-md-5 col-md-offset-4">
+                            <?php
+                            $result = munchKitDB::getInstance()->get_user_by_email($_SESSION['user']);
+                            if($result != NULL){
+                                while ($row = $result->fetch_assoc()) {
+                                    $addr = $row['addr'];
+                                    $city = $row['city'];
+                                    $zipCode = $row['zipCode'];
+
+                                }
+                            }
+                            ?>
 		                    <h4 class="title">Billing Info</h4>
 		                    <ul class="list-unstyled">
-			                    <li><b>Address</b> 1234 FakeAddress</li>
-			                    <li><b>City</b> VanCity</li>
-			                    <li><b>PostalCode</b> V6T 1Z4</li>
+			                    <li><b>Address</b> <?php echo $addr ?></li>
+			                    <li><b>City</b> <?php echo $city ?></li>
+			                    <li><b>PostalCode</b> <?php echo $zipCode ?></li>
 			                    <li><b>CreditCard</b> ...1234</li>
 			                </ul>
 			                <hr />
