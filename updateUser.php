@@ -1,7 +1,6 @@
 <?php
 require_once("Includes/db.php");
-require_once('Includes/recaptchalib.php');
-$publickey = "6LdOBhgUAAAAAN0aOoX8FVSn0LV5w6rIP2IQOgVA";
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 		munchKitDB::getInstance()->create_user($_POST['email'], $_POST['userpassword'], $_POST['firstName'], $_POST['lastName'], $_POST['phone'], $_POST['streetAddress'], $_POST['city'], $_POST['prov'], $_POST['zipCode']); 
@@ -158,14 +157,8 @@ if (array_key_exists("user", $_SESSION)) {
 								<form class="form" method="POST" action="Includes/reCaptchaVerify.php">
 									<div class="content" align="center">
 										
-										<!-- <div class="g-recaptcha" data-sitekey="6LdOBhgUAAAAAN0aOoX8FVSn0LV5w6rIP2IQOgVA"></div> -->
-                                        <?php
-
-                                        echo recaptcha_get_html($publickey);
-                                         ?>
-										<!-- If you want to add a checkbox to this form, uncomment this code -->
-
-										<div class="checkbox">
+										<div class="g-recaptcha" data-sitekey="6LdOBhgUAAAAAN0aOoX8FVSn0LV5w6rIP2IQOgVA"></div>
+\										<div class="checkbox">
 											<label>
 												<input type="checkbox" required="" name="optionsCheckboxes" unchecked>
 												I agree to the <a href="#something">terms and conditions</a>.
