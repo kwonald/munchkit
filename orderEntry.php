@@ -230,7 +230,7 @@ if (array_key_exists("user", $_SESSION)) {
 	                                            }
 	                                            else{
 	                                            ?>
-	                                            <h6> You have no MunchKids to display!</h6>
+	                                            <h6> You have no MunchKids to display! Please Add A Child By Clicking on our Add/Edit Child Profile Tab</h6>
 	                                            <?php } ?>
 	                                        <div class="footer text-center">
 												<input type="submit" class="btn btn-primary btn-round" value="Almost Done!" style="margin-top: 50px;">

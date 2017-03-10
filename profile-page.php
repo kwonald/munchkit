@@ -216,44 +216,54 @@ if (array_key_exists("user", $_SESSION)) {
                                 <div class="row collections">
                                 <!-- Alex ADD -->
                                     <div class="row">
-                                        <?php
-                                            $result = munchKitDB::getInstance()->get_munchkids_by_user_email($_SESSION['user']);
-                                            if($result != NULL){
-                                                while ($row = $result->fetch_assoc()) {
-                                                    $f_name = $row['f_name'];
-                                                    $dietType = $row['dietType'];
-
-                                                    ?>
-                                                    <div class="col-md-5 ">
-                                                        <!-- <div class="card card-profile card-plain"> -->
-                                                            <div class="col-md-5">
-                                                            </div>
-                                                            <div class="col-md-7">
-                                                                <div class="content">
-                                                                    <h4 class="card-title"> <?php echo $f_name ?> </h4>
-                                                                    <h6 class="category text-muted"> <?php echo $dietType ?> </h6>
-                                                                    <select id="id_period" name="period"> 
-                                                                        <option value="">suspend delivery for...</option>
-                                                                        <option value="cancel">cancel subscription for this child  </option>
-                                                                        <option value="1">1 week (until Date)</option>
-                                                                        <option value="2">2 weeks (until Date)</option>
-
-                                                                    </select>
-                                                                    <input type="hidden" name="fname" value=<?php echo $f_name ?> />
-                                                                    <input type="hidden" name="dietType" value=<?php echo $dietType ?> />
-                                                                    <input type="hidden" name="allergies" value="" />
-                                                                </div>
-                                                            </div>
-                                                        <!-- </div> -->
-                                                    </div>
+                                        <form class="form" method="POST" action="suspendOrder.php"> 
                                             <?php
-                                                }
+                                                $result = munchKitDB::getInstance()->get_orderList_by_user_email($_SESSION['user']);
+                                                $i=0;
+                                                if($result != NULL){
+                                                    while ($row = $result->fetch_assoc()) {
+                                                        $idMunchKid = $row['idMunchKids'];
+                                                        $mealPlan = $row['mealPlan'];
+                                                        $f_name = $row['f_name'];
+                                                        $dietType = $row['dietType'];
+                                                        $i++;
+                                                        ?>
+                                                        <div class="col-md-5 ">
+                                                            <!-- <div class="card card-profile card-plain"> -->
+                                                                <div class="col-md-5">
+                                                                </div>
+                                                                <div class="col-md-7">
+                                                                    <div class="content">
+                                                                        <h4 class="card-title"> <?php echo $f_name ?> </h4>
+                                                                        <h6 class="category text-muted"> <?php echo $dietType ?> </h6>
+                                                                        <h6 class="category text-muted"> <?php echo $mealPlan ?> </h6>
+                                                                        <select id="id_period" name=<?php echo "period_".$i ?> > 
+                                                                            <option value="">suspend delivery for...</option>
+                                                                            <option value="999">cancel subscription for this child  </option>
+                                                                            <option value="1">1 week (until Date)</option>
+                                                                            <option value="2">2 weeks (until Date)</option>
+                                                                        </select>
+                                                                        <input type="hidden" name=<?php echo "idMunchKid_".$i ?> value=<?php echo $idMunchKid ?> />
+                                                                        <input type="hidden" name=<?php echo "fname_".$i ?> value=<?php echo $f_name ?> />
+                                                                        <input type="hidden" name=<?php echo "dietType_".$i ?>  value=<?php echo $dietType ?> />
+                                                                        <input type="hidden" name=<?php echo "mealPlan_".$i ?>  value=<?php echo $mealPlan ?> />
+                                                                        <input type="hidden" name="numOrders" value=<?php echo $i ?> />
+                                                                    </div>
+                                                                </div>
+                                                            <!-- </div> -->
+                                                        </div>
+                                                <?php
+                                                    }
 
-                                            }
-                                            else{
-                                            ?>
-                                            <h6> You have no MunchKids to display!</h6>
-                                            <?php } ?>
+                                                }
+                                                else{
+                                                ?>
+                                                <h6> You have no MunchKids to display!</h6>
+                                                <?php } ?>
+                                            <div class="footer text-center">
+                                                <input type="submit" class="btn btn-primary btn-round" value="Update" style="margin-top: 50px;">
+                                            </div>
+                                        </form>
                                     </div>
                                 <!-- end of aadd -->
 
