@@ -66,6 +66,15 @@ class munchKitDB extends mysqli {
     public function get_munchkids_by_user_email($email) {
         $userID = $this->get_user_id_by_email($email);
         $result = $this->query("SELECT idMunchKids, f_name, dietType FROM MunchKids WHERE Users_idUsers=" . $userID);
+        if($result->num_rows == 0){
+            return null;
+        }
+        return $result;
+    }
+
+    public function get_orderList_by_user_email($email){
+        $userID = $this->get_user_id_by_email($email);
+        $result = $this->query("SELECT munchkids.idMunchKids, munchkids.f_name, munchkids.dietType, orders.mealPlan FROM MunchKids INNER JOIN Users ON munchkids.Users_idUsers = users.idUsers INNER JOIN Orders ON munchkids.idMunchKids = orders.MunchKids_idMunchKid WHERE users.idUsers = " . $userID);
         return $result;
     }
 
@@ -133,9 +142,10 @@ class munchKitDB extends mysqli {
     public function insert_order($idMunchKid, $mealPlan) {
         $idMunchKid = $this->real_escape_string($idMunchKid);
         $mealPlan = $this->real_escape_string($mealPlan);
-      
-        $this->query("INSERT INTO Orders (MunchKids_idMunchKid, mealPlan)" .
-                " VALUES ('" . $idMunchKid . "', '" . $mealPlan . "')");
+        $today = $this->get_current_date();
+        $nextDelivery = $this->get_next_delivery_date();
+        $this->query("INSERT INTO Orders (MunchKids_idMunchKid, mealPlan, dateOrdered, dateRequired)" .
+                " VALUES ('" . $idMunchKid . "', '" . $mealPlan . "', '" . $today . "', '" . $nextDelivery . "')");
     }
     
     function format_date_for_sql($date) {
@@ -172,7 +182,14 @@ class munchKitDB extends mysqli {
     public function update_order($idMunchKids, $mealPlan) {
         $idMunchKids = $this->real_escape_string($idMunchKids);
         $mealPlan = $this->real_escape_string($mealPlan);
-        $this->query("UPDATE Orders SET mealPlan = '" . $mealPlan . "' WHERE MunchKids_idMunchKid ='" . $idMunchKids."'");
+        $today = $this->get_current_date();
+        $nextDelivery = $this->get_next_delivery_date();
+        $this->query("UPDATE Orders SET mealPlan = '" . $mealPlan . "', dateOrdered = '" . $today . "', dateRequired ='". $nextDelivery ."' WHERE MunchKids_idMunchKid ='" . $idMunchKids."'");
+    }
+
+    public function suspend_order($idMunchKids) {
+        $idMunchKids = $this->real_escape_string($idMunchKids);
+        $this->query("UPDATE MunchKids SET suspend = '" . TRUE . "' WHERE idMunchKids ='" . $idMunchKids."'");
     }
 
     public function get_munchkid_by_munchkid_id($idMunchKids) {
@@ -194,6 +211,18 @@ class munchKitDB extends mysqli {
         } else
             return null;
     }
+
+    public function get_current_date(){
+        date_default_timezone_set('America/Los_Angeles');
+        $date = date('Y-m-d G:i:s');
+        return $date;
+    }
+
+    public function get_next_delivery_date(){
+        date_default_timezone_set('America/Los_Angeles');
+        return date('Y-m-d', strtotime('next Sunday'));
+    }
+
 
 }
 

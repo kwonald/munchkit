@@ -156,8 +156,61 @@ if (array_key_exists("user", $_SESSION)) {
 
 
 				<div class="row">
-					<p> $$$$ </p>
+                    <form class="form" method="POST" action=#pablo>  
+                        <?php
+                            $result = munchKitDB::getInstance()->get_orderList_by_user_email($_SESSION['user']);
+                            $i=0;
+                            $num5meals=0;
+                            $num3meals=0;
+                            $num1meals=0;
+                            $cost = 0;
+                            if($result != NULL){
+                                while ($row = $result->fetch_assoc()) {
+                                    $mealPlan = $row['mealPlan'];
+                                    $f_name = $row['f_name'];
+                                    $dietType = $row['dietType'];
+                                    if($mealPlan == '5'){ $num5meals++; }
+                                    else if($mealPlan == '3'){ $num3meals++; }
+                                    else if ($mealPlan == '1'){ $num1meals++; }
+                                    $i++;
+                                    ?>
+                                    <div class="col-md-5 ">
+                                        <!-- <div class="card card-profile card-plain"> -->
+                                            <div class="col-md-5">
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="content">
+                                                    <h4 class="card-title"> <?php echo $f_name ?> </h4>
+                                                    <h6 class="category text-muted"> <?php echo $dietType ?> </h6>
+                                                    <h6 class="category text-muted"> <?php echo $mealPlan ?> </h6>
+                                                    
+                                                    <!-- <input type="hidden" name= <?php echo 'f_name_' . $i ?> value=<?php echo $f_name ?> />
+                                                    <input type="hidden" name=<?php echo "dietType_" . $i ?> value=<?php echo $dietType ?> />
+                                                    <input type="hidden" name=<?php echo "allergies" .$i ?> value="" />
+                                                    <input type="hidden" name="numOrders" value=<?php echo $i ?> /> -->
+                                                </div>
+                                            </div>
+                                        <!-- </div> -->
+                                    </div>
+                            <?php
+                                }
+
+                            }
+                            else{
+                            ?>
+                            <h6> You have no MunchKids to display!</h6>
+                            <?php } ?>
+                        <div class="footer text-center">
+                            <input type="submit" class="btn btn-primary btn-round" value="checkout" style="margin-top: 50px;">
+                        </div>
+                    </form>
                 </div>
+                <h6> <?php echo 'Number of 5 meal plans: '.$num5meals . '<br> 3 meal plans: '. $num3meals . '<br>1 meal plans: ' . $num1meals ?></h6>
+                <h6> <?php echo '$' . 5*8*$num5meals . ' CDN<br>'. '$' . 3*9.25*$num3meals . ' CDN<br>' . '$'. 10.25*$num1meals .' CDN' ?></h6>
+                <h6> <?php echo 'Your munchkits will be delivered to you: ' . munchKitDB::getInstance()->get_next_delivery_date(); ?> </h6>
+                <?php $total = 5*8*$num5meals+3*9.25*$num3meals+10.25*$num1meals; ?>
+                <h6> <?php echo 'TOTAL-------------------------------------------------------------- $' . $total .' CDN'; ?></h6>
+                <h6> Free shipping. Taxes are added at checkout. </h6>
             </div>
         </div>
 	</div>

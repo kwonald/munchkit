@@ -8,6 +8,7 @@ if (array_key_exists("user", $_SESSION)) {
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	$i = 1;
 	$num = (int)$_POST['numOrders'];
+	
 	while($i <= $num){
 
 		if(null == munchKitDB::getInstance()->get_order_by_idMunchKid($_POST['idMunchKid_'.$i])) {
