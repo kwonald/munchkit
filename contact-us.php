@@ -111,7 +111,7 @@ if (array_key_exists("user", $_SESSION)) {
                         </a>
                     </li>
                     <li>
-                        <a href="pricing.php" class="btn btn-rose btn-square">
+                        <a href="signup.php" class="btn btn-rose btn-square">
                              Sign Up
                         </a>
                     </li>

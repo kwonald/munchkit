@@ -134,7 +134,7 @@ if (array_key_exists("user", $_SESSION)) {
     </nav>
 
 
-	<div class="page-header header-filter" data-parallax="active" style="background-image: url('assets/img/landingbg.jpg');"></div>
+	<div class="page-header header-filter" data-parallax="active" style="background-image: url('assets/img/landingbg.png');"></div>
 
 	<div class="main">
 		<div class="profile-content">
@@ -220,12 +220,19 @@ if (array_key_exists("user", $_SESSION)) {
                                             <?php
                                                 $result = munchKitDB::getInstance()->get_orderList_by_user_email($_SESSION['user']);
                                                 $i=0;
+                                                $num5meals = 0;
+                                                $num3meals = 0;
+                                                $num1meals = 0;
+                                                
                                                 if($result != NULL){
                                                     while ($row = $result->fetch_assoc()) {
                                                         $idMunchKid = $row['idMunchKids'];
                                                         $mealPlan = $row['mealPlan'];
                                                         $f_name = $row['f_name'];
                                                         $dietType = $row['dietType'];
+                                                        if($mealPlan == '5'){$num5meals++;}
+                                                        else if($mealPlan == '3'){$num3meals++;}
+                                                        else if($mealPlan == '1'){$num1meals++;}
                                                         $i++;
                                                         ?>
                                                         <div class="col-md-5 ">
@@ -384,7 +391,30 @@ if (array_key_exists("user", $_SESSION)) {
 			                </ul>
 			                <hr />
 			                <h4 class="title">Weekly Charge</h4>
-			                <p class="description"> Your 20 meals a week comes to a total of <b> $160CDN </b> + tax</p>
+                            <?php
+                            $totalNumMeals = $num5meals*5 + $num3meals*3 + $num1meals;
+                            $totalCost = $num5meals*5*8 + $num3meals*3*9.25 + $num1meals*10.25;
+                            ?>
+                            
+                            <?php if($num5meals>0){ ?>
+                            <h6> Number of 5 meals/week ($8/meal): <?php echo $num5meals ?> ---------------- $<?php echo $num5meals*5*8 ?>CDN </h6>
+                            <?php
+                            }
+                            ?>
+
+                            <?php if($num3meals>0){ ?>
+                            <h6> Number of 3 meals/week ($9.25/meal): <?php echo $num5meals ?> ---------------- $<?php echo $num3meals*3*9.25 ?>CDN </h6>
+                            <?php
+                            }
+                            ?>
+
+                            <?php if($num1meals>0){ ?>
+                            <h6> Number of 1 meal/week ($10.25/meal): <?php echo $num5meals ?> ---------------- $<?php echo $num1meals*10.25 ?>CDN </h6>
+                            <?php
+                            }
+                            ?>
+                            
+			                <p class="description"> Your <?php echo $totalNumMeals ?> meals a week comes to a total of <b> $<?php echo $totalCost ?>CDN </b> + tax</p>
 			                <hr />
 			                
 			            </div>

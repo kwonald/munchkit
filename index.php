@@ -112,7 +112,7 @@ if (array_key_exists("user", $_SESSION)) {
                         </a>
                     </li>
                     <li>
-                        <a href="pricing.php" class="btn btn-rose btn-square">
+                        <a href="signup.php" class="btn btn-rose btn-square">
                              Sign Up
                         </a>
                     </li>
@@ -403,7 +403,7 @@ if (array_key_exists("user", $_SESSION)) {
                                             <li><b>Free Delivery</b></li>
                                             <li><b>Recyclable</b> Containers</li>
                                         </ul>
-                                        <a href="tellusaboutyourkid.php" class="btn btn-rose btn-raised btn-round">
+                                        <a href= <?php if($loggedIn){echo "choosePlan.php";} else echo "signup.php"; ?> class="btn btn-rose btn-raised btn-round">
                                             Get Started
                                         </a>
                                     </div>
@@ -424,7 +424,7 @@ if (array_key_exists("user", $_SESSION)) {
                                             <li><b>Access</b> to PayItForward program</b></li>
                                             <!-- <li><b>Discounts</b> to local programs</li> -->
                                         </ul>
-                                        <a href="tellusaboutyourkid.php" class="btn btn-white btn-raised btn-round">
+                                        <a href=<?php if($loggedIn){echo "choosePlan.php";} else echo "signup.php"; ?> class="btn btn-white btn-raised btn-round">
                                             Get Started
                                         </a>
                                     </div>
@@ -443,7 +443,7 @@ if (array_key_exists("user", $_SESSION)) {
                                             <li><b>Customized</b> LunchBoxes</li>
                                             <li><b>Reusable</b> Totebag</li>
                                         </ul>
-                                        <a href="tellusaboutyourkid.php" class="btn btn-rose btn-raised btn-round">
+                                        <a href=<?php if($loggedIn){echo "choosePlan.php";} else echo "signup.php"; ?> class="btn btn-rose btn-raised btn-round">
                                             Get Started
                                         </a>
                                     </div>
@@ -463,7 +463,7 @@ if (array_key_exists("user", $_SESSION)) {
                                             <li><b>Free Delivery</b></li>
                                             <li><b>Recyclable</b> Containers</li>
                                         </ul>
-                                        <a href="tellusaboutyourkid.php" class="btn btn-rose btn-raised btn-round">
+                                        <a href=<?php if($loggedIn){echo "choosePlan.php";} else echo "signup.php"; ?> class="btn btn-rose btn-raised btn-round">
                                             Get Started
                                         </a>
                                     </div>
@@ -484,7 +484,7 @@ if (array_key_exists("user", $_SESSION)) {
                                             <li><b>+ Access</b> to PayItForward program</b></li>
                                             <li><b>+ more!</b></li>
                                         </ul>
-                                        <a href="tellusaboutyourkid.php" class="btn btn-white btn-raised btn-round">
+                                        <a href=<?php if($loggedIn){echo "choosePlan.php";} else echo "signup.php"; ?> class="btn btn-white btn-raised btn-round">
                                             Get Started
                                         </a>
                                     </div>
@@ -503,7 +503,7 @@ if (array_key_exists("user", $_SESSION)) {
                                             <li><b>Customized</b> LunchBoxes</li>
                                             <li><b>Reusable</b> Totebag</li>
                                         </ul>
-                                        <a href="tellusaboutyourkid.php" class="btn btn-rose btn-raised btn-round">
+                                        <a href=<?php if($loggedIn){echo "choosePlan.php";} else echo "signup.php"; ?> class="btn btn-rose btn-raised btn-round">
                                             Get Started
                                         </a>
                                     </div>

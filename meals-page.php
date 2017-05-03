@@ -111,7 +111,7 @@ if (array_key_exists("user", $_SESSION)) {
                         </a>
                     </li>
                     <li>
-                        <a href="pricing.php" class="btn btn-rose btn-square">
+                        <a href="signup.php" class="btn btn-rose btn-square">
                              Sign Up
                         </a>
                     </li>
@@ -150,8 +150,8 @@ if (array_key_exists("user", $_SESSION)) {
 						  <li class="active"><a href="#pill1" data-toggle="tab">All</a></li>
 						  <li><a href="#pill2" data-toggle="tab">Vegetarian</a></li>
 						  <li><a href="#pill3" data-toggle="tab">Gluten-Free</a></li>
-						  <li><a href="#pill4" data-toggle="tab">Paleo</a></li>
-						  <li><a href="#pill5" data-toggle="tab">Keto</a></li>
+						  <!-- <li><a href="#pill4" data-toggle="tab">Paleo</a></li>
+						  <li><a href="#pill5" data-toggle="tab">Keto</a></li> -->
 						</ul>
 						<div class="tab-content tab-space">
 							<div class="tab-pane active" id="pill1">
@@ -325,9 +325,9 @@ if (array_key_exists("user", $_SESSION)) {
 									</div>
 								</div>
 							</div>
-							<div class="tab-pane" id="pill4">
+							<!-- <div class="tab-pane" id="pill4">
 
-							</div>
+							</div> -->
 						</div>
 
 					</div>

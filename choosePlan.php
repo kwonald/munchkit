@@ -153,129 +153,131 @@ if (array_key_exists("user", $_SESSION)) {
 					<div class="col-md-8 col-md-offset-2">
 						<div class="tab-content tab-space">
 							<div class="tab-pane fade in active" id="personal">
-								<div class="col-md-4">
-									<div class="card card-pricing card-raised">
-										<div class="content">
-											<h6 class="category text-info">1 Meal A Week (Trial)</h6>
-											<h1 class="card-title"><small>$</small>10.25<small>/meal</small></h1>
-											<h6 class="category text-info">(Trial is available for 8 weeks)</h6>
-											<ul>
-												<li><b>Free Delivery</b></li>
-												<li><b>Recyclable</b> Containers</li>
-											</ul>
-											<a href="orderEntry.php" class="btn btn-rose btn-raised btn-round">
-												Get Started
-											</a>
+								<form class="form" method="POST" action="orderEntry.php">
+									<div class="col-md-4">
+										<div class="card card-pricing card-raised">
+											<div class="content">
+												<h6 class="category text-info">1 Meal A Week (Trial)</h6>
+												<h1 class="card-title"><small>$</small>10.25<small>/meal</small></h1>
+												<h6 class="category text-info">(Trial is available for 8 weeks)</h6>
+												<ul>
+													<li><b>Free Delivery</b></li>
+													<li><b>Recyclable</b> Containers</li>
+												</ul>
+
+												<input type="hidden" name="numMeals" value="1">
+												<input type="submit" class="btn btn-rose btn-raised btn-round" value="Get Started">
+												
+											</div>
 										</div>
 									</div>
-								</div>
-
-								<div class="col-md-4">
-									<div class="card card-pricing card-raised">
-										<div class="content content-rose">
-											<h6 class="category text-info">5 Meals A Week</h6>
-											<h1 class="card-title"><small>$</small>8<small>/meal</small></h1>
-											<h6 class="category text-info">($40 per week + tax)</h6>
-											<ul>
-												<li><b>Free Delivery</b></li>
-												<li><b>Reusable</b> Containers</li>
-												<li><b>Customized</b> LunchBoxes</li>
-												<li><b>Reusable</b> Totebag</li>
-												<li><b>Access</b> to PayItForward program</b></li>
-												<!-- <li><b>+ more!</b></li> -->
-											</ul>
-											<a href="orderEntry.php" class="btn btn-white btn-raised btn-round">
-												Get Started
-											</a>
+								</form>
+								<form class="form" method="POST" action="orderEntry.php">
+									<div class="col-md-4">
+										<div class="card card-pricing card-raised">
+											<div class="content content-rose">
+												<h6 class="category text-info">5 Meals A Week</h6>
+												<h1 class="card-title"><small>$</small>8<small>/meal</small></h1>
+												<h6 class="category text-info">($40 per week + tax)</h6>
+												<ul>
+													<li><b>Free Delivery</b></li>
+													<li><b>Reusable</b> Containers</li>
+													<li><b>Customized</b> LunchBoxes</li>
+													<li><b>Reusable</b> Totebag</li>
+													<li><b>Access</b> to PayItForward program</b></li>
+													<!-- <li><b>+ more!</b></li> -->
+												</ul>
+												<input type="hidden" name="numMeals" value="5">
+												<input type="submit" class="btn btn-rose btn-raised btn-round" value="Get Started">
+											</div>
 										</div>
 									</div>
-								</div>
-
-								<div class="col-md-4">
-									<div class="card card-pricing card-raised">
-										<div class="content">
-											<h6 class="category text-info">3 Meals A Week</h6>
-											<h1 class="card-title"><small>$</small>9.25<small>/meal</small></h1>
-											<h6 class="category text-info">($27.75 per week + tax)</h6>
-											<ul>
-												<li><b>Free Delivery</b></li>
-												<li><b>Reusable</b> Containers</li>
-												<li><b>Customized</b> LunchBoxes</li>
-												<li><b>Reusable</b> Totebag</li>
-											</ul>
-											<a href="orderEntry.php" class="btn btn-rose btn-raised btn-round">
-												Get Started
-											</a>
+								</form>
+								<form class="form" method="POST" action="orderEntry.php">
+									<div class="col-md-4">
+										<div class="card card-pricing card-raised">
+											<div class="content">
+												<h6 class="category text-info">3 Meals A Week</h6>
+												<h1 class="card-title"><small>$</small>9.25<small>/meal</small></h1>
+												<h6 class="category text-info">($27.75 per week + tax)</h6>
+												<ul>
+													<li><b>Free Delivery</b></li>
+													<li><b>Reusable</b> Containers</li>
+													<li><b>Customized</b> LunchBoxes</li>
+													<li><b>Reusable</b> Totebag</li>
+												</ul>
+												<input type="hidden" name="numMeals" value="3">
+												<input type="submit" class="btn btn-rose btn-raised btn-round" value="Get Started">
+											</div>
 										</div>
 									</div>
-								</div>
-
+								</form>
 							</div>
 
 							<div class="tab-pane fade" id="commercial">
-								<div class="col-md-4">
-									<div class="card card-pricing card-raised">
-										<div class="content">
-											<h6 class="category text-info">1 Meal A Week (Trial)</h6>
-											<h1 class="card-title"><small>$</small>10.25<small>/meal</small></h1>
-											<h6 class="category text-info">(Trial is available for 8 weeks)</h6>
-											<ul>
-												<li><b>Free Delivery</b></li>
-												<li><b>Recyclable</b> Containers</li>
-											</ul>
-											<a href="orderEntry.php" class="btn btn-rose btn-raised btn-round">
-												Get Started
-											</a>
+								<form class="form" method="POST" action="orderEntry.php">
+									<div class="col-md-4">
+										<div class="card card-pricing card-raised">
+											<div class="content">
+												<h6 class="category text-info">1 Meal A Week (Trial)</h6>
+												<h1 class="card-title"><small>$</small>10.25<small>/meal</small></h1>
+												<h6 class="category text-info">(Trial is available for 8 weeks)</h6>
+												<ul>
+													<li><b>Free Delivery</b></li>
+													<li><b>Recyclable</b> Containers</li>
+												</ul>
+												<input type="hidden" name="numMeals" value="1">
+												<input type="submit" class="btn btn-rose btn-raised btn-round" value="Get Started">
+											</div>
 										</div>
 									</div>
-								</div>
-
-								<div class="col-md-4">
-									<div class="card card-pricing card-raised">
-										<div class="content content-rose">
-											<h6 class="category text-info">5 Meals A Week</h6>
-											<h1 class="card-title"><small>$</small>8.50<small>/meal</small></h1>
-											<h6 class="category text-info">($42.50 per week + tax)</h6>
-											<ul>
-												<li><b>Free Delivery</b></li>
-												<li><b>Reusable</b> Containers</li>
-												<li><b>Customized</b> LunchBoxes</li>
-												<li><b>Reusable</b> Totebag</li>
-												<li><b>Access</b> to PayItForward program</b></li>
-												<!-- <li><b>more!</b></li> -->
-											</ul>
-											<a href="orderEntry.php" class="btn btn-white btn-raised btn-round">
-												Get Started
-											</a>
+								</form>
+								<form class="form" method="POST" action="orderEntry.php">
+									<div class="col-md-4">
+										<div class="card card-pricing card-raised">
+											<div class="content content-rose">
+												<h6 class="category text-info">5 Meals A Week</h6>
+												<h1 class="card-title"><small>$</small>8.50<small>/meal</small></h1>
+												<h6 class="category text-info">($42.50 per week + tax)</h6>
+												<ul>
+													<li><b>Free Delivery</b></li>
+													<li><b>Reusable</b> Containers</li>
+													<li><b>Customized</b> LunchBoxes</li>
+													<li><b>Reusable</b> Totebag</li>
+													<li><b>Access</b> to PayItForward program</b></li>
+													<!-- <li><b>more!</b></li> -->
+												</ul>
+												<input type="hidden" name="numMeals" value="5">
+												<input type="submit" class="btn btn-rose btn-raised btn-round" value="Get Started">
+											</div>
 										</div>
 									</div>
-								</div>
-
-								<div class="col-md-4">
-									<div class="card card-pricing card-raised">
-										<div class="content">
-											<h6 class="category text-info">3 Meals A Week</h6>
-											<h1 class="card-title"><small>$</small>9.25<small>/meal</small></h1>
-											<h6 class="category text-info">($27.75 per week + tax)</h6>
-											<ul>
-												<li><b>Free Delivery</b></li>
-												<li><b>Reusable</b> Containers</li>
-												<li><b>Customized</b> LunchBoxes</li>
-												<li><b>Reusable</b> Totebag</li>
-											</ul>
-											<a href="orderEntry.php" class="btn btn-rose btn-raised btn-round">
-												Get Started
-											</a>
+								</form>
+								<form class="form" method="POST" action="orderEntry.php">
+									<div class="col-md-4">
+										<div class="card card-pricing card-raised">
+											<div class="content">
+												<h6 class="category text-info">3 Meals A Week</h6>
+												<h1 class="card-title"><small>$</small>9.25<small>/meal</small></h1>
+												<h6 class="category text-info">($27.75 per week + tax)</h6>
+												<ul>
+													<li><b>Free Delivery</b></li>
+													<li><b>Reusable</b> Containers</li>
+													<li><b>Customized</b> LunchBoxes</li>
+													<li><b>Reusable</b> Totebag</li>
+												</ul>
+												<input type="hidden" name="numMeals" value="3">
+												<input type="submit" class="btn btn-rose btn-raised btn-round" value="Get Started">
+											</div>
 										</div>
 									</div>
-								</div>
-
+								</form>
 							</div>
 						</div>
 					</div>
 
 					<div class="col-md-8 col-md-offset-2 text-center" >
-						<p class="description" style="color:#fff" >You can <b>Update Your Account</b> and <b>Suspend or Cancel Anytime</b>. Just let us know <b>3 days</b> a head of time process your request.</p>
+						<p class="description" style="color:#1cb5b9" >You can <b>Update Your Account</b> and <b>Suspend or Cancel Anytime</b>. Just let us know <b>3 days</b> a head of time process your request.</p>
 					</div>
 				</div>
 			</div>
