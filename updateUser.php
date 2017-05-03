@@ -158,7 +158,7 @@ if (array_key_exists("user", $_SESSION)) {
 									<div class="content" align="center">
 										
 										<div class="g-recaptcha" data-sitekey="6LdOBhgUAAAAAN0aOoX8FVSn0LV5w6rIP2IQOgVA"></div>
-\										<div class="checkbox">
+										<div class="checkbox">
 											<label>
 												<input type="checkbox" required="" name="optionsCheckboxes" unchecked>
 												I agree to the <a href="#something">terms and conditions</a>.
