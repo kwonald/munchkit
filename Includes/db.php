@@ -65,7 +65,7 @@ class munchKitDB extends mysqli {
 
     public function get_munchkids_by_user_email($email) {
         $userID = $this->get_user_id_by_email($email);
-        $result = $this->query("SELECT idMunchKids, f_name, dietType, allergies FROM MunchKids WHERE Users_idUsers=" . $userID);
+        $result = $this->query("SELECT idMunchKids, f_name, dietType, allergies, suspend FROM MunchKids WHERE Users_idUsers=" . $userID);
         if($result->num_rows == 0){
             return null;
         }
@@ -87,7 +87,7 @@ class munchKitDB extends mysqli {
 
     public function get_orderList_by_user_email($email){
         $userID = $this->get_user_id_by_email($email);
-        $result = $this->query("SELECT munchkids.idMunchKids, munchkids.f_name, munchkids.dietType, orders.mealPlan FROM MunchKids INNER JOIN Users ON munchkids.Users_idUsers = users.idUsers INNER JOIN Orders ON munchkids.idMunchKids = orders.MunchKids_idMunchKid WHERE users.idUsers = " . $userID);
+        $result = $this->query("SELECT munchkids.idMunchKids, munchkids.f_name, munchkids.dietType, munchkids.allergies, orders.mealPlan FROM MunchKids INNER JOIN Users ON munchkids.Users_idUsers = users.idUsers INNER JOIN Orders ON munchkids.idMunchKids = orders.MunchKids_idMunchKid WHERE users.idUsers = " . $userID);
         return $result;
     }
 
@@ -227,6 +227,11 @@ class munchKitDB extends mysqli {
     public function suspend_order($idMunchKids) {
         $idMunchKids = $this->real_escape_string($idMunchKids);
         $this->query("UPDATE MunchKids SET suspend = '" . TRUE . "' WHERE idMunchKids ='" . $idMunchKids."'");
+    }
+
+    public function resume_order($idMunchKids) {
+        $idMunchKids = $this->real_escape_string($idMunchKids);
+        $this->query("UPDATE MunchKids SET suspend = '" . FALSE . "' WHERE idMunchKids ='" . $idMunchKids."'");
     }
 
     public function get_munchkid_by_munchkid_id($idMunchKids) {

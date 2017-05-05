@@ -6,7 +6,7 @@ if (array_key_exists("user", $_SESSION)) {
     $loggedIn = true;   
 }
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-	$i = 1;
+	$i = 0;
 	$num = (int)$_POST['numOrders'];
 	
 	while($i <= $num){

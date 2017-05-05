@@ -137,7 +137,7 @@ if (array_key_exists("user", $_SESSION)) {
 <!-- Modal -->
 <div class="modal fade bs-modal-sm" id="addMunchKidModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog ">
-    <div class="modal-content">
+    <div class="modal-content" style="bottom: 100px;">
         <br>
         <div class="bs-example bs-example-tabs">
             <ul id="myTab" class="nav nav-tabs">
@@ -232,7 +232,8 @@ if (array_key_exists("user", $_SESSION)) {
               </div>
 
               <!-- Required to identify which MunchKid belongs to which user -->
-              <input type="hidden" name="userID" value=<?php echo munchKitDB::getInstance()->get_user_id_by_email($_SESSION['user']); ?> >    
+              <input type="hidden" name="userID" value=<?php echo munchKitDB::getInstance()->get_user_id_by_email($_SESSION['user']); ?> >
+              <input type="hidden" name="refURL" value="orderEntry.php">    
             </form>
           </div>  
         </div>
@@ -246,52 +247,47 @@ if (array_key_exists("user", $_SESSION)) {
   </div>
 </div>
 
-<!-- EDIT MODAL -->
+<!-- EDIT MODAL  -->
 
-<div class="modal fade bs-modal-sm" id="editMunchKidModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<?php
+    // CREATE TABS IN EDIT MODAL WITH FIRST NAME OF THE MUNCHKID AS THE TITLE OF THE TAB
+  $result = munchKitDB::getInstance()->get_munchkids_by_user_email($_SESSION['user']);
+  $i=0;
+  if($result != NULL){
+      while ($row = $result->fetch_assoc()) {
+          $idMunchKid = $row['idMunchKids'];
+          $f_name = $row['f_name'];
+          $dietType = $row['dietType'];
+          $list_allergies = explode(',', $row['allergies']);
+          
+?>
+<div class="modal fade bs-modal-sm" id=<?php echo "editMunchKidModal_" . $i; ?> tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog ">
-    <div class="modal-content">
-        <br>
-        <div class="bs-example bs-example-tabs">
-            <ul id="myTab" class="nav nav-tabs">
-              <?php
-              // CREATE TABS IN EDIT MODAL WITH FIRST NAME OF THE MUNCHKID AS THE TITLE OF THE TAB
-            $result = munchKitDB::getInstance()->get_munchkids_by_user_email($_SESSION['user']);
-            $i=0;
-            if($result != NULL){
-                while ($row = $result->fetch_assoc()) {
-                    $idMunchKid = $row['idMunchKids'];
-                    $f_name = $row['f_name'];
-                    $dietType = $row['dietType'];
-                    
-          ?>
-              <li class=<?php if ($i==0){echo "active";} else {echo "''";} ?>><a href=<?php echo "#edit".$f_name; ?> data-toggle="tab"> <?php echo $f_name; ?> </a></li>
-          <?php
-              $i++;
-                }
-              } else{
-          ?>
-            <center><p> YOU HAVE NO MUNCHKIDS TO EDIT! </p></center>
-          <?php
-          }
-        ?>
-
-            </ul>
-        </div>
+    <div class="modal-content" style="bottom: 100px;">
+      <br>
+      <div class="bs-example bs-example-tabs">
+          <ul id="myTab" class="nav nav-tabs">
+            <li class=<?php if ($i==0){echo "active";} else {echo "''";} ?>><a href=<?php echo "#edit".$f_name; ?> data-toggle="tab"> <?php echo $f_name; ?> </a></li>
+            <li class=""><a href=<?php echo "#remove".$f_name; ?> data-toggle="tab">Remove</a></li>
+          </ul>
+      </div>
       <div class="modal-body">
         <div id="myTabContent" class="tab-content">
-          <?php
-          // FOR EVERY CHILD OF THE USER, THE ADDED INFORMATION COMES UP IN AN EDIT MODAL WITH ALL THE ADDED VALUES AS DEFAULT VALUES READY FOR EDIT
-            $result = munchKitDB::getInstance()->get_munchkids_by_user_email($_SESSION['user']);
-            $i=0;
-            if($result != NULL){
-                while ($row = $result->fetch_assoc()) {
-                    $idMunchKid = $row['idMunchKids'];
-                    $f_name = $row['f_name'];
-                    $dietType = $row['dietType'];
-                    $allergies = $row['allergies'];
-                    $list_allergies = explode(',', $allergies);
-          ?>
+          <!-- REMOVE MUNCHKID TAB -->
+          <div class="tab-pane fade in" id=<?php echo "remove".$f_name; ?>>
+            <p> By Clicking 'CONFIRM', the profile of </p> <?php echo $f_name; ?> <p> will be permanently deleted from our records. </p>
+
+            <form class="form-horizontal" method="POST" action="removeMunchKidFromOE.php">
+              <input type="hidden" name="idMunchKid" value=<?php echo $idMunchKid; ?> />
+              <input type="hidden" name="refURL" value="orderEntry.php">
+
+              <div class="controls">
+                <center><input type="submit" name="removeMunchKid" class="btn btn-primary btn-simple btn-wd btn-lg" value="CONFIRM"/></center>
+              </div>
+            </form>
+          </div>
+
+          <!-- EDIT MUNCHKID TAB -->
           <div class="tab-pane fade active in" id=<?php echo "edit".$f_name; ?>>
             <form class="form-horizontal" method="POST" action="updateMunchKidFromOE.php">
             
@@ -370,30 +366,26 @@ if (array_key_exists("user", $_SESSION)) {
                 </div>
               </div>
 
-              <!-- Required to identify which MunchKid belongs to which user -->
-              <!-- <input type="hidden" name="userID" value=<?php echo munchKitDB::getInstance()->get_user_id_by_email($_SESSION['user']); ?> >     -->
               <input type="hidden" name="idMunchKid" value=<?php echo $idMunchKid; ?> />
-              <!-- <input type="hidden" name=numKids value=<?php echo $i; ?> > -->
+              <input type="hidden" name="refURL" value="orderEntry.php">
+
             </form>
           </div>
-
-          <?php
-            $i++;
-                }
-              }
-          ?>
         </div>
       </div>
       <div class="modal-footer">
-      <center>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <center>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </center>
       </div>
     </div>
   </div>
 </div>
-
-
+<?php
+  $i++;
+      }
+    }
+?>
 <!-- END OF EDIT MODAL -->
 
 
@@ -419,8 +411,8 @@ if (array_key_exists("user", $_SESSION)) {
           <div class="col-md-7 col-md-offset-3">
             <!-- MODAL BUTTON -->
             <center>
-            <button id="addMunchKidBtn" class="btn btn-primary btn-lg" href="#addMunchKidModal" data-toggle="modal" data-target="#addMunchKidModal">Add a MunchKid</button>
-            <button id="editMunchKidBtn" class="btn btn-primary btn-lg" href="#editMunchKidModal" data-toggle="modal" data-target="#editMunchKidModal" style="margin-right: 100px;">Edit MunchKids</button>
+            <button id="addMunchKidBtn" class="btn btn-primary btn-lg" href="#addMunchKidModal" data-toggle="modal" data-target="#addMunchKidModal" style="margin-right: 100px;">Add a MunchKid</button>
+            <!-- <button id="editMunchKidBtn" class="btn btn-primary btn-lg" href="#editMunchKidModal" data-toggle="modal" data-target="#editMunchKidModal" style="margin-right: 100px;">Edit MunchKids</button> -->
             </center>
             <div class="row collections">
             <!-- Alex ADD -->
@@ -435,30 +427,43 @@ if (array_key_exists("user", $_SESSION)) {
                                 $f_name = $row['f_name'];
                                 $dietType = $row['dietType'];
                                 $allergies = $row['allergies'];
-                                $i++;
+                                $mealPlan = munchKitDB::getInstance()->get_order_by_idMunchKid($idMunchKid);
+                                
                                 ?>
                                 <div class="col-md-5 ">
                                   <div class="col-md-5">
                                   </div>
                                   <div class="col-md-7">
                                       <div class="content">
-                                          <h4 class="card-title"> <?php echo $f_name ; ?> </h4> 
+                                          <h4 class="card-title"> <?php if($mealPlan==''){ echo '***NEW***';} echo $f_name ; ?> </h4> 
                                           <h6 class="category text-muted"> <?php echo $dietType ; ?> </h6>
                                           <h4> </h4>
                                           <select id="mealPlan" name= <?php echo 'mealPlan_' . $i ?> > 
+                                            <?php if($mealPlan ==''){ ?>
                                               <option <?php if ($_SERVER['REQUEST_METHOD'] == "POST"){if($_POST['numMeals']=='5'){echo 'selected="selected"';} }?> value="5">5 meals/wk ($8/meal)  </option>
                                               <option <?php if ($_SERVER['REQUEST_METHOD'] == "POST") {if($_POST['numMeals']=='3'){echo 'selected="selected"';} }?> value="3">3 meals/wk ($9.25/meal)  </option>
                                               <option <?php if ($_SERVER['REQUEST_METHOD'] == "POST") {if($_POST['numMeals']=='1'){echo 'selected="selected"';} }?> value="1">1 meal/wk ($10.25/meal)  </option>
+                                            <?php } else{ ?>
+                                              <option <?php if($mealPlan =='5'){echo 'selected="selected"';} ?> value="5"> <?php if($mealPlan =='5'){echo '5 meals/wk (CURRENT PLAN)';} else {echo "5 meals/wk ($8/meal)";}?> </option>
+                                              <option <?php if($mealPlan =='3'){echo 'selected="selected"';} ?> value="3"> <?php if($mealPlan =='3'){echo '3 meals/wk (CURRENT PLAN)';} else {echo "3 meals/wk ($9.25/meal)";}?> </option>
+                                              <option <?php if($mealPlan =='1'){echo 'selected="selected"'; }?> value="1"> <?php if($mealPlan =='1'){echo '1 meals/wk (CURRENT PLAN)';} else {echo "1 meal/wk ($10.25/meal) ";}?> </option>
+
+                                            <?php } ?>
+
+                                              
 
                                           </select>
                                           <input type="hidden" name= <?php echo 'idMunchKid_' . $i; ?> value=<?php echo $idMunchKid; ?> />
                                           <input type="hidden" name= <?php echo 'f_name_' . $i; ?> value=<?php echo $f_name; ?> />
                                           <input type="hidden" name=<?php echo "dietType_" . $i; ?> value=<?php echo $dietType; ?> />
                                           <input type="hidden" name=<?php echo "allergies" .$i; ?> value=<?php echo $allergies; ?> />
+                                          <input type="hidden" name=<?php echo "numOrders"; ?> value=<?php echo $i; ?>>
+                                          <input type="editBtn" id=<?php echo "editMunchKidBtn_".$i ?> class="btn btn-primary btn-sm" href=<?php echo "#editMunchKidModal_".$i ?> data-toggle="modal" data-target=<?php echo "#editMunchKidModal_".$i ?> style="margin-right: 100px;" value="Edit/Remove" readonly>
                                       </div>
                                   </div>
                                 </div>
                         <?php
+                          $i++;
                             }
                         }
                         else{
@@ -466,7 +471,7 @@ if (array_key_exists("user", $_SESSION)) {
                         <center><h6> You have no MunchKids to display! Please Add A Child Profile</h6></center>
                         <?php } ?>
                       <div class="footer text-center">
-                        <input type="submit" class="btn btn-primary btn-round" value="Complete Order" style="margin-top: 50px; margin-right: 100px;" <?php if ($i == 0){ echo "disabled";} ?>>
+                        <input type="submit" class="btn btn-primary btn-round" value="Complete Order" onclick="" style="margin-top: 50px; margin-right: 100px;" <?php if ($i == 0){ echo "disabled";} ?>/>
                       </div>
                   </form>
                 </div>

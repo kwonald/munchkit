@@ -17,12 +17,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	
 
 	munchKitDB::getInstance()->update_munchkids($_POST['idMunchKid'], $_POST['f_name'], $_POST['dietType'], $allergies);
-		//munchKitDB::getInstance()->insert_munchkid($_POST['userID'], $_POST['f_name'], $_POST['dietType']); 
+	//munchKitDB::getInstance()->insert_munchkid($_POST['userID'], $_POST['f_name'], $_POST['dietType']); 
 
-		$idMunchKid = munchKitDB::getInstance()->get_munchkid_id($_POST['userID'], $_POST['f_name']);
-		
-		header('Location: orderEntry.php');
-        exit;	
+	$idMunchKid = munchKitDB::getInstance()->get_munchkid_id($_POST['userID'], $_POST['f_name']);
+	
+
+	$dest = 'Location: '. $_POST['refURL'];
+	header($dest);
+    exit;	
 }
 
 
