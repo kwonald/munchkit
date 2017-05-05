@@ -146,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     </nav>
 
 
-	<div class="page-header header-filter" filter-color="none" style="background-image: url('assets/img/landingbg.jpg'); background-size: cover; background-position: top center;">
+	<div class="page-header header-filter" filter-color="none" style="background-image: url('assets/img/landingbg.png'); background-size: cover; background-position: top center;">
     	<div class="container">
 			<div class="row">
     			<div class="col-md-10 col-md-offset-1">
@@ -189,8 +189,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 											<input type="text" name="prov" required="" placeholder="Prov/State..." class="form-control" />
 											<input type="text" name="zipCode" required="" placeholder="Zip Code..." class="form-control" />
 										</div>
-											<input type="hidden" name="email" value = <?php echo '"' ?><?php echo $_POST['email']?> <?php echo'"' ?> >
-											<input type="hidden" name="userpassword" value = <?php echo '"' ?><?php echo $_POST['userpassword']?> <?php echo'"' ?> >
+											<input type="hidden" name="email" value = <?php echo $_POST['email']?> >
+											<input type="hidden" name="userpassword" value = <?php echo $_POST['userpassword']?> >
 									</div>
 									<div class="footer text-center">
 										<input type="submit" class="btn btn-primary btn-round" value="Almost Done!"/>

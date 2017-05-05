@@ -144,7 +144,7 @@ if (array_key_exists("user", $_SESSION)) {
     </nav>
 
 
-	<div class="page-header header-filter" filter-color="none" style="background-image: url('assets/img/landingbg.jpg'); background-size: cover; background-position: top center;">
+	<div class="page-header header-filter" filter-color="none" style="background-image: url('assets/img/landingbg.png'); background-size: cover; background-position: top center;">
     	<div class="container">
 			<div class="row">
     			<div class="col-md-10 col-md-offset-1">
