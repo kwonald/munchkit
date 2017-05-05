@@ -135,7 +135,7 @@ if (array_key_exists("user", $_SESSION)) {
 <div class="page-header header-filter header-small" data-parallax="active" style="background-image: url('assets/img/food/berries.jpeg');"></div>
     <!-- ADDED BY ALEX FOR MODAL  -->
 <!-- Modal -->
-<div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal fade bs-modal-sm" id="addMunchKidModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog ">
     <div class="modal-content">
         <br>
@@ -148,94 +148,94 @@ if (array_key_exists("user", $_SESSION)) {
         </div>
       <div class="modal-body">
         <div id="myTabContent" class="tab-content">
-        <div class="tab-pane fade in" id="why">
-        <p>MunchKit requires this information so that we can prepare meals that are customized to your MunchKid's needs. Rest assured information will not be sold, traded, or given to any third parties.</p>
-        <p></p><br> Please contact <a mailto:href="JoeSixPack@Sixpacksrus.com"></a>munchkitfoods@gmail.com</a> for any other inquiries.</p>
-        </div>
-        <div class="tab-pane fade active in" id="newMunchKid">
+          <div class="tab-pane fade in" id="why">
+            <p>MunchKit requires this information so that we can prepare meals that are customized to your MunchKid's needs. Rest assured information will not be sold, traded, or given to any third parties.</p>
+            <p></p><br> Please contact <a mailto:href="JoeSixPack@Sixpacksrus.com"></a>munchkitfoods@gmail.com for any other inquiries.
+          </div>
+          <div class="tab-pane fade active in" id="newMunchKid">
             <form class="form-horizontal" method="POST" action="addMunchKidFromOE.php">
             
-            <!-- Text input-->
-            <div class="control-group">
-              <label class="control-label" for="f_name">First Name:</label>
-              <div class="controls">
-                <input name="f_name" class="form-control" type="text" placeholder="John" class="input-large" required="">
-              </div>
-            </div>
-            
-            <!-- Text input-->
-            <div class="control-group">
-                <label class="control-label" for="dietType">Diet Type:</label>
+              <!-- Text input-->
+              <div class="control-group">
+                <label class="control-label" for="f_name">First Name:</label>
                 <div class="controls">
-                    <label class="radio-inline">
-                        <input type="radio" name="dietType" value="original" checked="checked"> 
-                            Original
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="dietType" value="vegetarian" >
-                            Vegetarian
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="dietType" value="glutenfree">
-                            GF
-                    </label>
-                </div>
-            </div>
-            
-            <!-- text input-->
-            <div class="control-group">
-              <label class="control-label" for="allergies">Allergies:</label>
-              <div class="controls">
-                <!-- <input name="allergies" class="form-control" type="text" placeholder="List of allergies" class="input-large" required=""> -->
-                <div class="checkbox">
-                  <label><input type="checkbox" name="allergies[]" value="milk">Milk</label>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" name="allergies[]" value="eggs">Eggs</label>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" name="allergies[]" value="peanuts">Peanuts</label>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" name="allergies[]" value="fish">Fish</label>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" name="allergies[]" value="shellfish">Shellfish</label>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" name="allergies[]" value="nuts">Tree Nuts (Cashews or Walnuts)</label>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" name="allergies[]" value="wheat">Wheat</label>
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" name="allergies[]" value="soy">Soy</label>
+                  <input name="f_name" class="form-control" type="text" placeholder="John" class="input-large" required="">
                 </div>
               </div>
-            </div>
-            
-            <!-- Text input-->
-            <div class="control-group">
-              <label class="control-label" for="additionalNotes">Additional Notes:</label>
-              <div class="controls">
-                <input class="form-control" name="additionalNotes" type="text" placeholder="..." class="input-large" >
+              
+              <!-- Text input-->
+              <div class="control-group">
+                  <label class="control-label" for="dietType">Diet Type:</label>
+                  <div class="controls">
+                      <label class="radio-inline">
+                          <input type="radio" name="dietType" value="original" checked="checked"> 
+                              Original
+                      </label>
+                      <label class="radio-inline">
+                          <input type="radio" name="dietType" value="vegetarian" >
+                              Vegetarian
+                      </label>
+                      <label class="radio-inline">
+                          <input type="radio" name="dietType" value="glutenfree">
+                              GF
+                      </label>
+                  </div>
               </div>
-            </div>
-            
-            <!-- Button -->
-            <div class="control-group">
-              <label class="control-label" for="confirmsignup"></label>
-              <div class="controls">
-                <center><input type="submit" class="btn btn-primary btn-simple btn-wd btn-lg" value="Submit"/></center>
+              
+              <!-- text input-->
+              <div class="control-group">
+                <label class="control-label" for="allergies">Allergies:</label>
+                <div class="controls">
+                  <!-- <input name="allergies" class="form-control" type="text" placeholder="List of allergies" class="input-large" required=""> -->
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="allergies[]" value="milk">Milk</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="allergies[]" value="eggs">Eggs</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="allergies[]" value="peanuts">Peanuts</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="allergies[]" value="fish">Fish</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="allergies[]" value="shellfish">Shellfish</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="allergies[]" value="nuts">Tree Nuts (Cashews or Walnuts)</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="allergies[]" value="wheat">Wheat</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="allergies[]" value="soy">Soy</label>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Text input-->
+              <div class="control-group">
+                <label class="control-label" for="additionalNotes">Additional Notes:</label>
+                <div class="controls">
+                  <input class="form-control" name="additionalNotes" type="text" placeholder="..." class="input-large" >
+                </div>
+              </div>
+              
+              <!-- Button -->
+              <div class="control-group">
+                <label class="control-label" for="confirmsignup"></label>
+                <div class="controls">
+                  <center><input type="submit" name="addMunchKid" class="btn btn-primary btn-simple btn-wd btn-lg" value="Submit"/></center>
 
+                </div>
               </div>
-            </div>
 
-            <!-- Required to identify which MunchKid belongs to which user -->
-            <input type="hidden" name="userID" value=<?php echo munchKitDB::getInstance()->get_user_id_by_email($_SESSION['user']); ?> >    
+              <!-- Required to identify which MunchKid belongs to which user -->
+              <input type="hidden" name="userID" value=<?php echo munchKitDB::getInstance()->get_user_id_by_email($_SESSION['user']); ?> >    
             </form>
-        </div>  
-    </div>
+          </div>  
+        </div>
       </div>
       <div class="modal-footer">
       <center>
@@ -245,6 +245,158 @@ if (array_key_exists("user", $_SESSION)) {
     </div>
   </div>
 </div>
+
+<!-- EDIT MODAL -->
+
+<div class="modal fade bs-modal-sm" id="editMunchKidModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+        <br>
+        <div class="bs-example bs-example-tabs">
+            <ul id="myTab" class="nav nav-tabs">
+              <?php
+              // CREATE TABS IN EDIT MODAL WITH FIRST NAME OF THE MUNCHKID AS THE TITLE OF THE TAB
+            $result = munchKitDB::getInstance()->get_munchkids_by_user_email($_SESSION['user']);
+            $i=0;
+            if($result != NULL){
+                while ($row = $result->fetch_assoc()) {
+                    $idMunchKid = $row['idMunchKids'];
+                    $f_name = $row['f_name'];
+                    $dietType = $row['dietType'];
+                    
+          ?>
+              <li class=<?php if ($i==0){echo "active";} else {echo "''";} ?>><a href=<?php echo "#edit".$f_name; ?> data-toggle="tab"> <?php echo $f_name; ?> </a></li>
+          <?php
+              $i++;
+                }
+              } else{
+          ?>
+            <center><p> YOU HAVE NO MUNCHKIDS TO EDIT! </p></center>
+          <?php
+          }
+        ?>
+
+            </ul>
+        </div>
+      <div class="modal-body">
+        <div id="myTabContent" class="tab-content">
+          <?php
+          // FOR EVERY CHILD OF THE USER, THE ADDED INFORMATION COMES UP IN AN EDIT MODAL WITH ALL THE ADDED VALUES AS DEFAULT VALUES READY FOR EDIT
+            $result = munchKitDB::getInstance()->get_munchkids_by_user_email($_SESSION['user']);
+            $i=0;
+            if($result != NULL){
+                while ($row = $result->fetch_assoc()) {
+                    $idMunchKid = $row['idMunchKids'];
+                    $f_name = $row['f_name'];
+                    $dietType = $row['dietType'];
+                    $allergies = $row['allergies'];
+                    $list_allergies = explode(',', $allergies);
+          ?>
+          <div class="tab-pane fade active in" id=<?php echo "edit".$f_name; ?>>
+            <form class="form-horizontal" method="POST" action="updateMunchKidFromOE.php">
+            
+              <!-- Text input-->
+              <div class="control-group">
+                <label class="control-label" for="f_name">First Name:</label>
+                <div class="controls">
+                  <input name=<?php echo "f_name"; ?> class="form-control" type="text" placeholder="John" class="input-large" required="" value=<?php echo $f_name; ?>>
+                </div>
+              </div>
+              
+              <!-- Text input-->
+              <div class="control-group">
+                  <label class="control-label" for="dietType">Diet Type:</label>
+                  <div class="controls">
+                      <label class="radio-inline">
+                          <input type="radio" name=<?php echo "dietType"; ?> value="original" <?php if($dietType == "original") {echo 'checked="checked"';} ?> > 
+                              Original
+                      </label>
+                      <label class="radio-inline">
+                          <input type="radio" name=<?php echo "dietType"; ?> value="vegetarian" <?php if($dietType == "vegetarian") {echo 'checked="checked"';} ?> >
+                              Vegetarian
+                      </label>
+                      <label class="radio-inline">
+                          <input type="radio" name=<?php echo "dietType"; ?> value="glutenfree" <?php if($dietType == "glutenfree") {echo 'checked="checked"';} ?>>
+                              GF
+                      </label>
+                  </div>
+              </div>
+
+              <!-- text input-->
+              <div class="control-group">
+                <label class="control-label" for="allergies">Allergies:</label>
+                <div class="controls">
+                  <div class="checkbox">
+                    <label><input type="checkbox" name=<?php echo "allergies[]"; ?> <?php if(in_array("milk", $list_allergies)){echo "checked";} ?> value="milk">Milk</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name=<?php echo "allergies[]";  ?> <?php if(in_array("eggs", $list_allergies)){echo "checked";} ?> value="eggs">Eggs</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name=<?php echo "allergies[]";  ?> <?php if(in_array("peanuts", $list_allergies)){echo "checked";} ?> value="peanuts">Peanuts</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name=<?php echo "allergies[]";  ?> <?php if(in_array("fish", $list_allergies)){echo "checked";} ?> value="fish">Fish</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name=<?php echo "allergies[]"; ?> <?php if(in_array("shellfish", $list_allergies)){echo "checked";} ?> value="shellfish">Shellfish</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name=<?php echo "allergies[]"; ?> <?php if(in_array("nuts", $list_allergies)){echo "checked";} ?> value="nuts">Tree Nuts (Cashews or Walnuts)</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name=<?php echo "allergies[]"; ?> <?php if(in_array("wheat", $list_allergies)){echo "checked";} ?> value="wheat">Wheat</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name=<?php echo "allergies[]"; ?> <?php if(in_array("soy", $list_allergies)){echo "checked";} ?> value="soy">Soy</label>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Text input-->
+              <div class="control-group">
+                <label class="control-label" for="additionalNotes">Additional Notes:</label>
+                <div class="controls">
+                  <input class="form-control" name=<?php echo "additionalNotes"; ?> type="text" placeholder="..." class="input-large" >
+                </div>
+              </div>
+              
+              <!-- Button -->
+              <div class="control-group">
+                <label class="control-label" for="confirmsignup"></label>
+                <div class="controls">
+                  <center><input type="submit" name="editMunchKid" class="btn btn-primary btn-simple btn-wd btn-lg" value="Edit"/></center>
+
+                </div>
+              </div>
+
+              <!-- Required to identify which MunchKid belongs to which user -->
+              <!-- <input type="hidden" name="userID" value=<?php echo munchKitDB::getInstance()->get_user_id_by_email($_SESSION['user']); ?> >     -->
+              <input type="hidden" name="idMunchKid" value=<?php echo $idMunchKid; ?> />
+              <!-- <input type="hidden" name=numKids value=<?php echo $i; ?> > -->
+            </form>
+          </div>
+
+          <?php
+            $i++;
+                }
+              }
+          ?>
+        </div>
+      </div>
+      <div class="modal-footer">
+      <center>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- END OF EDIT MODAL -->
+
+
 
     <!-- END OF ADD BY ALEX -->
     <div class="main">
@@ -266,7 +418,10 @@ if (array_key_exists("user", $_SESSION)) {
   <!-- ADDED BY ALEX -->
           <div class="col-md-7 col-md-offset-3">
             <!-- MODAL BUTTON -->
-            <center><button class="btn btn-primary btn-lg" href="#addMunchKid" data-toggle="modal" data-target=".bs-modal-sm" style="margin-right: 100px;"">Add a MunchKid</button></center>
+            <center>
+            <button id="addMunchKidBtn" class="btn btn-primary btn-lg" href="#addMunchKidModal" data-toggle="modal" data-target="#addMunchKidModal">Add a MunchKid</button>
+            <button id="editMunchKidBtn" class="btn btn-primary btn-lg" href="#editMunchKidModal" data-toggle="modal" data-target="#editMunchKidModal" style="margin-right: 100px;">Edit MunchKids</button>
+            </center>
             <div class="row collections">
             <!-- Alex ADD -->
                 <div class="row">
@@ -279,6 +434,7 @@ if (array_key_exists("user", $_SESSION)) {
                                 $idMunchKid = $row['idMunchKids'];
                                 $f_name = $row['f_name'];
                                 $dietType = $row['dietType'];
+                                $allergies = $row['allergies'];
                                 $i++;
                                 ?>
                                 <div class="col-md-5 ">
@@ -286,23 +442,19 @@ if (array_key_exists("user", $_SESSION)) {
                                   </div>
                                   <div class="col-md-7">
                                       <div class="content">
-                                          <h4 class="card-title"> <?php echo $f_name ?> </h4>
-                                          <h6 class="category text-muted"> <?php echo $dietType ?> </h6>
+                                          <h4 class="card-title"> <?php echo $f_name ; ?> </h4> 
+                                          <h6 class="category text-muted"> <?php echo $dietType ; ?> </h6>
+                                          <h4> </h4>
                                           <select id="mealPlan" name= <?php echo 'mealPlan_' . $i ?> > 
                                               <option <?php if ($_SERVER['REQUEST_METHOD'] == "POST"){if($_POST['numMeals']=='5'){echo 'selected="selected"';} }?> value="5">5 meals/wk ($8/meal)  </option>
                                               <option <?php if ($_SERVER['REQUEST_METHOD'] == "POST") {if($_POST['numMeals']=='3'){echo 'selected="selected"';} }?> value="3">3 meals/wk ($9.25/meal)  </option>
                                               <option <?php if ($_SERVER['REQUEST_METHOD'] == "POST") {if($_POST['numMeals']=='1'){echo 'selected="selected"';} }?> value="1">1 meal/wk ($10.25/meal)  </option>
 
                                           </select>
-                                          <input type="hidden" name= <?php echo 'idMunchKid_' . $i ?> value=<?php echo $idMunchKid ?> />
-                                          <input type="hidden" name= <?php echo 'f_name_' . $i ?> value=<?php echo $f_name ?> />
-                                          <input type="hidden" name=<?php echo "dietType_" . $i ?> value=<?php echo $dietType ?> />
-                                          <input type="hidden" name=<?php echo "allergies" .$i ?> value="" />
-                                          <input type="hidden" name="numOrders" value=<?php echo $i ?> />
-                                        <!--   <button class="btn btn-fab btn-primary" rel="tooltip" title="edit">
-                                            
-                                          </button>
-                                          <button class="btn btn-primary btn-lg" href="#editMunchKid" data-toggle="modal" data-target=".bs-modal-sm" rel="tooltip" title="edit"> <i class="material-icons">create</i> </button> -->
+                                          <input type="hidden" name= <?php echo 'idMunchKid_' . $i; ?> value=<?php echo $idMunchKid; ?> />
+                                          <input type="hidden" name= <?php echo 'f_name_' . $i; ?> value=<?php echo $f_name; ?> />
+                                          <input type="hidden" name=<?php echo "dietType_" . $i; ?> value=<?php echo $dietType; ?> />
+                                          <input type="hidden" name=<?php echo "allergies" .$i; ?> value=<?php echo $allergies; ?> />
                                       </div>
                                   </div>
                                 </div>
@@ -314,7 +466,7 @@ if (array_key_exists("user", $_SESSION)) {
                         <center><h6> You have no MunchKids to display! Please Add A Child Profile</h6></center>
                         <?php } ?>
                       <div class="footer text-center">
-                        <input type="submit" class="btn btn-primary btn-round" value="Complete Order" style="margin-top: 50px;" <?php if ($i == 0){ echo "disabled";} ?>>
+                        <input type="submit" class="btn btn-primary btn-round" value="Complete Order" style="margin-top: 50px; margin-right: 100px;" <?php if ($i == 0){ echo "disabled";} ?>>
                       </div>
                   </form>
                 </div>
