@@ -172,7 +172,7 @@ if (array_key_exists("user", $_SESSION)) {
                                 <img src="assets/img/ubccrest.jpg" alt="" />
                             </div> -->
                             <div class="col-md-3">
-                                <img src="assets/img/ubcfarmlogo.jpeg" alt="" />
+                                <!-- <img src="assets/img/ubcfarmlogo.jpeg" alt="" /> -->
                             </div>
                             <div class="col-md-3">
                                 <img src="assets/img/eubclogo.jpg" alt="" />
