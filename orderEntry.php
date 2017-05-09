@@ -31,6 +31,10 @@ if (array_key_exists("user", $_SESSION)) {
 
 
 <body class="orderEntry">
+
+<!-- For GOOGLE ANALYTICS  -->
+<?php include_once("Includes/analyticstracking.php") ?>
+
     <nav class="navbar navbar-inverse navbar-fixed-top ">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -98,6 +102,11 @@ if (array_key_exists("user", $_SESSION)) {
                         <a href="profile-page.php">
                             <!-- <i class="material-icons">account_circle</i> --> My Account
                         </a>
+                    </li>
+                    <li>
+                      <a href="logout.php">
+                        Log Out
+                      </a>
                     </li>
                     <li>
                         <a href="choosePlan.php" class="btn btn-rose btn-square">
@@ -203,7 +212,7 @@ if (array_key_exists("user", $_SESSION)) {
                     <label><input type="checkbox" name="allergies[]" value="shellfish">Shellfish</label>
                   </div>
                   <div class="checkbox">
-                    <label><input type="checkbox" name="allergies[]" value="nuts">Tree Nuts (Cashews or Walnuts)</label>
+                    <label><input type="checkbox" name="allergies[]" value="nuts">Tree Nuts</label>
                   </div>
                   <div class="checkbox">
                     <label><input type="checkbox" name="allergies[]" value="wheat">Wheat</label>
@@ -417,7 +426,7 @@ if (array_key_exists("user", $_SESSION)) {
             <div class="row collections">
             <!-- Alex ADD -->
                 <div class="row">
-                  <form class="form" method="POST" action="updateOrder.php">  
+                  <form class="form" method="POST" action="order_summary.php">  
                     <?php
                         $result = munchKitDB::getInstance()->get_munchkids_by_user_email($_SESSION['user']);
                         $i=0;
@@ -456,7 +465,7 @@ if (array_key_exists("user", $_SESSION)) {
                                           <input type="hidden" name= <?php echo 'idMunchKid_' . $i; ?> value=<?php echo $idMunchKid; ?> />
                                           <input type="hidden" name= <?php echo 'f_name_' . $i; ?> value=<?php echo $f_name; ?> />
                                           <input type="hidden" name=<?php echo "dietType_" . $i; ?> value=<?php echo $dietType; ?> />
-                                          <input type="hidden" name=<?php echo "allergies" .$i; ?> value=<?php echo $allergies; ?> />
+                                          <input type="hidden" name=<?php echo "allergies_" .$i; ?> value=<?php echo $allergies; ?> />
                                           <input type="hidden" name=<?php echo "numOrders"; ?> value=<?php echo $i; ?>>
                                           <input type="editBtn" id=<?php echo "editMunchKidBtn_".$i ?> class="btn btn-primary btn-sm" href=<?php echo "#editMunchKidModal_".$i ?> data-toggle="modal" data-target=<?php echo "#editMunchKidModal_".$i ?> style="margin-right: 100px;" value="Edit/Remove" readonly>
                                       </div>

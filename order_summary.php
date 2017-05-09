@@ -30,6 +30,10 @@ if (array_key_exists("user", $_SESSION)) {
 
 
 <body class="orderSummary">
+
+<!-- For GOOGLE ANALYTICS  -->
+<?php include_once("Includes/analyticstracking.php") ?>
+
 	<nav class="navbar navbar-inverse navbar-fixed-top ">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -99,6 +103,11 @@ if (array_key_exists("user", $_SESSION)) {
                         </a>
                     </li>
                     <li>
+                      <a href="logout.php">
+                        Log Out
+                      </a>
+                    </li>
+                    <li>
                         <a href="choosePlan.php" class="btn btn-rose btn-square">
                              Order Now
                         </a>
@@ -156,55 +165,78 @@ if (array_key_exists("user", $_SESSION)) {
 
 
 				<div class="row">
-                    <form class="form" method="POST" action=#pablo>  
+                    <form class="form" method="POST" action="updateOrder.php">  
                         <?php
-                            $result = munchKitDB::getInstance()->get_orderList_by_user_email($_SESSION['user']);
-                            $i=0;
-                            $num5meals=0;
-                            $num3meals=0;
-                            $num1meals=0;
-                            $cost = 0;
-                            if($result != NULL){
-                                while ($row = $result->fetch_assoc()) {
-                                    $mealPlan = $row['mealPlan'];
-                                    $f_name = $row['f_name'];
-                                    $dietType = $row['dietType'];
-                                    if($mealPlan == '5'){ $num5meals++; }
-                                    else if($mealPlan == '3'){ $num3meals++; }
-                                    else if ($mealPlan == '1'){ $num1meals++; }
-                                    $i++;
-                                    ?>
-                                    <div class="col-md-5 ">
-                                        <!-- <div class="card card-profile card-plain"> -->
-                                            <div class="col-md-5">
-                                            </div>
-                                            <div class="col-md-7">
-                                                <div class="content">
-                                                    <h4 class="card-title"> <?php echo $f_name ?> </h4>
-                                                    <h6 class="category text-muted"> <?php echo $dietType ?> </h6>
-                                                    <h6 class="category text-muted"> <?php echo $mealPlan ?> </h6>
-                                                    
-                                                    <!-- <input type="hidden" name= <?php echo 'f_name_' . $i ?> value=<?php echo $f_name ?> />
-                                                    <input type="hidden" name=<?php echo "dietType_" . $i ?> value=<?php echo $dietType ?> />
-                                                    <input type="hidden" name=<?php echo "allergies" .$i ?> value="" />
-                                                    <input type="hidden" name="numOrders" value=<?php echo $i ?> /> -->
-                                                </div>
-                                            </div>
-                                        <!-- </div> -->
-                                    </div>
-                            <?php
-                                }
+                        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                        $i = 0;
+                        $num = (int)$_POST['numOrders'];
+                        $num5meals=0;
+                        $num3meals=0;
+                        $num1meals=0;
+                        $cost = 0;
+                        $changesInOrder = FALSE;
+                        $oldNum5Meals=0;
+                        $oldNum3Meals=0;
+                        $oldNum1Meals=0;
+                
+                        while($i <= $num){
+                            $mealPlan = $_POST['mealPlan_'.$i];
+                            $oldMealPlan = munchKitDB::getInstance()->get_order_by_idMunchKid($_POST['idMunchKid_'.$i]);
+                            if($oldMealPlan != NULL && $mealPlan != $oldMealPlan){ $changesInOrder = TRUE; }
+                            if($mealPlan == '5'){ $num5meals++; }
+                            else if($mealPlan == '3'){ $num3meals++; }
+                            else if ($mealPlan == '1'){ $num1meals++; }
+                            if($oldMealPlan == '5'){ $oldNum5Meals++; }
+                            else if($oldMealPlan == '3'){ $oldNum3Meals++; }
+                            else if ($oldMealPlan == '1'){ $oldNum1Meals++; }
 
-                            }
-                            else{
                             ?>
-                            <h6> You have no MunchKids to display!</h6>
-                            <?php } ?>
+                            <div class="col-md-5 ">
+                                <div class="col-md-5">
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="content">
+                                        <h4 class="card-title"> <?php echo $_POST['f_name_'. $i]; ?> </h4>
+                                        <h6 class="category text-muted"> <?php echo $_POST['dietType_' . $i]; ?> </h6>
+                                        <h6 class="category text-muted"> <?php if($oldMealPlan != NULL && $mealPlan != $oldMealPlan){ echo "Meal plan changed from ". $oldMealPlan . " to " . $mealPlan . " meals a week"; } else {echo $mealPlan . ' Meal(s) A Week';} ?> </h6>
+                                    </div>
+                                </div>
+                            </div> 
+                            <input type="hidden" name= <?php echo 'idMunchKid_' . $i; ?> value=<?php echo $_POST['idMunchKid_' .$i]; ?> />
+                            <input type="hidden" name= <?php echo 'f_name_' . $i; ?> value=<?php echo $_POST['f_name_' . $i]; ?> />
+                            <input type="hidden" name=<?php echo "dietType_" . $i; ?> value=<?php echo $_POST['dietType_' . $i]; ?> />
+                            <input type="hidden" name=<?php echo "allergies" .$i; ?> value=<?php echo $_POST['allergies_' . $i]; ?> />
+                            <input type="hidden" name=<?php echo "numOrders"; ?> value=<?php echo $i; ?>> 
+                            <input type="hidden" name= <?php echo 'mealPlan_' . $i; ?> value=<?php echo $mealPlan; ?> />
+                            <?php
+                            $i++;   
+                            }
+                        } ?>
                         <div class="footer text-center">
                             <input type="submit" class="btn btn-primary btn-round" value="checkout" style="margin-top: 50px;">
                         </div>
                     </form>
                 </div>
+                
+                <!-- IF THERE ARE CHANGED IN THE ORDER THE CHANGES ARE SHOWN -->
+                <?php
+                if($changesInOrder){
+                ?>
+                <h4 class="card-title"> ------------------ BEFORE ---------------------- </h4>
+                <h6> <?php echo 'Number of 5 meal plans: '.$oldNum5Meals . '<br> 3 meal plans: '. $oldNum3Meals . '<br>1 meal plans: ' . $oldNum1Meals ?></h6>
+                <h6> <?php echo '$' . 5*8*$oldNum5Meals . ' CDN<br>'. '$' . 3*9.25*$oldNum3Meals . ' CDN<br>' . '$'. 10.25*$oldNum1Meals .' CDN' ?></h6>
+                <?php $total = 5*8*$oldNum5Meals+3*9.25*$oldNum3Meals+10.25*$oldNum1Meals; ?>
+                <h6> <?php echo 'TOTAL-------------------------------------------------------------- $' . $total .' CDN'; ?></h6>
+                <br>
+                <br>
+                <br>
+                <h4 class="card-title"> ------------------ NOW ---------------------- </h4>
+                <?php
+                }
+                ?>
+
+
+
                 <h6> <?php echo 'Number of 5 meal plans: '.$num5meals . '<br> 3 meal plans: '. $num3meals . '<br>1 meal plans: ' . $num1meals ?></h6>
                 <h6> <?php echo '$' . 5*8*$num5meals . ' CDN<br>'. '$' . 3*9.25*$num3meals . ' CDN<br>' . '$'. 10.25*$num1meals .' CDN' ?></h6>
                 <h6> <?php echo 'Your munchkits will be delivered to you: ' . munchKitDB::getInstance()->get_next_delivery_date(); ?> </h6>

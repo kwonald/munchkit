@@ -13,17 +13,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 		if(null == munchKitDB::getInstance()->get_order_by_idMunchKid($_POST['idMunchKid_'.$i])) {
 			munchKitDB::getInstance()->insert_order($_POST['idMunchKid_'.$i], $_POST['mealPlan_'.$i]); 
-			echo '<script type="text/javascript">alert("' . 'INSERTED' . '")</script>';
+			// echo '<script type="text/javascript">alert("' . 'INSERTED' . '")</script>';
 		}
 		else{
 			munchKitDB::getInstance()->update_order($_POST['idMunchKid_'.$i], $_POST['mealPlan_'.$i]);
-			echo '<script type="text/javascript">alert("' . 'UPDATED' . '")</script>';
+			// echo '<script type="text/javascript">alert("' . 'UPDATED' . '")</script>';
 		}
 		$i++;	
 	}
  		
 }
-header('Location: order_summary.php');
+header('Location: confirmation.php');
 exit;
 
 ?>
