@@ -30,6 +30,10 @@ if (array_key_exists("user", $_SESSION)) {
 
 <body class="presentation-page">
 
+<!-- For GOOGLE ANALYTICS  -->
+<?php include_once("Includes/analyticstracking.php") ?>
+
+
     <nav class="navbar navbar-inverse navbar-fixed-top ">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -97,6 +101,11 @@ if (array_key_exists("user", $_SESSION)) {
                         <a href="profile-page.php">
                             <!-- <i class="material-icons">account_circle</i> --> My Account
                         </a>
+                    </li>
+                    <li>
+                      <a href="logout.php">
+                        Log Out
+                      </a>
                     </li>
                     <li>
                         <a href="choosePlan.php" class="btn btn-rose btn-square">
@@ -600,6 +609,9 @@ if (array_key_exists("user", $_SESSION)) {
 
     <!-- Demo Purpose, JS For Demo Purpose, Don't Include it in your project -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <!-- shopify buy button -->
+    <script src="http://sdks.shopifycdn.com/js-buy-sdk/v0/latest/shopify-buy.umd.polyfilled.min.js"></script>
 
     <script type="text/javascript">
         var $section_features = '';

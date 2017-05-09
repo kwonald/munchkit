@@ -1,6 +1,5 @@
 <?php
 class munchKitDB extends mysqli {
-
     // single instance of self shared among all instances
     private static $instance = null;
     // db connection config vars
@@ -109,6 +108,18 @@ class munchKitDB extends mysqli {
             return null;
     }
 
+    public function get_order_dateRequired_by_idMunchKid($idMunchKid) {
+        $idMunchKid = $this->real_escape_string($idMunchKid);
+        $res = $this->query("SELECT dateRequired FROM Orders WHERE MunchKids_idMunchKid = '"
+                        . $idMunchKid . "'");
+
+        if ($res->num_rows > 0){
+            $row = $res->fetch_row();
+            return $row[0];
+        } else
+            return null;
+    }
+
     public function get_ingredient_id($allergy){
         $allergy = $this->real_escape_string($allergy);
         $res = $this->query("SELECT idIngredients FROM ingredients WHERE name = '" . $allergy ."'");
@@ -130,11 +141,13 @@ class munchKitDB extends mysqli {
         $city = $this->real_escape_string($city);
         $state = $this->real_escape_string($state);
         $zipCode = $this->real_escape_string($zipCode);
+        $date_Joined = $this->get_current_date();
+        $last_logged_in = $this->get_current_date();
 
         $passwordHash = password_hash($passwordHash, PASSWORD_BCRYPT);
 
-        $this->query("INSERT INTO Users (email, passwordHash, f_name, l_name, phone, addr, city, state, zipCode) VALUES ('" . $email
-                . "', '" . $passwordHash . "', '". $f_name . "', '" . $l_name . "', '" . $phoneNo . "', '" . $addr . "', '" . $city . "', '" . $state . "', '" . $zipCode ."')");
+        $this->query("INSERT INTO Users (email, passwordHash, f_name, l_name, phone, addr, city, state, zipCode, date_Joined, last_Logged_in) VALUES ('" . $email
+                . "', '" . $passwordHash . "', '". $f_name . "', '" . $l_name . "', '" . $phoneNo . "', '" . $addr . "', '" . $city . "', '" . $state . "', '" . $zipCode . "', '" . $date_Joined . "', '". $last_logged_in . "')");
     }
 
     public function verify_user_credentials($email, $password) {
@@ -224,14 +237,19 @@ class munchKitDB extends mysqli {
         $this->query("UPDATE Orders SET mealPlan = '" . $mealPlan . "', dateOrdered = '" . $today . "', dateRequired ='". $nextDelivery ."' WHERE MunchKids_idMunchKid ='" . $idMunchKids."'");
     }
 
-    public function suspend_order($idMunchKids) {
+    public function suspend_order($idMunchKids, $lengthOfSuspension) {
         $idMunchKids = $this->real_escape_string($idMunchKids);
+        $endOfSuspendDate = $this->get_suspend_until_date($lengthOfSuspension);
+        
         $this->query("UPDATE MunchKids SET suspend = '" . TRUE . "' WHERE idMunchKids ='" . $idMunchKids."'");
+        $this->query("UPDATE Orders SET dateRequired = '". $endOfSuspendDate ."' WHERE MunchKids_idMunchKid ='" . $idMunchKids."'");
     }
 
     public function resume_order($idMunchKids) {
         $idMunchKids = $this->real_escape_string($idMunchKids);
+        $endOfSuspendDate = $this->get_suspend_until_date(0);
         $this->query("UPDATE MunchKids SET suspend = '" . FALSE . "' WHERE idMunchKids ='" . $idMunchKids."'");
+        $this->query("UPDATE Orders SET dateRequired = '". $endOfSuspendDate ."' WHERE MunchKids_idMunchKid ='" . $idMunchKids."'");
     }
 
     public function get_munchkid_by_munchkid_id($idMunchKids) {
@@ -263,6 +281,20 @@ class munchKitDB extends mysqli {
     public function get_next_delivery_date(){
         date_default_timezone_set('America/Los_Angeles');
         return date('Y-m-d', strtotime('next Sunday'));
+    }
+
+    //Suspending of meals for x number of weeks must be done before Thursday midnight (23:59:59)
+    //Otherwise, the meals will be delivered that coming week and suspended for the week after that. 
+    public function get_suspend_until_date($numWeeksToSuspend){
+        date_default_timezone_set('America/Los_Angeles');
+        $date = strtotime(date('Y-m-d G:i:s'));
+        $thursday = strtotime(date('Y-m-d', strtotime('next Thursday')));
+        if($thursday - $date >= 7){
+            $numWeeksToSuspend += 1; 
+        }
+
+        return date('Y-m-d', strtotime('+'.$numWeeksToSuspend.' Sunday'));
+        
     }
 
 

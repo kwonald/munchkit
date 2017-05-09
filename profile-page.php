@@ -1,6 +1,7 @@
 <?php
 require_once('Includes/db.php');
 session_start();
+date_default_timezone_set('America/Los_Angeles');
 $loggedIn = false;
 if (array_key_exists("user", $_SESSION)) {
     $loggedIn = true;
@@ -32,6 +33,10 @@ if (array_key_exists("user", $_SESSION)) {
 
 
 <body class="profile-page">
+
+<!-- For GOOGLE ANALYTICS  -->
+<?php include_once("Includes/analyticstracking.php") ?>
+
 	<nav class="navbar navbar-inverse navbar-fixed-top ">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -99,6 +104,11 @@ if (array_key_exists("user", $_SESSION)) {
                         <a href="profile-page.php">
                             <!-- <i class="material-icons">account_circle</i> --> My Account
                         </a>
+                    </li>
+                    <li>
+                      <a href="logout.php">
+                        Log Out
+                      </a>
                     </li>
                     <li>
                         <a href="choosePlan.php" class="btn btn-rose btn-square">
@@ -202,7 +212,7 @@ if (array_key_exists("user", $_SESSION)) {
                     <label><input type="checkbox" name="allergies[]" value="shellfish">Shellfish</label>
                   </div>
                   <div class="checkbox">
-                    <label><input type="checkbox" name="allergies[]" value="nuts">Tree Nuts (Cashews or Walnuts)</label>
+                    <label><input type="checkbox" name="allergies[]" value="nuts">Tree Nuts</label>
                   </div>
                   <div class="checkbox">
                     <label><input type="checkbox" name="allergies[]" value="wheat">Wheat</label>
@@ -387,307 +397,319 @@ if (array_key_exists("user", $_SESSION)) {
 <!-- END OF MODALS  -->
 	<div class="main">
 		<div class="profile-content">
-            <div class="container">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6 col-xs-offset-3">
+	           <div class="profile">
+                  <div class="avatar">
+                      <img src="assets/img/squirrel.png">
+                  </div>
+                  <div class="name">
+                    <?php
+                    $result = munchKitDB::getInstance()->get_user_by_email($_SESSION['user']);
+                    if($result != NULL){
+                        while ($row = $result->fetch_assoc()) {
+                            $phone = $row['phone'];
+                            $email = $row['email'];
+                            $f_name = $row['f_name'];
+                            $l_name = $row['l_name'];
+                        }
+                    }
+                    ?>
+                     <h2 class="title"> <?php echo $f_name . ' ' . $l_name ?> </h2>
+				              <!-- Displaying first names of kids associated to this account -->
 
-                <div class="row">
-	                <div class="col-xs-6 col-xs-offset-3">
-        	           <div class="profile">
-	                        <div class="avatar">
-	                            <img src="assets/img/squirrel.png">
-	                        </div>
-	                        <div class="name">
-                                <?php
-                                $result = munchKitDB::getInstance()->get_user_by_email($_SESSION['user']);
-                                if($result != NULL){
-                                    while ($row = $result->fetch_assoc()) {
-                                        $phone = $row['phone'];
-                                        $email = $row['email'];
-                                        $f_name = $row['f_name'];
-                                        $l_name = $row['l_name'];
-                                    }
-                                }
-                                ?>
-	                            <h2 class="title"> <?php echo $f_name . ' ' . $l_name ?> </h2>
-								<!-- Displaying first names of kids associated to this account -->
-
-								 <h6> <?php echo $email ?></h6>
-                                 <h6> <?php echo $phone ?></h6>
-                               
-
-
-                                <button class="btn btn-fab btn-primary" rel="tooltip" title="Edit Profile">
-                            		<i class="material-icons">create</i>
-                        		</button>
-								
-	                        </div>
-	                    </div>
-    	            </div>
-                </div>
+				              <h6> <?php echo $email ?></h6>
+                      <h6> <?php echo $phone ?></h6>
+                       
 
 
+                    <button class="btn btn-fab btn-primary" rel="tooltip" title="Edit Profile">
+                    	<i class="material-icons">create</i>
+                		</button>
+				
+                  </div>
+              </div>
+          </div>
+        </div>
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3">
 						<div class="profile-tabs">
-		                    <div class="nav-align-center">
-								<ul class="nav nav-pills nav-pills-icons" role="tablist">
-									<li class="active">
-			                            <a href="#work" role="tab" data-toggle="tab">
-											<i class="material-icons">schedule</i>
-											Cancel/Suspend
-			                            </a>
-			                        </li>
-                                    <li>
-										<a href="#connections" role="tab" data-toggle="tab">
-											<i class="material-icons">people</i>
-											Add/Edit Child Profile
-										</a>
-									</li>
-			                        <li>
-			                            <a href="#media" role="tab" data-toggle="tab">
-											<i class="material-icons">payment</i>
-			                                Billing
-			                            </a>
-			                        </li>
-			                    </ul>
-
-
-							</div>
-						</div>
-						<!-- End Profile Tabs -->
-					</div>
+		            <div class="nav-align-center">
+  								<ul class="nav nav-pills nav-pills-icons" role="tablist">
+  									<li class="active">
+  			               <a href="#work" role="tab" data-toggle="tab">
+  											<i class="material-icons">schedule</i>
+  											Cancel/Suspend
+  			               </a>
+  			             </li>
+                    <li>
+  										<a href="#connections" role="tab" data-toggle="tab">
+  											<i class="material-icons">people</i>
+  											Add/Edit Child Profile
+  										</a>
+  									</li>
+  			            <li>
+  			                <a href="#media" role="tab" data-toggle="tab">
+  											 <i class="material-icons">payment</i>
+  			                 Billing
+                        </a>
+                    </li>
+  			          </ul>
                 </div>
-                <div class="tab-content">
-			        <div class="tab-pane active work" id="work">
-				        <div class="row">
-	                        <div class="col-md-7 col-md-offset-3">
-                                <div class="row collections">
-                                    <div class="row">
-                                        <form class="form" method="POST" action="suspendOrder.php"> 
-                                            <?php
-                                                $result = munchKitDB::getInstance()->get_munchkids_by_user_email($_SESSION['user']);
-                                                $i=0;
-                                                $num5meals = 0;
-                                                $num3meals = 0;
-                                                $num1meals = 0;
-                                                
-                                                if($result != NULL){
-                                                    while ($row = $result->fetch_assoc()) {
-                                                        $idMunchKid = $row['idMunchKids'];
-                                                        $mealPlan = munchKitDB::getInstance()->get_order_by_idMunchKid($idMunchKid);
-                                                        $f_name = $row['f_name'];
-                                                        $dietType = $row['dietType'];
-                                                        $suspend = $row['suspend'];
-                                                        if($mealPlan == '5'){$num5meals++;}
-                                                        else if($mealPlan == '3'){$num3meals++;}
-                                                        else if($mealPlan == '1'){$num1meals++;}
-                                                        $i++;
-                                                        ?>
-                                                        <div class="col-md-5 ">
-                                                            <!-- <div class="card card-profile card-plain"> -->
-                                                                <div class="col-md-5">
-                                                                </div>
-                                                                <div class="col-md-7">
-                                                                    <div class="content">
-                                                                        <h4 class="card-title"> <?php echo $f_name ?> </h4>
-                                                                        <h6 class="category text-muted"> <?php echo $dietType ?> </h6>
-                                                                        <h6 class="category text-muted"> <?php echo $mealPlan; if($mealPlan==1){echo ' Meal A Week';} else if($mealPlan==''){echo 'No Meal Plan Selected';} else{echo ' Meals A Week';} ?> </h6>
-                                                                        <?php
-                                                                        if($suspend){ ?>
-                                                                        <h6 class="category text-muted"> Delivery Suspended Until: <?php echo 'until date'; ?> </h6>
-                                                                        <select id="id_period" name=<?php echo "period_".$i ?> > 
-                                                                            <option value="">Resume or Cancel delivery...</option>
-                                                                            <option value="0">Resume</option>
-                                                                            <option value="999">cancel subscription for this child  </option>
-                                                                        </select>
-                                                                        <?php
-                                                                        }else{
-                                                                        ?>
-                                                                        <select id="id_period" name=<?php echo "period_".$i ?> > 
-                                                                            <option value="">suspend delivery for...</option>
-                                                                            <option value="999">cancel subscription for this child  </option>
-                                                                            <option value="1">1 week (until Date)</option>
-                                                                            <option value="2">2 weeks (until Date)</option>
-                                                                        </select>
-                                                                        <?php } ?>
-                                                                        <input type="hidden" name=<?php echo "idMunchKid_".$i ?> value=<?php echo $idMunchKid ?> />
-                                                                        <input type="hidden" name=<?php echo "fname_".$i ?> value=<?php echo $f_name ?> />
-                                                                        <input type="hidden" name=<?php echo "dietType_".$i ?>  value=<?php echo $dietType ?> />
-                                                                        <input type="hidden" name=<?php echo "mealPlan_".$i ?>  value=<?php echo $mealPlan ?> />
-                                                                        <input type="hidden" name="numOrders" value=<?php echo $i ?> />
-                                                                    </div>
-                                                                </div>
-                                                            <!-- </div> -->
-                                                        </div>
-                                                <?php
-                                                    }
-
-                                                }
-                                                else{
-                                                ?>
-                                                <h6> You have no MunchKids to display!</h6>
-                                                <?php } ?>
-                                            <div class="footer text-center">
-                                                <input type="submit" class="btn btn-primary btn-round" value="Update" style="margin-top: 50px;">
-                                            </div>
-                                        </form>
+						</div>
+					</div>
+        </div>
+        <div class="tab-content">
+	        <div class="tab-pane active work" id="work">
+		        <div class="row">
+              <div class="col-md-7 col-md-offset-3">
+                <div class="row collections">
+                  <div class="row">
+                    <form class="form" method="POST" action="suspendOrder.php"> 
+                      <?php
+                          $result = munchKitDB::getInstance()->get_munchkids_by_user_email($_SESSION['user']);
+                          $i=0;
+                          $num5meals = 0;
+                          $num3meals = 0;
+                          $num1meals = 0;
+                          
+                          if($result != NULL){
+                              while ($row = $result->fetch_assoc()) {
+                                  $idMunchKid = $row['idMunchKids'];
+                                  $mealPlan = munchKitDB::getInstance()->get_order_by_idMunchKid($idMunchKid);
+                                  $f_name = $row['f_name'];
+                                  $dietType = $row['dietType'];
+                                  $suspend = $row['suspend'];
+                                  $nextDeliveryDate = munchKitDB::getInstance()->get_order_dateRequired_by_idMunchKid($idMunchKid);
+                                  if($mealPlan == '5'){$num5meals++;}
+                                  else if($mealPlan == '3'){$num3meals++;}
+                                  else if($mealPlan == '1'){$num1meals++;}
+                                  
+                                  ?>
+                                  <div class="col-md-5 ">
+                                    <div class="col-md-5">
                                     </div>
-                                <!-- end of aadd -->
-
-                                </div>
-		                    </div>
-	                    </div>
-			        </div>
-                    <div class="tab-pane connections" id="connections">
-<!-- ADDED BY ALEX FROM OE -->
-                        <center>
-                        <button id="addMunchKidBtn" class="btn btn-primary btn-lg" href="#addMunchKidModal" data-toggle="modal" data-target="#addMunchKidModal" style="margin-right: 100px;">Add a MunchKid</button>
-                        <!-- <button id="editMunchKidBtn" class="btn btn-primary btn-lg" href="#editMunchKidModal" data-toggle="modal" data-target="#editMunchKidModal" style="margin-right: 100px;">Edit MunchKids</button> -->
-                        </center>
-                        <div class="row">
-                          <form class="form" method="POST" action="updateOrder.php">  
-                            <?php
-                                $result = munchKitDB::getInstance()->get_munchkids_by_user_email($_SESSION['user']);
-                                $i=0;
-                                if($result != NULL){
-                                    while ($row = $result->fetch_assoc()) {
-                                        $idMunchKid = $row['idMunchKids'];
-                                        $f_name = $row['f_name'];
-                                        $dietType = $row['dietType'];
-                                        $allergies = $row['allergies'];
-                                        $mealPlan = munchKitDB::getInstance()->get_order_by_idMunchKid($idMunchKid);
-                                        
+                                    <div class="col-md-7">
+                                      <div class="content">
+                                        <h4 class="card-title"> <?php echo $f_name ?> </h4>
+                                        <h6 class="category text-muted"> <?php echo $dietType ?> </h6>
+                                        <h6 class="category text-muted"> <?php echo $mealPlan; if($mealPlan==1){echo ' Meal A Week';} else if($mealPlan==''){echo 'No Meal Plan Selected';} else{echo ' Meals A Week';} ?> </h6>
+                                        <?php
+                                        if($suspend){ if(strtotime($nextDeliveryDate) > strtotime("+100 Sunday") ){ ?>
+                                        <h6 class="category text-muted"> ***Subscription Cancelled </h6>
+                                        <?php } else{ ?>
+                                        <h6 class="category text-muted"> ***Delivery Suspended Until: <?php echo $nextDeliveryDate; ?> </h6>
+                                        <?php } ?>
+                                        <select id="id_period" name=<?php echo "period_".$i ?> > 
+                                            <option value="">Resume or Cancel delivery...</option>
+                                            <option value="0">Resume</option>
+                                            <option value="999">cancel subscription for this child  </option>
+                                        </select>
+                                        <?php
+                                        }else{
                                         ?>
-                                        <div class="col-md-5 ">
-                                          <div class="col-md-5">
-                                          </div>
-                                          <div class="col-md-7">
-                                              <div class="content">
-                                                  <h4 class="card-title"> <?php echo $f_name ; ?> </h4> 
-                                                  <h6 class="category text-muted"> <?php echo $dietType ; ?> </h6>
-                                                  <h4> </h4>
-                                                  <select id="mealPlan" name= <?php echo 'mealPlan_' . $i ?> >
-                                                    <?php if($mealPlan ==''){ ?>
-                                                    <option selected="selected" value="0"> SELECT A MEAL PLAN </option>
-                                                    <?php } ?>
-                                                    <option <?php if($mealPlan =='5'){echo 'selected="selected"';} ?> value="5"> <?php if($mealPlan =='5'){echo '5 meals/wk (CURRENT PLAN)';} else {echo "5 meals/wk ($8/meal)";}?> </option>
-                                                    <option <?php if($mealPlan =='3'){echo 'selected="selected"';} ?> value="3"> <?php if($mealPlan =='3'){echo '3 meals/wk (CURRENT PLAN)';} else {echo "3 meals/wk ($9.25/meal)";}?> </option>
-                                                    <option <?php if($mealPlan =='1'){echo 'selected="selected"'; }?> value="1"> <?php if($mealPlan =='1'){echo '1 meals/wk (CURRENT PLAN)';} else {echo "1 meal/wk ($10.25/meal) ";}?> </option>
-                                                  </select>
-                                                  <input type="hidden" name= <?php echo 'idMunchKid_' . $i; ?> value=<?php echo $idMunchKid; ?> />
-                                                  <input type="hidden" name= <?php echo 'f_name_' . $i; ?> value=<?php echo $f_name; ?> />
-                                                  <input type="hidden" name=<?php echo "dietType_" . $i; ?> value=<?php echo $dietType; ?> />
-                                                  <input type="hidden" name=<?php echo "allergies" .$i; ?> value=<?php echo $allergies; ?> />
-                                                  <input type="hidden" name=<?php echo "numOrders"; ?> value=<?php echo $i; ?>> 
-                                                  <input type="editBtn" id=<?php echo "editMunchKidBtn_".$i ?> class="btn btn-primary btn-sm" href=<?php echo "#editMunchKidModal_".$i ?> data-toggle="modal" data-target=<?php echo "#editMunchKidModal_".$i ?> style="margin-right: 100px;" value="Edit/Remove" readonly>
-                                              </div>
-                                          </div>
-                                        </div>
-                                <?php
-                                  $i++;
-                                    }
-                                }
-                                else{
-                                ?>
-                                <center><h6> You have no MunchKids to display! Please Add A Child Profile</h6></center>
-                                <?php } ?>
-                              <div class="footer text-center">
-                                <input type="submit" class="btn btn-primary btn-round" value="Update Order" onclick="" style="margin-top: 50px; margin-right: 100px;" <?php if ($i == 0){ echo "disabled";} ?>/>
+                                        <select id="id_period" name=<?php echo "period_".$i ?> > 
+                                            <option value="">suspend delivery for...</option>
+                                            <option value="999">cancel subscription for this child  </option>
+                                            <option value="1">1 week <?php echo "(Until ". munchKitDB::getInstance()->get_suspend_until_date(1) .")<br>" ; ?></option>
+                                            <option value="2">2 weeks <?php echo "(Until ". munchKitDB::getInstance()->get_suspend_until_date(2) .")<br>" ; ?></option>
+                                            <option value="3">3 weeks <?php echo "(Until ". munchKitDB::getInstance()->get_suspend_until_date(3) .")<br>" ; ?></option>
+                                            <option value="4">4 weeks <?php echo "(Until ". munchKitDB::getInstance()->get_suspend_until_date(4) .")<br>" ; ?></option>
+                                            <option value="5">5 weeks <?php echo "(Until ". munchKitDB::getInstance()->get_suspend_until_date(5) .")<br>" ; ?></option>
+                                            <option value="6">6 weeks <?php echo "(Until ". munchKitDB::getInstance()->get_suspend_until_date(6) .")<br>" ; ?></option>
+                                            <option value="7">7 weeks <?php echo "(Until ". munchKitDB::getInstance()->get_suspend_until_date(7) .")<br>" ; ?></option>
+                                            <option value="8">8 weeks <?php echo "(Until ". munchKitDB::getInstance()->get_suspend_until_date(8) .")<br>" ; ?></option>
+                                        </select>
+                                        <?php } ?>
+                                        <input type="hidden" name=<?php echo "idMunchKid_".$i ?> value=<?php echo $idMunchKid ?> />
+                                        <input type="hidden" name=<?php echo "fname_".$i ?> value=<?php echo $f_name ?> />
+                                        <input type="hidden" name=<?php echo "dietType_".$i ?>  value=<?php echo $dietType ?> />
+                                        <input type="hidden" name=<?php echo "mealPlan_".$i ?>  value=<?php echo $mealPlan ?> />
+                                        <input type="hidden" name="numOrders" value=<?php echo $i ?> />
+                                      </div>
+                                    </div>
+                                  </div>
+                          <?php
+                          $i++;
+                              }
+
+                          }
+                          else{
+                          ?>
+                          <h6> You have no MunchKids to display!</h6>
+                          <?php } ?>
+                      <div class="footer text-center">
+                          <input type="submit" class="btn btn-primary btn-round" value="Update" style="margin-top: 50px;">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+	        </div>
+          <div class="tab-pane connections" id="connections">
+            <center>
+            <button id="addMunchKidBtn" class="btn btn-primary btn-lg" href="#addMunchKidModal" data-toggle="modal" data-target="#addMunchKidModal" style="margin-right: 100px;">Add a MunchKid</button>
+            </center>
+            <div class="row">
+              <form class="form" method="POST" action="order_summary.php">  
+                <?php
+                  $result = munchKitDB::getInstance()->get_munchkids_by_user_email($_SESSION['user']);
+                  $i=0;
+                  if($result != NULL){
+                    while ($row = $result->fetch_assoc()) {
+                        $idMunchKid = $row['idMunchKids'];
+                        $f_name = $row['f_name'];
+                        $dietType = $row['dietType'];
+                        $allergies = $row['allergies'];
+                        $suspend = $row['suspend'];
+                        $mealPlan = munchKitDB::getInstance()->get_order_by_idMunchKid($idMunchKid);
+                        $nextDeliveryDate = munchKitDB::getInstance()->get_order_dateRequired_by_idMunchKid($idMunchKid);
+                        
+                        ?>
+                        <div class="col-md-5 ">
+                          <div class="col-md-5">
+                          </div>
+                          <div class="col-md-7">
+                            <div class="content">
+                                <h4 class="card-title"> <?php echo $f_name ; ?> </h4> 
+                                <h6 class="category text-muted"> <?php echo $dietType ; ?> </h6>
+                                <h4> </h4>
+
+                                 <?php
+                                  if($suspend){ 
+                                    if(strtotime($nextDeliveryDate) > strtotime("+100 Sunday") ){ ?>
+                                      <h6 class="category text-muted"> ***Subscription Cancelled </h6>
+                              <?php } 
+                                    else { ?>
+                                      <h6 class="category text-muted"> ***Delivery Suspended Until: <?php echo $nextDeliveryDate; ?> </h6>
+                              <?php } 
+                                  } 
+                                  else { ?>
+                                  <h6 class="category text-muted"> Next Delivery Cycle: <?php echo $nextDeliveryDate; ?> </h6>
+                            <?php } ?>
+                               
+
+                                <select id="mealPlan" name= <?php echo 'mealPlan_' . $i ?> >
+                                  <?php if($mealPlan ==''){ ?>
+                                  <option selected="selected" value="0"> SELECT A MEAL PLAN </option>
+                                  <?php } ?>
+                                  <option <?php if($mealPlan =='5'){echo 'selected="selected"';} ?> value="5"> <?php if($mealPlan =='5'){echo '5 meals/wk (CURRENT PLAN)';} else {echo "5 meals/wk ($8/meal)";}?> </option>
+                                  <option <?php if($mealPlan =='3'){echo 'selected="selected"';} ?> value="3"> <?php if($mealPlan =='3'){echo '3 meals/wk (CURRENT PLAN)';} else {echo "3 meals/wk ($9.25/meal)";}?> </option>
+                                  <option <?php if($mealPlan =='1'){echo 'selected="selected"'; }?> value="1"> <?php if($mealPlan =='1'){echo '1 meals/wk (CURRENT PLAN)';} else {echo "1 meal/wk ($10.25/meal) ";}?> </option>
+                                </select>
+
+                                <!-- additional info for update order -->
+                                <input type="hidden" name= <?php echo 'idMunchKid_' . $i; ?> value=<?php echo $idMunchKid; ?> />
+                                <input type="hidden" name= <?php echo 'f_name_' . $i; ?> value=<?php echo $f_name; ?> />
+                                <input type="hidden" name=<?php echo "dietType_" . $i; ?> value=<?php echo $dietType; ?> />
+                                <input type="hidden" name=<?php echo "allergies_" .$i; ?> value=<?php echo $allergies; ?> />
+                                <input type="hidden" name=<?php echo "numOrders"; ?> value=<?php echo $i; ?>> 
+                                <input type="hidden" name= <?php echo 'oldMealPlan_' . $i; ?> value=<?php echo $mealPlan; ?> />
+                                <input type="editBtn" id=<?php echo "editMunchKidBtn_".$i ?> class="btn btn-primary btn-sm" href=<?php echo "#editMunchKidModal_".$i ?> data-toggle="modal" data-target=<?php echo "#editMunchKidModal_".$i ?> style="margin-right: 100px;" value="Edit/Remove" readonly>
+                                </div>
                               </div>
-                          </form>
-                        </div>
-
-<!-- END OF ADD BY ALEX FROM OE -->
-                    </div>
-                    <div class="tab-pane text-center gallery" id="media">
-                        <div class="col-md-5 col-md-offset-4">
-                            <?php
-                            $result = munchKitDB::getInstance()->get_user_by_email($_SESSION['user']);
-                            if($result != NULL){
-                                while ($row = $result->fetch_assoc()) {
-                                    $addr = $row['addr'];
-                                    $city = $row['city'];
-                                    $zipCode = $row['zipCode'];
-
-                                }
-                            }
-                            ?>
-                            <h4 class="title">Billing Info</h4>
-                            <ul class="list-unstyled">
-                                <li><b>Address</b> <?php echo $addr ?></li>
-                                <li><b>City</b> <?php echo $city ?></li>
-                                <li><b>PostalCode</b> <?php echo $zipCode ?></li>
-                                <li><b>CreditCard</b> ...1234</li>
-                            </ul>
-                            <hr />
-                            <h4 class="title">Weekly Charge</h4>
-                            <?php
-                            $totalNumMeals = $num5meals*5 + $num3meals*3 + $num1meals;
-                            $totalCost = $num5meals*5*8 + $num3meals*3*9.25 + $num1meals*10.25;
-                            ?>
-                            
-                            <?php if($num5meals>0){ ?>
-                            <h6> Number of 5 meals/week ($8/meal): <?php echo $num5meals ?> ---------------- $<?php echo $num5meals*5*8 ?>CDN </h6>
-                            <?php
-                            }
-                            ?>
-
-                            <?php if($num3meals>0){ ?>
-                            <h6> Number of 3 meals/week ($9.25/meal): <?php echo $num5meals ?> ---------------- $<?php echo $num3meals*3*9.25 ?>CDN </h6>
-                            <?php
-                            }
-                            ?>
-
-                            <?php if($num1meals>0){ ?>
-                            <h6> Number of 1 meal/week ($10.25/meal): <?php echo $num5meals ?> ---------------- $<?php echo $num1meals*10.25 ?>CDN </h6>
-                            <?php
-                            }
-                            ?>
-                            
-                            <p class="description"> Your <?php echo $totalNumMeals ?> meals a week comes to a total of <b> $<?php echo $totalCost ?>CDN </b> + tax</p>
-                            <hr />
-                            
-                        </div>
-                    </div>
-
-
-			    </div>
-
+                            </div>
+                    <?php
+                      $i++;
+                        }
+                    }
+                    else{
+                    ?>
+                    <center><h6> You have no MunchKids to display! Please Add A Child Profile</h6></center>
+                    <?php } ?>
+                  <div class="footer text-center">
+                    <input type="submit" class="btn btn-primary btn-round" value="Update Order" onclick="" style="margin-top: 50px; margin-right: 100px;" <?php if ($i == 0){ echo "disabled";} ?>/>
+                  </div>
+              </form>
             </div>
-        </div>
+          </div>
+          <div class="tab-pane text-center gallery" id="media">
+            <div class="col-md-5 col-md-offset-4">
+              <?php
+              $result = munchKitDB::getInstance()->get_user_by_email($_SESSION['user']);
+              if($result != NULL){
+                  while ($row = $result->fetch_assoc()) {
+                      $addr = $row['addr'];
+                      $city = $row['city'];
+                      $zipCode = $row['zipCode'];
+
+                  }
+              }
+              ?>
+              <h4 class="title">Billing Info</h4>
+              <ul class="list-unstyled">
+                  <li><b>Address</b> <?php echo $addr ?></li>
+                  <li><b>City</b> <?php echo $city ?></li>
+                  <li><b>PostalCode</b> <?php echo $zipCode ?></li>
+                  <li><b>CreditCard</b> ...1234</li>
+              </ul>
+              <hr />
+              <h4 class="title">Weekly Charge</h4>
+              <?php
+              $totalNumMeals = $num5meals*5 + $num3meals*3 + $num1meals;
+              $totalCost = $num5meals*5*8 + $num3meals*3*9.25 + $num1meals*10.25;
+              ?>
+              
+              <?php if($num5meals>0){ ?>
+              <h6> Number of 5 meals/week ($8/meal): <?php echo $num5meals ?> ---------------- $<?php echo $num5meals*5*8 ?>CDN </h6>
+              <?php
+              }
+              ?>
+
+              <?php if($num3meals>0){ ?>
+              <h6> Number of 3 meals/week ($9.25/meal): <?php echo $num3meals ?> ---------------- $<?php echo $num3meals*3*9.25 ?>CDN </h6>
+              <?php
+              }
+              ?>
+
+              <?php if($num1meals>0){ ?>
+              <h6> Number of 1 meal/week ($10.25/meal): <?php echo $num1meals ?> ---------------- $<?php echo $num1meals*10.25 ?>CDN </h6>
+              <?php
+              }
+              ?>
+              
+              <p class="description"> Your <?php echo $totalNumMeals ?> meals a week comes to a total of <b> $<?php echo $totalCost ?>CDN </b> + tax</p>
+              <hr />
+            </div>
+          </div>
+	      </div>
+
+      </div>
+    </div>
 	</div>
-
-
-    <footer class="footer">
-        <div class="container">
-            <nav class="pull-left">
-				<ul>
-					<li>
-						<a href="index.php">
-							MunchKit
-						</a>
-					</li>
-					<li>
-						<a href="about-us.php">
-						   About Us
-						</a>
-					</li>
-					<li>
-						<a href="contact-us.php">
-						   Contact Us
-						</a>
-					</li>
-					<!-- <li>
-						<a href="http://www.creative-tim.com/license">
-							Licenses
-						</a>
-					</li> -->
-				</ul>
-            </nav>
-            <div class="copyright pull-right">
-                &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by MunchKit
-            </div>
-        </div>
-    </footer>
+  <footer class="footer">
+      <div class="container">
+          <nav class="pull-left">
+			<ul>
+				<li>
+					<a href="index.php">
+						MunchKit
+					</a>
+				</li>
+				<li>
+					<a href="about-us.php">
+					   About Us
+					</a>
+				</li>
+				<li>
+					<a href="contact-us.php">
+					   Contact Us
+					</a>
+				</li>
+				<!-- <li>
+					<a href="http://www.creative-tim.com/license">
+						Licenses
+					</a>
+				</li> -->
+			</ul>
+          </nav>
+          <div class="copyright pull-right">
+              &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by MunchKit
+          </div>
+      </div>
+  </footer>
 
 
 </body>

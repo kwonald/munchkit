@@ -12,7 +12,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($loggedIn == true) {
         session_start();
         $_SESSION['user'] = $_POST['user'];
-        header('Location: choosePlan.php');
+        if(munchKitDB::getInstance()->get_munchkids_by_user_email($_POST['user']) != NULL){
+            header('Location: profile-page.php');
+        }
+        else{
+            header('Location: choosePlan.php');
+        }
         exit;
     }
 }
@@ -40,6 +45,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </head>
 
 <body class="login-page">
+
+<!-- For GOOGLE ANALYTICS  -->
+<?php include_once("Includes/analyticstracking.php") ?>
+
+
 	<nav class="navbar navbar-inverse navbar-fixed-top ">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->

@@ -111,6 +111,11 @@ if (array_key_exists("user", $_SESSION)) {
                         </a>
                     </li>
                     <li>
+                      <a href="logout.php">
+                        Log Out
+                      </a>
+                    </li>
+                    <li>
                         <a href="choosePlan.php" class="btn btn-rose btn-square">
                              Order Now
                         </a>

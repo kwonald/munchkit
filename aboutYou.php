@@ -44,6 +44,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </head>
 
 <body class="signup-page">
+
+<!-- For GOOGLE ANALYTICS  -->
+<?php include_once("Includes/analyticstracking.php") ?>
+
 	<nav class="navbar navbar-inverse navbar-fixed-top ">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
