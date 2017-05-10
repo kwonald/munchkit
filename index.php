@@ -45,7 +45,7 @@
 	<div>
 		<h1><strong>MunchKit </strong></h1>
 		<h3>coming your way soon.</h3>
-		<p>Nutritious, well-blanaced school lunches for your kids. Being a super parent made that much easier.</p>		
+		<p>Nutritious, well-balnaced school lunches for your kids. Being a super parent made that much easier.</p>		
 	</div>
 </div>
 </div>
