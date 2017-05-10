@@ -38,6 +38,8 @@
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body id="backtotop">
+<!-- For GOOGLE ANALYTICS  -->
+<?php include_once("Includes/analyticstracking.php") ?>
 <div class="fullwidth clearfix header-filter" data-parallax="active" style="background-image: url('assets/img/food/food-salad-healthy-lunch.jpg'); padding-bottom: 400px;bottom: 0px; background-size: cover;">	
 </div>
 <div class="fullwidth colour1 clearfix">
@@ -45,7 +47,7 @@
 	<div>
 		<h1><strong>MunchKit </strong></h1>
 		<h3>coming your way soon.</h3>
-		<p>Nutritious, well-balanced school lunches for your kids. Being a super parent made that much easier.</p>		
+		<p>Nutritious, well-balanced school lunches for your kids. Being a super parent made that much easier.</p>
 	</div>
 </div>
 </div>
