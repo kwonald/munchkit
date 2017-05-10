@@ -61,8 +61,7 @@
 
 		<div> 	
 			<h2><strong><p><big>Making school lunches everyday isn't easy.</big></p></strong></h1>
-			<p>The time you spend deciding and making varieties of nutritious school lunches for your kids week after week can be overwhelming. Each <strong>MunchKit</strong> is personalized to each of your <strong>MunchKid</strong> and is delivered to your doorstep twice a week! With children's nutrition being our priority, all our quality ingredients are fresh and locally sourced.</p> 
-			<h3> Spend more quality time with your family and let us handle the rest.</h3>	
+			<p>The time you spend making nutritious school lunches for your kids week after week can be overwhelming. Each <strong>MunchKit</strong> is personalized to each of your <strong>MunchKids</strong> and is delivered to your doorstep twice a week! With children's nutrition being our top priority, all our quality ingredients are fresh and locally sourced.</h3>	
 		</div>
 	
 	</div>
