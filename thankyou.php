@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	$referralSources='';
 
 	if($_POST['location']){
-		$location = $_POST['location'];
+		$neighbourhood = $_POST['location'];
 	}
 
 	if($_POST['numKids']){
@@ -35,13 +35,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		}
 	}
 	if($_POST['alt-location']){
-		$location .= $_POST['alt-location'];
+		$neighbourhood .= $_POST['alt-location'];
 	}
 	if($_POST['alt-reason']){
 		$reasons .= $_POST['alt-reason'];
 	}
 	if($_POST['alt-referral']){
-		$location .= $_POST['alt-referral'];
+		$neighbourhood .= $_POST['alt-referral'];
 	}
 
 	// save to the db
