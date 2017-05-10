@@ -1,624 +1,220 @@
-<?php
-session_start();
-$loggedIn = false;
-if (array_key_exists("user", $_SESSION)) {
-    $loggedIn = true;
-}
-// else
-?>
-<!doctype html>
-<html lang="en">
-<html lang="en">
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
 <head>
-    <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/lunchboxlogo.png">
-    <link rel="icon" type="image/png" href="assets/img/lunchboxlogo.png">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-    <title>MunchKit</title>
-
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-
-    <!-- CSS Files -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="assets/css/material-kit.css" rel="stylesheet"/>
-</head>
-
-<body class="presentation-page">
-
-<!-- For GOOGLE ANALYTICS  -->
-<?php include_once("Includes/analyticstracking.php") ?>
-
-
-    <nav class="navbar navbar-inverse navbar-fixed-top ">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="index.php">
-                    <img src="assets/img/lunchboxlogo.png"  width="45" height="45" border="0">
-                </a>
-                <a class="navbar-brand" href="index.php">MUNCHKIT</a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="navigation-example">
-                <ul class="nav navbar-nav navbar-right">
-                   <li>
-                        <a href="meals-page.php">
-                            <!-- <i class="material-icons">restaurant</i> --> Our Meals
-                        </a>
-                    </li>
-                    <li>
-                        <a href=#pablo>
-                            <!-- <i class="material-icons">restaurant</i> --> How It Works
-                        </a>
-                    </li>
-                    
-                    <!-- added by alex -->
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="material-icons">view_day</i> <!-- More -->
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu dropdown-with-icons">
-                            <li>
-                                <a href="pricing.php">
-                                    <!-- <i class="material-icons">attach_money</i> --> Pricing
-                                </a>
-                            </li>
-                            <li>
-                                <a href="contact-us.php">
-                                    <!-- <i class="material-icons">location_on</i> --> Contact Us
-                                </a>
-                            </li>
-                             <li>
-                                <a href="about-us.php">
-                                    <!-- <i class="material-icons">apps</i>  -->About Us
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    
-                    <!-- end of add -->
-
-                    <!-- if you're logged in, this is the MyAccount tab, else its sign in tab -->
-                    <?php
-                    if ($loggedIn){
-                    ?>
-                    <li>
-                        <a href="profile-page.php">
-                            <!-- <i class="material-icons">account_circle</i> --> My Account
-                        </a>
-                    </li>
-                    <li>
-                      <a href="logout.php">
-                        Log Out
-                      </a>
-                    </li>
-                    <li>
-                        <a href="choosePlan.php" class="btn btn-rose btn-square">
-                             Order Now
-                        </a>
-                    </li>
-                    <?php    
-                    }else{
-                    ?>
-                    <li>
-                        <a href="login-page.php">
-                            <!-- <i class="material-icons">account_circle</i> --> Log In
-                        </a>
-                    </li>
-                    <li>
-                        <a href="signup.php" class="btn btn-rose btn-square">
-                             Sign Up
-                        </a>
-                    </li>
-                    <?php
-                    }
-                    ?>
-                    <!-- End of myaccount tab/ sign in tab -->
-
-                    <!-- <li>
-                        <a href="pricing.php" class="btn btn-rose btn-square">
-                             Sign Up
-                        </a>
-                    </li> -->
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="main" style="background-color:#FFFFFF;color:#FFFFFF;padding:30px;">
-        <!-- <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="brand"> 
-
-                    <h2 class="title" >Your Locally Sourced School Lunches</h2>
-                    <h3 class="title">Delivered Straight To Your Doorstep</h3>
-                    <a href="pricing.php" class="btn btn-rose btn-square">
-                                        Get Started
-                    </a>
-                </div>
-            </div>
-        </div> -->
-    </div>
-    <div class="page-header header-filter clear-filter" data-parallax="" style="background-image: url('assets/img/landingBG.png');">
-        <div class="container">
-            <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="brand"> 
-                    <h2 class="title" >The lunchbox that frees you.</h2>
-                    <h3 class="title">Providing well-balanced lunches to your kids made simple </h3>
-                    <a href="pricing.php" class="btn btn-rose btn-square">
-                                        Get Started
-                    </a>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
-    <div class="pricing-2" style="padding:20px;">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3 text-center">
-                <div class="row">
-                    <div class="our-clients" align="center">
-                        <div class="row">
-                            <!-- <div class="col-md-3">
-                                <img src="assets/img/cityofvanlogo.png" alt="" />
-                            </div>
-                            <div class="col-md-3">
-                                <img src="assets/img/ubccrest.jpg" alt="" />
-                            </div> -->
-                            <div class="col-md-3">
-                                <!-- <img src="assets/img/ubcfarmlogo.jpeg" alt="" /> -->
-                            </div>
-                            <div class="col-md-3">
-                                <img src="assets/img/eubclogo.jpg" alt="" />
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-
-        </div>
-    </div>
-
-    <!-- end of alex add -->
-    <div class="main ">
-        <div class="section" style="padding:10px">
-            <div class="container">
-                <div class="features-1">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="info">
-                                <div class="icon icon-rose">
-                                    <!-- <i class="material-icons">apps</i> -->
-                                    <img src="assets/img/lunchboxlogo.png"/>
-                                </div>
-                                <h4 class="info-title">Step 1: Choose A Meal Plan</h4>
-                                <p> Choose between one time, three times, or five times a week plan that fits your busy schedule </p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="info">
-                                <div class="icon icon-info">
-                                    <img src="assets/img/squirrel.png"  />
-                                </div>
-                                <h4 class="info-title">Step 2: Tell Us About Your Kid!</h4>
-                                <p>The well-being of your child is our number one priority! Let us know about their allergies and dietary needs so that their meals are customized to your kid!</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="info">
-                                <div class="icon icon-success">
-                                    <img src="assets/img/deliverytruck.png" />
-                                </div>
-                                <h4 class="info-title">Step 3: Payment & Delivery</h4>
-                                <p> We deliver straight to your doorstep every Wednesday and Sunday afternoons! </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--     *********    END FEATURES 5      *********      -->
-
-
-
-        <!--     *********     FEATURES 5      *********      -->
-
-        <div class="section section-overview">
-            <div class="features-5"  style="background-image: url('assets/assets-for-demo/landingbg.jpg')">
-
-
-                <div class="col-md-8 col-md-offset-2 text-center">
-                    <h2 class="title">Why Your Family Should Choose MunchKit</h2>
-                </div>
-
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-sm-3">
-                            <div class="info">
-                                <div class="icon">
-                                    <i class="material-icons">nature people</i>
-                                </div>
-                                <h4 class="info-title">Local, Sustainable, Organic</h4>
-                                <p align="left">All our meals are made from fresh, sustainably sourced, local ingredients! All meals will be made of at least 25% local ingredients and we will always strive for 100%!</p>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div class="info">
-                                <div class="icon">
-                                    <i class="material-icons">restaurant</i>
-                                </div>
-                                <h4 class="info-title">Nutrition is our life</h4>
-                                <p align="left"> Our rotating set menus are carefully designed by nutritionists and chefs to provide a well-balanced nutritous meal for your child while highlighting in-season local produce in the process!</p>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div class="info">
-                                <div class="icon">
-                                    <i class="material-icons">delete</i>
-                                </div>
-                                <h4 class="info-title">Zero Waste</h4>
-                                <p align="left">MunchKit believes in reducing our impact in the world. We reduce anything we can, then we try and reuse anything that can't be reduced, if something can't be reused then we make sure it is recycleable!</p>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div class="info">
-                                <div class="icon">
-                                    <i class="material-icons">redeem</i>
-                                </div>
-                                <h4 class="info-title">Pay It Forward</h4>
-                                <p align="left"> MunchKit will match and deliver any PayItForward Meal to a student in your neighborhood who cannot afford a lunch. At MunchKit, access to well-balanced, nutritious meals is a right for school children. </p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="section-testimonials team-3">
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 text-center">
-                            <h2 class="title">Trusted by Families</h2>
-                            <h5 class="description">Experience the convenience of providing <b>FRESH, LOCALLY SOURCED</b> lunches to your children.</h5>
-                        </div>
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col-md-4">
-                            <div class="card card-profile card-plain">
-                                <div class="col-md-3">
-                                    <div class="card-image">
-                                        <a href="#pablo">
-                                            <img class="img" src="assets/assets-for-demo/test1.jpg" />
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="content">
-                                        <h4 class="card-title">Justin and Sophie</h4>
-
-                                        <p class="card-description">
-                                            "As soon as we started using MunchKit, everything else isn't the same anymore. We have so much more time and energy to spend with the children knowing that our kids are getting good food for lunch! Thank you MunchKit!"
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="card card-profile card-plain">
-                                <div class="col-md-3">
-                                    <div class="card-image">
-                                        <a href="#pablo">
-                                            <img class="img" src="assets/assets-for-demo/test2.jpg" />
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="content">
-                                        <h4 class="card-title">Josh Murray</h4>
-
-                                        <p class="card-description">
-                                            "I really like my lunch. The food is yummy and the my lunchbox is really cool!"
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="card card-profile card-plain">
-                                <div class="col-md-3">
-                                    <div class="card-image">
-                                        <a href="#pablo">
-                                            <img class="img" src="assets/assets-for-demo/test3.jpg" />
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="content">
-                                        <h4 class="card-title">Michael Onubogu</h4>
-
-                                        <p class="card-description">
-                                            "I feel like I'm not only providing a healthier lunch for my child, I feel like I'm giving back to my community and the world. My son Jacob and I learn so much about our local community through MunchKit!"
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-        <div class="pricing-2">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3 text-center">
-                    <h2 class="title">Ready to Join us at MunchKit?</h2>
-                    <ul class="nav nav-pills nav-pills-rose" role="tablist">
-                        <li class="active">
-                            <a href="#personal" role="tab" data-toggle="tab">
-                                Ages 5-11
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#commercial" role="tab" data-toggle="tab">
-                                Ages 12+
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="tab-content tab-space">
-                        <div class="tab-pane fade in active" id="personal">
-                            <div class="col-md-4">
-                                <div class="card card-pricing card-plain">
-                                    <div class="content">
-                                        <h6 class="category text-info">1 Meal A Week (Trial)</h6>
-                                        <h1 class="card-title"><small>$</small>10.25<small>/meal</small></h1>
-                                        <h6 class="category text-info">(Trial is available for 8 weeks)</h6>
-                                        <ul>
-                                            <li><b>Free Delivery</b></li>
-                                            <li><b>Recyclable</b> Containers</li>
-                                        </ul>
-                                        <a href= <?php if($loggedIn){echo "choosePlan.php";} else echo "signup.php"; ?> class="btn btn-rose btn-raised btn-round">
-                                            Get Started
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card card-pricing card-raised">
-                                    <div class="content content-rose">
-                                        <h6 class="category text-info">5 Meals A Week</h6>
-                                        <h1 class="card-title"><small>$</small>8<small>/meal</small></h1>
-                                        <h6 class="category text-info">($40 per week + tax)</h6>
-                                        <ul>
-                                            <li><b>Free Delivery</b></li>
-                                            <li><b>Reusable</b> Containers</li>
-                                            <li><b>Customized</b> LunchBoxes</li>
-                                            <li><b>Reusable</b> Totebag</li>
-                                            <li><b>Access</b> to PayItForward program</b></li>
-                                            <!-- <li><b>Discounts</b> to local programs</li> -->
-                                        </ul>
-                                        <a href=<?php if($loggedIn){echo "choosePlan.php";} else echo "signup.php"; ?> class="btn btn-white btn-raised btn-round">
-                                            Get Started
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card card-pricing card-plain">
-                                    <div class="content">
-                                        <h6 class="category text-info">3 Meals A Week</h6>
-                                        <h1 class="card-title"><small>$</small>9.25<small>/meal</small></h1>
-                                        <h6 class="category text-info">($27.75 per week + tax)</h6>
-                                        <ul>
-                                            <li><b>Free Delivery</b></li>
-                                            <li><b>Reusable</b> Containers</li>
-                                            <li><b>Customized</b> LunchBoxes</li>
-                                            <li><b>Reusable</b> Totebag</li>
-                                        </ul>
-                                        <a href=<?php if($loggedIn){echo "choosePlan.php";} else echo "signup.php"; ?> class="btn btn-rose btn-raised btn-round">
-                                            Get Started
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="tab-pane fade" id="commercial">
-                            <div class="col-md-4">
-                                <div class="card card-pricing card-plain">
-                                    <div class="content">
-                                        <h6 class="category text-info">1 Meal A Week (Trial)</h6>
-                                        <h1 class="card-title"><small>$</small>10.25<small>/meal</small></h1>
-                                        <h6 class="category text-info">(Trial is available for 8 weeks)</h6>
-                                        <ul>
-                                            <li><b>Free Delivery</b></li>
-                                            <li><b>Recyclable</b> Containers</li>
-                                        </ul>
-                                        <a href=<?php if($loggedIn){echo "choosePlan.php";} else echo "signup.php"; ?> class="btn btn-rose btn-raised btn-round">
-                                            Get Started
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card card-pricing card-raised">
-                                    <div class="content content-rose">
-                                        <h6 class="category text-info">5 Meals A Week</h6>
-                                        <h1 class="card-title"><small>$</small>8.50<small>/meal</small></h1>
-                                        <h6 class="category text-info">($42.50 per week + tax)</h6>
-                                        <ul>
-                                            <li><b>Free Delivery</b></li>
-                                            <li><b>Reusable</b> Containers</li>
-                                            <li><b>Customized</b> LunchBoxes</li>
-                                            <li><b>Reusable</b> Totebag</li>
-                                            <li><b>+ Access</b> to PayItForward program</b></li>
-                                            <li><b>+ more!</b></li>
-                                        </ul>
-                                        <a href=<?php if($loggedIn){echo "choosePlan.php";} else echo "signup.php"; ?> class="btn btn-white btn-raised btn-round">
-                                            Get Started
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card card-pricing card-plain">
-                                    <div class="content">
-                                        <h6 class="category text-info">3 Meals A Week</h6>
-                                        <h1 class="card-title"><small>$</small>9.25<small>/meal</small></h1>
-                                        <h6 class="category text-info">($27.75 per week + tax)</h6>
-                                        <ul>
-                                            <li><b>Free Delivery</b></li>
-                                            <li><b>Reusable</b> Containers</li>
-                                            <li><b>Customized</b> LunchBoxes</li>
-                                            <li><b>Reusable</b> Totebag</li>
-                                        </ul>
-                                        <a href=<?php if($loggedIn){echo "choosePlan.php";} else echo "signup.php"; ?> class="btn btn-rose btn-raised btn-round">
-                                            Get Started
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-8 col-md-offset-2 text-center">
-                    <p class="description">You can <b>Update Your Account</b> and <b>Suspend or Cancel Anytime</b>. Just let us know <b>3 days</b> a head of time process your request.</p>
-
-                </div>
-            </div>
-        </div>
-
-    <footer class="footer footer-white">
-        <div class="container">
-            <a class="footer-brand" href="index.php">MUNCHKIT</a>
-
-            <ul class="pull-center">
-                <!-- <li>
-                    <a href="index.php">
-                        MunchKit
-                    </a>
-                </li> -->
-                    <li>
-                        <a href="about-us.php">
-                           About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="contact-us.php">
-                           Contact Us
-                        </a>
-                    </li>
-               <!--  <li>
-                    <a href="http://www.creative-tim.com/license" target="_blank">
-                        Licenses
-                    </a>
-                </li> -->
-            </ul>
-
-            <ul class="social-buttons pull-right">
-                <li>
-                    <a href="https://twitter.com/munchkitco" target="_blank" class="btn btn-just-icon btn-simple btn-twitter">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.facebook.com/MunchKitCo/" target="_blank" class="btn btn-just-icon btn-simple btn-facebook">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/munchkitco/" target="_blank" class="btn btn-just-icon btn-simple btn-instagram">
-                        <i class="fa fa-instagram"></i>
-                    </a>
-                </li>
-            </ul>
-
-        </div>
-    </footer>
-
-    <!--     *********    END PRICING 5      *********      -->
-</body>
-
-    <!--   Core JS Files   -->
-    <script src="assets/js/jquery.min.js" type="text/javascript"></script>
-    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="assets/js/material.min.js"></script>
-
-    <!--    Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="assets/js/nouislider.min.js" type="text/javascript"></script>
-
-    <!--    Plugin for the Datepicker, full documentation here: http://www.eyecon.ro/bootstrap-datepicker/ -->
-    <script src="assets/js/bootstrap-datepicker.js" type="text/javascript"></script>
-
-    <!--    Plugin for Select Form control, full documentation here: https://github.com/FezVrasta/dropdown.js -->
-    <script src="assets/js/jquery.dropdown.js" type="text/javascript"></script>
-
-    <!--    Plugin for Tags, full documentation here: http://xoxco.com/projects/code/tagsinput/  -->
-    <script src="assets/js/jquery.tagsinput.js"></script>
-
-    <!--    Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-    <script src="assets/js/jasny-bootstrap.min.js"></script>
-
-    <!-- Plugin For Google Maps -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-
-    <!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
-    <script src="assets/js/material-kit.js" type="text/javascript"></script>
-
-    <!-- Demo Purpose, JS For Demo Purpose, Don't Include it in your project -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-    <!-- shopify buy button -->
-    <script src="http://sdks.shopifycdn.com/js-buy-sdk/v0/latest/shopify-buy.umd.polyfilled.min.js"></script>
-
-    <script type="text/javascript">
-        var $section_features = '';
-        $().ready(function(){
-
+<!-- Website Template designed by www.downloadwebsitetemplates.co.uk -->
+<meta charset="UTF-8">
+<title>MunchKit | Coming Soon</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72.png">
+<link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57.png">
+<link rel="shortcut icon" href="images/ico/lunchboxlogo.png">
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="assets/css/material-kit.css" rel="stylesheet"/>
+<!--[if IE]><![endif]-->
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery.js"></script>
+<script src="js/countdown.js"></script>
+<script src="js/owlcarousel.js"></script>
+<script src="js/uikit.scrollspy.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+    $(function() {
+        $('button').click(function() {
+          $('p').toggle;
+          $("#myTextField").toggle();
         });
-    </script>
+    });
+</script>
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body id="backtotop">
+<div class="fullwidth clearfix header-filter" data-parallax="active" style="background-image: url('assets/img/food/food-salad-healthy-lunch.jpg'); padding-bottom: 400px;bottom: 0px;" >	
+</div>
+<div class="fullwidth colour1 clearfix">
+<div id="countdown" class="bodycontainer clearfix" data-uk-scrollspy="{cls:'uk-animation-fade', delay: 300, repeat: true}">
+	<div>
+		<h1><strong>MunchKit </strong></h1>
+		<h3>coming your way soon.</h3>
+		<p>Nutritious, well-blanaced school lunches for your kids. Being a super parent made that much easier.</p>		
+	</div>
+</div>
+</div>
 
+
+<div class="arrow-separator arrow-theme"></div>
+
+<div class="fullwidth colour2 clearfix">
+	<div id="countdown" class="bodycontainer clearfix" data-uk-scrollspy="{cls:'uk-animation-fade', delay: 300, repeat: true}">
+
+		<div> 	
+			<h2><strong><p><big>Making school lunches everyday isn't easy.</big></p></strong></h1>
+			<p>The time you spend deciding and making varieties of nutritious school lunches for your kids week after week can be overwhelming. Each <strong>MunchKit</strong> is personalized to each of your <strong>MunchKid</strong> and is delivered to your doorstep twice a week! With children's nutrition being our priority, all our quality ingredients are fresh and locally sourced.</p> 
+			<h3> Spend more quality time with your family and let us handle the rest.</h3>	
+		</div>
+	
+	</div>
+</div>
+
+<!-- <div class="arrow-separator arrow-theme"></div> -->
+<div class="arrow-separator arrow-themelight"></div>
+<div class="fullwidth colour1 clearfix">
+	<div id="maincont" class="bodycontainer clearfix" data-uk-scrollspy="{cls:'uk-animation-fade', delay: 300, repeat: true}">
+	<p><img src="images/squirrel.png"  width="150" height="150" border="0"></p>
+	<h3><strong>Coming to a neighbourhood near you!</strong></h3>
+		<form method="POST" id="contact" class="clearfix" action="thankyou.php">
+			<div>
+			<p> Which neighbourhood are you in? </p>
+				<div class="btn-group" data-toggle="buttons">
+				  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="radio" name="location" id="location1" autocomplete="off" value="westpointgrey"> West Point Grey
+				  </label>
+				  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="radio" name="location" id="location2" autocomplete="off" value="kistilano"> Kitsilano
+				  </label>
+				  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="radio" name="location" id="location3" autocomplete="off" value="kerrisdale"> Kerrisdale
+				  </label>
+				 <!--  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="radio" name="location" id="location4" autocomplete="off" value="other"> Other
+				  </label> -->
+				</div>
+				<div id="signupform" class="sb clearfix">
+					<p> If other: <input class="sb-search-input" name="alt-location" placeholder="Neighbourhood ..." type="text" value="" style="color:#000;" ></p>
+				</div>
+			</div>
+			<br>
+			<div>
+			<p> How many kids do you have? </p>
+				<div class="btn-group" data-toggle="buttons">
+				  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="radio" name="numKids" id="numKids1" autocomplete="off" value="0"> 0 MunchKids
+				  </label>
+				  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="radio" name="numKids" id="numKids1" autocomplete="off" value="1"> 1 MunchKid
+				  </label>
+				  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="radio" name="numKids" id="numKids2" autocomplete="off" value="2"> 2 MunchKids
+				  </label>
+				  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="radio" name="numKids" id="numKids3" autocomplete="off" value="3"> 3 MunchKids
+				  </label>
+				  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="radio" name="numKids" id="numKids4" autocomplete="off" value="4"> 4 or more
+				  </label>
+				</div>
+			</div>
+			<br>
+			<p> How old are they? (Select all that apply) </p>
+			<div>
+				<div class="btn-group" data-toggle="buttons">
+				  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="checkbox" name="age[]" id="age1" autocomplete="off" value="0"> Age 0 to 3
+				  </label>
+				  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="checkbox" name="age[]" id="age2" autocomplete="off" value="4"> Age 4 to 7
+				  </label>
+				  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="checkbox" name="age[]" id="age3" autocomplete="off" value="8"> Age 8 to 11
+				  </label>
+				  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="checkbox" name="age[]" id="age4" autocomplete="off" value="12"> Age 12 and Up
+				  </label>
+				</div>
+			</div>
+			<br>
+			<p> What are the challenges when it comes to making school lunches? (Select all that apply)</p>
+			<div>
+				<div class="btn-group" data-toggle="buttons">
+				  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="checkbox" name="reason[]" id="reason1" autocomplete="off" value="time"> Finding the Time
+				  </label>
+				  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="checkbox" name="reason[]" id="reason2" autocomplete="off" value="groceries"> Groceries
+				  </label>
+				  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="checkbox" name="reason[]" id="reason3" autocomplete="off" value="variet"> Variety of Meals
+				  </label>
+				  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="checkbox" name="reason[]" id="reason4" autocomplete="off" value="effort"> Effort
+				  </label>
+				 <!--  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="checkbox" name="reason[]" id="reason4" autocomplete="off" value="other"> Other
+				  </label> -->
+				</div>
+				<div id="reasonform" class="sb-search clearfix">
+					<input class="sb-search-input" name="alt-reason" placeholder="Other Challenges If Any..." type="text" value="" style="color:#000;">
+				</div>
+			</div>
+			<br>
+			<p> How did you hear about us? (Select all that apply)</p>
+			<div>
+				<div class="btn-group" data-toggle="buttons">
+				  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="checkbox" name="referral[]" id="referral1" autocomplete="off" value="online"> Online
+				  </label>
+				  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="checkbox" name="referral[]" id="referral2" autocomplete="off" value="mouth"> Word of mouth
+				  </label>
+				  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="checkbox" name="referral[]" id="referral3" autocomplete="off" value="print"> Newspaper/Magazine
+				  </label>
+				  <label class="btn btn-rose btn-square btn-lg">
+				    <input type="checkbox" name="referral[]" id="referral4" autocomplete="off" value="person"> I saw you in person!
+				  </label>
+				  <!-- <label class="btn btn-rose btn-square btn-lg">
+				    <input type="checkbox" name="referral[]" id="referral5" autocomplete="off" value="other"> Other
+				  </label> -->
+				</div>
+				<div id="referral" class="sb clearfix">
+					<p> If other: <input class="sb-search-input" name="alt-referral" placeholder="Sources ..." type="text" value="" style="color:#000;"></p>
+				</div>
+			</div>
+		
+			<br>
+	        <h2>You'll be the first ones to know when we launch</h2>
+	        <p> You'll automatically be entered to win a free weeks worth of MunchKits for you and a friend! </p>
+			<div id="signupform" class="sb-search clearfix">
+				<input class="sb-search-input" name="email" placeholder="Enter email ..." type="text" value="" required>
+				<input class="sb-search-submit" value="" type="submit">
+				<button class="formbutton" type="submit"><span class="fa fa-sign-in"></span></button>
+			
+		</form>
+		
+	</div>
+	<div class="copyright ">
+        &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by MunchKit
+    </div>
+	
+	</div>
+</div>
+
+<div class="arrow-separator arrow-theme"></div>
+
+<div class="fullwidth colour3 clearfix">
+	<div id="quotecont" class="bodycontainer clearfix" data-uk-scrollspy="{cls:'uk-animation-fade', delay: 300, repeat: true}">
+
+        <div id="commentslider" class="owl-carousel">
+            <div class="item">
+                <p><strong>Our Story & Our Mission</strong> MunchKit was born of a desire to set you free from the daily grind of making lunch for your kids.  We know first-hand how difficult it can be to provide children with a nutritious, well-balanced meal every day, and we're here to help.  Forged in the fires of UBC's Startup Weekend 2017 competition, hosted by Google, MunchKit came first place overall and also recieved awards for Crowd Favourite and Most Socially Impactful Business.  The passion and drive that led us to success there are now completely dedicated to providing the best service possible for you and your kids.  Eating right shouldn't be a chore; let MunchKit set you free. </p>
+            	<p class="author">- MunchKit</p>
+            </div>
+            
+        </div>
+	
+	</div>
+</div>
+
+
+   
+</body>
 </html>
-

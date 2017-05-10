@@ -298,6 +298,23 @@ class munchKitDB extends mysqli {
     }
 
 
+    // ************ FOR PRE LAUNCH **************//
+    public function insert_prelaunch_data($email, $neighbourhood, $numKids, $ages, $reason, $referralSource) {
+        $email = $this->real_escape_string($email);
+        $neighbourhood = $this->real_escape_string($neighbourhood);
+        $ages = $this->real_escape_string($ages);
+        $reason = $this->real_escape_string($reason);
+        $referralSource = $this->real_escape_string($referralSource);
+        
+        $this->query("INSERT INTO PreLaunch (email, neighbourhood, numKids, ages, reason, referralSource)" .
+                " VALUES ('" . $email . "', '" . $neighbourhood . "', "
+                . $numKids . ", '". $ages . "', '". $reason . "', '". $referralSource . "')");
+    }
+
+
+    //  *********** END OF PRE LAUNCH *************//
+
+
 }
 
 ?>
