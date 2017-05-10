@@ -38,7 +38,7 @@
 <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body id="backtotop">
-<div class="fullwidth clearfix header-filter" data-parallax="active" style="background-image: url('assets/img/food/food-salad-healthy-lunch.jpg'); padding-bottom: 400px;bottom: 0px;" >	
+<div class="fullwidth clearfix header-filter" data-parallax="active" style="background-image: url('assets/img/food/food-salad-healthy-lunch.jpg'); padding-bottom: 400px;bottom: 0px; background-size: cover; >	
 </div>
 <div class="fullwidth colour1 clearfix">
 <div id="countdown" class="bodycontainer clearfix" data-uk-scrollspy="{cls:'uk-animation-fade', delay: 300, repeat: true}">
