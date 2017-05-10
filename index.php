@@ -10,6 +10,7 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<meta name="google-site-verification" content="65haxjpe2GW4XpuYWwykY59vj2LZ8_26NuXZnyBChx4" />
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144.png">
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114.png">
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72.png">
@@ -47,7 +48,7 @@
 	<div>
 		<h1><strong>MunchKit </strong></h1>
 		<h3>coming your way soon.</h3>
-		<p>Nutritious, well-balnaced school lunches for your kids. Being a super parent made that much easier.</p>		
+		<p>Nutritious, well-balanced school lunches for your kids. Being a super parent made that much easier.</p>		
 	</div>
 </div>
 </div>
