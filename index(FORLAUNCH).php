@@ -14,7 +14,7 @@ if (array_key_exists("user", $_SESSION)) {
     <link rel="apple-touch-icon" sizes="76x76" href="assets/img/lunchboxlogo.png">
     <link rel="icon" type="image/png" href="assets/img/lunchboxlogo.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
+    <meta name="google-site-verification" content="65haxjpe2GW4XpuYWwykY59vj2LZ8_26NuXZnyBChx4" />
     <title>MunchKit</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
