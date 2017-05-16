@@ -19,6 +19,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet" />
 <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 <link href="assets/css/material-kit.css" rel="stylesheet"/>
+<meta name="google-site-verification" content="tDyj285uLMsmnusxnCteUwrXOBX1jhVOSxd-KkSJBJI" />
 <!--[if IE]><![endif]-->
 <link rel="stylesheet" href="css/style.css">
 <script src="js/jquery.js"></script>
