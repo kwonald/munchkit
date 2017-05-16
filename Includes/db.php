@@ -3,8 +3,8 @@ class munchKitDB extends mysqli {
     // single instance of self shared among all instances
     private static $instance = null;
     // db connection config vars
-    private $user = "nrgfoods";
-    private $pass = "redRider555!";
+    private $user = "root";
+    private $pass = "nrgfoods22!";
     private $dbName = "mkdb";
     private $dbHost = "107.178.217.166";
     private $con = null;
