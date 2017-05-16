@@ -4,7 +4,7 @@ class munchKitDB extends mysqli {
     private static $instance = null;
     // db connection config vars
     private $user = "root";
-    private $pass = "";
+    private $pass = "nrgfoods22!";
     private $dbName = "mkdb";
     private $dbHost = "107.178.217.166";
     private $con = null;
