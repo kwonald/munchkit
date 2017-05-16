@@ -4,9 +4,9 @@ class munchKitDB extends mysqli {
     private static $instance = null;
     // db connection config vars
     private $user = "root";
-    private $pass = "igoQP9Bk";
+    private $pass = "";
     private $dbName = "mkdb";
-    private $dbHost = "35.184.90.30";
+    private $dbHost = "107.178.217.166";
     private $con = null;
 
     //This method must be static, and must return an instance of the object if the object
