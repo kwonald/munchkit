@@ -3,11 +3,14 @@ class munchKitDB extends mysqli {
     // single instance of self shared among all instances
     private static $instance = null;
     // db connection config vars
-    private $user = "root";
-    private $pass = "nrgfoods22!";
+    // private $user = "root";
+    // private $pass = "nrgfoods22!";
+    private $user = "nrgfoods";
+    private $pass = "redRider555!";
     private $dbName = "mkdb";
     private $dbHost = "107.178.217.166";
     private $con = null;
+    private $passphrase = "startupweekend";
 
     //This method must be static, and must return an instance of the object if the object
     //does not already exist.
@@ -130,7 +133,7 @@ class munchKitDB extends mysqli {
             return null;
     }
 
-
+    // This creates a user where they provide a password. Can be done through sign up page via log in or sign up buttong
     public function create_user($email, $passwordHash, $f_name, $l_name, $phoneNo, $addr, $city, $state, $zipCode) {
         $email = $this->real_escape_string($email);
         $passwordHash = $this->real_escape_string($passwordHash);
@@ -150,6 +153,7 @@ class munchKitDB extends mysqli {
                 . "', '" . $passwordHash . "', '". $f_name . "', '" . $l_name . "', '" . $phoneNo . "', '" . $addr . "', '" . $city . "', '" . $state . "', '" . $zipCode . "', '" . $date_Joined . "', '". $last_logged_in . "')");
     }
 
+
     public function verify_user_credentials($email, $password) {
         $email = $this->real_escape_string($email);
         $password = $this->real_escape_string($password);
@@ -163,15 +167,16 @@ class munchKitDB extends mysqli {
         // return $result->data_seek(0);
     }
 
-    public function insert_munchkid($userID, $f_name, $dietType, $allergies) {
+    public function insert_munchkid($userID, $f_name, $dietType, $allergies, $notes) {
         $userID = $this->real_escape_string($userID);
         $f_name = $this->real_escape_string($f_name);
         $dietType = $this->real_escape_string($dietType);
         $allergies = $this->real_escape_string($allergies);
+        $notes = $this->real_escape_string($notes);
         
-        $this->query("INSERT INTO munchkids (Users_idUsers, f_name, dietType, allergies)" .
-                " VALUES ('" . $userID . "', '" . $f_name . "', '"
-                . $dietType . "', '". $allergies . "')");
+        $this->query("INSERT INTO MunchKids (Users_idUsers, f_name, dietType, allergies, notes)" .
+                " VALUES (" . $userID . ", '" . $f_name . "', '"
+                . $dietType . "', '". $allergies . "', '". $notes . "')");
     }
 
     // public function insert_allergies($userID ,$idMunchKid, $allergy) {

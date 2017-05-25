@@ -5,6 +5,14 @@ $loggedIn = false;
 if (array_key_exists("user", $_SESSION)) {
     $loggedIn = true;
 }
+
+$city = '';
+if (isset($_POST['city'])){
+	
+	$city = $_POST['city'];
+	
+}
+
 ?>
 
 <!doctype html>
@@ -141,7 +149,7 @@ if (array_key_exists("user", $_SESSION)) {
 
 	<div class="page-header header-filter" style="background-image: url('assets/img/food/veggies_chicken.jpg'); background-size: cover; background-position: top center;">
 		<div class="container" style="padding-top: 0px;">
-			<div class="pricing-2" id="pricing" style="padding-bottom: 0px;>
+			<div class="pricing-2" id="pricing" style="padding-bottom: 0px;"">
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3 text-center">
 						<h2 class="title">Ready to Join us at MunchKit?</h2>
@@ -162,7 +170,7 @@ if (array_key_exists("user", $_SESSION)) {
 					<div class="col-md-8 col-md-offset-2">
 						<div class="tab-content tab-space">
 							<div class="tab-pane fade in active" id="personal">
-								<form class="form" method="POST" action="orderEntry.php">
+								<form class="form" method="POST" action="tellusaboutyou.php">
 									<div class="col-md-4">
 										<div class="card card-pricing card-raised">
 											<div class="content">
@@ -175,13 +183,14 @@ if (array_key_exists("user", $_SESSION)) {
 												</ul>
 
 												<input type="hidden" name="numMeals" value="1">
+												<input type="hidden" name="city" value=<?php echo "'".$city . "'"; ?>>
 												<input type="submit" class="btn btn-rose btn-raised btn-round" value="Get Started">
 												
 											</div>
 										</div>
 									</div>
 								</form>
-								<form class="form" method="POST" action="orderEntry.php">
+								<form class="form" method="POST" action="tellusaboutyou.php">
 									<div class="col-md-4">
 										<div class="card card-pricing card-raised">
 											<div class="content content-rose">
@@ -193,16 +202,17 @@ if (array_key_exists("user", $_SESSION)) {
 													<li><b>Reusable</b> Containers</li>
 													<li><b>Customized</b> LunchBoxes</li>
 													<li><b>Reusable</b> Totebag</li>
-													<li><b>Access</b> to PayItForward program</b></li>
+													<li><b>Access</b> to PayItForward program</li>
 													<!-- <li><b>+ more!</b></li> -->
 												</ul>
 												<input type="hidden" name="numMeals" value="5">
+												<input type="hidden" name="city" value=<?php echo "'".$city . "'"; ?>>
 												<input type="submit" class="btn btn-rose btn-raised btn-round" value="Get Started">
 											</div>
 										</div>
 									</div>
 								</form>
-								<form class="form" method="POST" action="orderEntry.php">
+								<form class="form" method="POST" action="tellusaboutyou.php">
 									<div class="col-md-4">
 										<div class="card card-pricing card-raised">
 											<div class="content">
@@ -216,6 +226,7 @@ if (array_key_exists("user", $_SESSION)) {
 													<li><b>Reusable</b> Totebag</li>
 												</ul>
 												<input type="hidden" name="numMeals" value="3">
+												<input type="hidden" name="city" value=<?php echo "'".$city . "'"; ?>>
 												<input type="submit" class="btn btn-rose btn-raised btn-round" value="Get Started">
 											</div>
 										</div>
@@ -224,7 +235,7 @@ if (array_key_exists("user", $_SESSION)) {
 							</div>
 
 							<div class="tab-pane fade" id="commercial">
-								<form class="form" method="POST" action="orderEntry.php">
+								<form class="form" method="POST" action="tellusaboutyou.php">
 									<div class="col-md-4">
 										<div class="card card-pricing card-raised">
 											<div class="content">
@@ -236,12 +247,13 @@ if (array_key_exists("user", $_SESSION)) {
 													<li><b>Recyclable</b> Containers</li>
 												</ul>
 												<input type="hidden" name="numMeals" value="1">
+												<input type="hidden" name="city" value=<?php echo "'".$city . "'"; ?>>
 												<input type="submit" class="btn btn-rose btn-raised btn-round" value="Get Started">
 											</div>
 										</div>
 									</div>
 								</form>
-								<form class="form" method="POST" action="orderEntry.php">
+								<form class="form" method="POST" action="tellusaboutyou.php">
 									<div class="col-md-4">
 										<div class="card card-pricing card-raised">
 											<div class="content content-rose">
@@ -253,16 +265,17 @@ if (array_key_exists("user", $_SESSION)) {
 													<li><b>Reusable</b> Containers</li>
 													<li><b>Customized</b> LunchBoxes</li>
 													<li><b>Reusable</b> Totebag</li>
-													<li><b>Access</b> to PayItForward program</b></li>
+													<li><b>Access</b> to PayItForward program<</li>
 													<!-- <li><b>more!</b></li> -->
 												</ul>
 												<input type="hidden" name="numMeals" value="5">
+												<input type="hidden" name="city" value=<?php echo "'".$city . "'"; ?>>
 												<input type="submit" class="btn btn-rose btn-raised btn-round" value="Get Started">
 											</div>
 										</div>
 									</div>
 								</form>
-								<form class="form" method="POST" action="orderEntry.php">
+								<form class="form" method="POST" action="tellusaboutyou.php">
 									<div class="col-md-4">
 										<div class="card card-pricing card-raised">
 											<div class="content">
@@ -276,6 +289,7 @@ if (array_key_exists("user", $_SESSION)) {
 													<li><b>Reusable</b> Totebag</li>
 												</ul>
 												<input type="hidden" name="numMeals" value="3">
+												<input type="hidden" name="city" value=<?php echo "'".$city . "'"; ?>>
 												<input type="submit" class="btn btn-rose btn-raised btn-round" value="Get Started">
 											</div>
 										</div>
@@ -322,7 +336,6 @@ if (array_key_exists("user", $_SESSION)) {
 	            </div>
 	        </div>
 	    </footer> -->
-
 	</div>
 
 </body>
