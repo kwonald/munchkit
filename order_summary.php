@@ -165,8 +165,9 @@ if (array_key_exists("user", $_SESSION)) {
 
 
 				<div class="row">
-                    <form class="form" method="POST" action="updateOrder.php">  
+                    <form class="form" method="POST" action=<?php if($_SERVER['REQUEST_METHOD'] == "POST"){ echo "updateOrder.php";} else{ echo "checkval.php";} ?>  >  
                         <?php
+                        // this is if it comes from order entry.php (all the data comes from a form)
                         if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         $i = 0;
                         $num = (int)$_POST['numOrders'];
@@ -211,7 +212,47 @@ if (array_key_exists("user", $_SESSION)) {
                             <?php
                             $i++;   
                             }
+                        } else{ 
+                        // coming from createUserAccount.php (auto generated)
+                        $i =1;
+                        $numKids = (int)$_SESSION['numkids'];
+                        $num5meals=0;
+                        $num3meals=0;
+                        $num1meals=0;
+                        $cost = 0;
+                        $changesInOrder = FALSE;
+                
+                        while($i <= $numKids){
+                            $mealPlan = $_SESSION['mealplan_'.$i];
+                            if($mealPlan == '5'){ $num5meals++; }
+                            else if($mealPlan == '3'){ $num3meals++; }
+                            else if ($mealPlan == '1'){ $num1meals++; }
+
+                            ?>
+                            <div class="col-md-5 ">
+                                <div class="col-md-5">
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="content">
+                                        <h4 class="card-title"> <?php echo $_SESSION['f_name_'. $i]; ?> </h4>
+                                        <h6 class="category text-muted"> <?php echo $_SESSION['dietType_' . $i]; ?> </h6>
+                                        <h6 class="category text-muted"> <?php echo $mealPlan . ' Meal(s) A Week'; ?> </h6>
+                                    </div>
+                                </div>
+                            </div> 
+                            <!-- <input type="hidden" name= <?php echo 'idMunchKid_' . $i; ?> value=<?php echo $_POST['idMunchKid_' .$i]; ?> /> -->
+                            <input type="hidden" name= <?php echo 'f_name_' . $i; ?> value=<?php echo $_SESSION['f_name_' . $i]; ?> />
+                            <input type="hidden" name=<?php echo "dietType_" . $i; ?> value=<?php echo $_SESSION['dietType_' . $i]; ?> />
+                            <input type="hidden" name=<?php echo "allergies" .$i; ?> value=<?php echo $_SESSION['allergies_' . $i]; ?> />
+                            <!-- <input type="hidden" name=<?php echo "numOrders"; ?> value=<?php echo $i; ?>>  -->
+                            <input type="hidden" name= <?php echo 'mealPlan_' . $i; ?> value=<?php echo $mealPlan; ?> />
+                            
+
+
+
+                        <?php $i++; } 
                         } ?>
+
                         <div class="footer text-center">
                             <input type="submit" class="btn btn-primary btn-round" value="checkout" style="margin-top: 50px;">
                         </div>
@@ -219,6 +260,7 @@ if (array_key_exists("user", $_SESSION)) {
                 </div>
                 
                 <!-- IF THERE ARE CHANGED IN THE ORDER THE CHANGES ARE SHOWN -->
+                <!-- This is shown for orders coming from orderentry.php -->
                 <?php
                 if($changesInOrder){
                 ?>
@@ -243,6 +285,8 @@ if (array_key_exists("user", $_SESSION)) {
                 <?php $total = 5*8*$num5meals+3*9.25*$num3meals+10.25*$num1meals; ?>
                 <h6> <?php echo 'TOTAL-------------------------------------------------------------- $' . $total .' CDN'; ?></h6>
                 <h6> Free shipping. Taxes are added at checkout. </h6>
+
+
             </div>
         </div>
 	</div>
